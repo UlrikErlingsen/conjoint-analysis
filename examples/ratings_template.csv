@@ -1,0 +1,4 @@
+respondent_id,brand,price,warranty,rating
+R0001,Brand A,$10,1 year,7
+R0001,Brand B,$15,2 years,4
+R0002,Brand A,$15,2 years,8

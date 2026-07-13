@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use ChoiceSignal in research or teaching, please cite this software."
+title: "ChoiceSignal: Open Conjoint Analysis"
+type: software
+authors:
+  - family-names: Erlingsen
+    given-names: Ulrik
+version: 0.1.0
+date-released: 2026-07-14
+license: AGPL-3.0-or-later
+repository-code: "https://github.com/UlrikErlingsen/conjoint-analysis"

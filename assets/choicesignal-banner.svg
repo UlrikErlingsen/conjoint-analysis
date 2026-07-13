@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="ChoiceSignal - know what customers actually value">
+  <rect width="1200" height="300" rx="32" fill="#F8F5ED"/>
+  <circle cx="1090" cy="-15" r="190" fill="#F2C66D" opacity=".18"/>
+  <circle cx="1130" cy="285" r="145" fill="#83D2B4" opacity=".18"/>
+  <g transform="translate(75 72) scale(1.22)">
+    <rect width="128" height="128" rx="30" fill="#173C3A"/>
+    <rect x="26" y="30" width="42" height="14" rx="7" fill="#83D2B4" opacity="0.85"/>
+    <rect x="26" y="57" width="76" height="14" rx="7" fill="#F2C66D"/>
+    <rect x="26" y="84" width="56" height="14" rx="7" fill="#83D2B4" opacity="0.55"/>
+    <circle cx="103" cy="64" r="14" fill="#D95B40"/>
+    <path d="M96.5 64.5l4.5 4.5 9-10" fill="none" stroke="#F8F5ED" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="275" y="132" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="800" fill="#17322E" letter-spacing="-3">Choice<tspan fill="#D95B40">Signal</tspan></text>
+  <text x="280" y="185" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#47645E">Know what customers actually value.</text>
+  <text x="280" y="224" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#6B7F7A" letter-spacing="2">LOCAL-FIRST  ·  EXPLAINABLE  ·  OPEN SOURCE</text>
+</svg>

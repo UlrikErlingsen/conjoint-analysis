@@ -1,0 +1,2801 @@
+respondent_id,brand,price_per_month,beans,delivery,rating
+R0001,Nordic Roast,$19,Single origin,Weekly,6
+R0001,Nordic Roast,$24,Single origin,Weekly,2
+R0001,Casa Verde,$24,House blend,Monthly,2
+R0001,Arabica Hills,$24,Single origin,Monthly,4
+R0001,Casa Verde,$19,Single origin,Every two weeks,5
+R0001,Nordic Roast,$14,Single origin,Monthly,5
+R0001,Casa Verde,$19,Single origin,Weekly,5
+R0001,Nordic Roast,$14,House blend,Every two weeks,6
+R0001,Arabica Hills,$19,House blend,Monthly,5
+R0001,Casa Verde,$24,House blend,Weekly,4
+R0001,Nordic Roast,$19,Single origin,Every two weeks,6
+R0001,Casa Verde,$19,Single origin,Monthly,4
+R0001,Nordic Roast,$19,House blend,Every two weeks,7
+R0001,Nordic Roast,$19,House blend,Weekly,6
+R0002,Nordic Roast,$19,House blend,Weekly,6
+R0002,Arabica Hills,$14,Single origin,Every two weeks,6
+R0002,Arabica Hills,$19,House blend,Monthly,6
+R0002,Casa Verde,$19,Single origin,Every two weeks,5
+R0002,Nordic Roast,$19,Single origin,Every two weeks,7
+R0002,Nordic Roast,$14,Single origin,Weekly,6
+R0002,Arabica Hills,$24,House blend,Weekly,5
+R0002,Arabica Hills,$19,Single origin,Every two weeks,6
+R0002,Arabica Hills,$14,House blend,Every two weeks,5
+R0002,Nordic Roast,$14,House blend,Weekly,7
+R0002,Arabica Hills,$14,Single origin,Monthly,7
+R0002,Nordic Roast,$14,Single origin,Every two weeks,7
+R0002,Nordic Roast,$19,House blend,Every two weeks,7
+R0002,Nordic Roast,$24,Single origin,Weekly,5
+R0003,Arabica Hills,$14,Single origin,Every two weeks,8
+R0003,Casa Verde,$14,House blend,Every two weeks,9
+R0003,Arabica Hills,$19,House blend,Every two weeks,5
+R0003,Nordic Roast,$19,Single origin,Monthly,4
+R0003,Nordic Roast,$19,Single origin,Weekly,6
+R0003,Nordic Roast,$24,Single origin,Weekly,5
+R0003,Nordic Roast,$19,House blend,Weekly,5
+R0003,Nordic Roast,$14,House blend,Every two weeks,7
+R0003,Nordic Roast,$14,House blend,Monthly,6
+R0003,Arabica Hills,$24,House blend,Every two weeks,5
+R0003,Casa Verde,$19,Single origin,Every two weeks,5
+R0003,Casa Verde,$14,Single origin,Every two weeks,8
+R0003,Casa Verde,$24,House blend,Monthly,3
+R0003,Arabica Hills,$19,Single origin,Monthly,4
+R0004,Arabica Hills,$24,House blend,Monthly,2
+R0004,Nordic Roast,$19,House blend,Every two weeks,4
+R0004,Casa Verde,$24,Single origin,Monthly,2
+R0004,Casa Verde,$24,House blend,Weekly,1
+R0004,Casa Verde,$14,House blend,Monthly,3
+R0004,Casa Verde,$19,Single origin,Every two weeks,5
+R0004,Casa Verde,$19,Single origin,Monthly,5
+R0004,Arabica Hills,$24,House blend,Weekly,3
+R0004,Arabica Hills,$14,House blend,Every two weeks,8
+R0004,Casa Verde,$24,Single origin,Every two weeks,4
+R0004,Casa Verde,$24,House blend,Every two weeks,2
+R0004,Arabica Hills,$24,Single origin,Monthly,2
+R0004,Arabica Hills,$19,Single origin,Every two weeks,7
+R0004,Casa Verde,$24,House blend,Monthly,1
+R0005,Nordic Roast,$24,House blend,Weekly,5
+R0005,Arabica Hills,$24,Single origin,Weekly,5
+R0005,Arabica Hills,$14,House blend,Monthly,5
+R0005,Casa Verde,$19,Single origin,Weekly,7
+R0005,Arabica Hills,$19,House blend,Weekly,8
+R0005,Arabica Hills,$14,House blend,Weekly,8
+R0005,Casa Verde,$14,Single origin,Monthly,4
+R0005,Arabica Hills,$14,House blend,Every two weeks,7
+R0005,Nordic Roast,$24,Single origin,Weekly,6
+R0005,Arabica Hills,$19,House blend,Monthly,6
+R0005,Nordic Roast,$14,Single origin,Monthly,5
+R0005,Arabica Hills,$24,House blend,Weekly,4
+R0005,Nordic Roast,$14,House blend,Weekly,9
+R0005,Nordic Roast,$24,Single origin,Every two weeks,4
+R0006,Nordic Roast,$19,House blend,Weekly,7
+R0006,Casa Verde,$24,House blend,Monthly,1
+R0006,Casa Verde,$14,House blend,Monthly,4
+R0006,Nordic Roast,$24,Single origin,Monthly,5
+R0006,Arabica Hills,$14,House blend,Monthly,6
+R0006,Casa Verde,$14,Single origin,Monthly,6
+R0006,Arabica Hills,$19,Single origin,Every two weeks,9
+R0006,Arabica Hills,$14,Single origin,Monthly,9
+R0006,Arabica Hills,$14,Single origin,Weekly,10
+R0006,Casa Verde,$24,Single origin,Monthly,3
+R0006,Casa Verde,$14,House blend,Weekly,7
+R0006,Casa Verde,$19,Single origin,Weekly,7
+R0006,Nordic Roast,$14,Single origin,Every two weeks,9
+R0006,Arabica Hills,$24,House blend,Every two weeks,4
+R0007,Nordic Roast,$19,House blend,Monthly,4
+R0007,Nordic Roast,$24,Single origin,Weekly,6
+R0007,Nordic Roast,$14,Single origin,Every two weeks,9
+R0007,Arabica Hills,$24,House blend,Weekly,4
+R0007,Nordic Roast,$19,Single origin,Weekly,6
+R0007,Casa Verde,$14,House blend,Weekly,7
+R0007,Arabica Hills,$14,House blend,Monthly,8
+R0007,Nordic Roast,$24,Single origin,Every two weeks,6
+R0007,Nordic Roast,$14,Single origin,Weekly,9
+R0007,Casa Verde,$24,Single origin,Monthly,3
+R0007,Nordic Roast,$24,House blend,Monthly,4
+R0007,Nordic Roast,$19,Single origin,Every two weeks,5
+R0007,Casa Verde,$14,Single origin,Weekly,9
+R0007,Arabica Hills,$19,Single origin,Monthly,4
+R0008,Casa Verde,$19,House blend,Every two weeks,6
+R0008,Arabica Hills,$19,House blend,Every two weeks,8
+R0008,Nordic Roast,$24,Single origin,Weekly,4
+R0008,Nordic Roast,$24,House blend,Monthly,3
+R0008,Casa Verde,$24,House blend,Every two weeks,2
+R0008,Nordic Roast,$19,Single origin,Monthly,6
+R0008,Casa Verde,$14,Single origin,Monthly,7
+R0008,Arabica Hills,$24,Single origin,Weekly,6
+R0008,Arabica Hills,$19,Single origin,Monthly,7
+R0008,Casa Verde,$19,House blend,Monthly,4
+R0008,Nordic Roast,$14,House blend,Monthly,6
+R0008,Nordic Roast,$24,Single origin,Monthly,3
+R0008,Nordic Roast,$24,House blend,Weekly,4
+R0008,Casa Verde,$14,House blend,Weekly,6
+R0009,Nordic Roast,$14,House blend,Weekly,7
+R0009,Casa Verde,$14,Single origin,Weekly,7
+R0009,Casa Verde,$24,House blend,Every two weeks,1
+R0009,Nordic Roast,$19,House blend,Monthly,5
+R0009,Arabica Hills,$24,Single origin,Every two weeks,3
+R0009,Nordic Roast,$24,House blend,Every two weeks,2
+R0009,Casa Verde,$19,Single origin,Weekly,7
+R0009,Arabica Hills,$14,House blend,Monthly,5
+R0009,Arabica Hills,$24,House blend,Every two weeks,4
+R0009,Arabica Hills,$14,House blend,Every two weeks,8
+R0009,Casa Verde,$24,House blend,Weekly,3
+R0009,Arabica Hills,$24,Single origin,Weekly,6
+R0009,Arabica Hills,$19,Single origin,Weekly,9
+R0009,Casa Verde,$14,House blend,Weekly,6
+R0010,Casa Verde,$24,Single origin,Every two weeks,4
+R0010,Nordic Roast,$14,Single origin,Monthly,7
+R0010,Casa Verde,$19,House blend,Monthly,4
+R0010,Nordic Roast,$19,House blend,Monthly,3
+R0010,Arabica Hills,$19,House blend,Weekly,6
+R0010,Casa Verde,$19,House blend,Weekly,5
+R0010,Nordic Roast,$19,Single origin,Monthly,5
+R0010,Arabica Hills,$19,Single origin,Monthly,8
+R0010,Casa Verde,$14,Single origin,Weekly,8
+R0010,Nordic Roast,$24,Single origin,Monthly,2
+R0010,Casa Verde,$24,House blend,Weekly,2
+R0010,Arabica Hills,$24,Single origin,Weekly,4
+R0010,Nordic Roast,$14,House blend,Monthly,6
+R0010,Casa Verde,$14,House blend,Monthly,5
+R0011,Casa Verde,$24,Single origin,Monthly,3
+R0011,Casa Verde,$14,House blend,Weekly,8
+R0011,Casa Verde,$14,Single origin,Weekly,7
+R0011,Arabica Hills,$14,House blend,Every two weeks,9
+R0011,Casa Verde,$24,Single origin,Weekly,5
+R0011,Nordic Roast,$24,Single origin,Every two weeks,5
+R0011,Nordic Roast,$19,Single origin,Monthly,5
+R0011,Nordic Roast,$14,Single origin,Monthly,6
+R0011,Nordic Roast,$19,Single origin,Weekly,6
+R0011,Arabica Hills,$19,Single origin,Every two weeks,10
+R0011,Casa Verde,$14,House blend,Monthly,5
+R0011,Arabica Hills,$24,Single origin,Every two weeks,7
+R0011,Arabica Hills,$19,Single origin,Monthly,5
+R0011,Casa Verde,$19,House blend,Every two weeks,6
+R0012,Arabica Hills,$24,Single origin,Monthly,2
+R0012,Nordic Roast,$24,House blend,Every two weeks,4
+R0012,Casa Verde,$14,House blend,Every two weeks,6
+R0012,Nordic Roast,$24,Single origin,Every two weeks,4
+R0012,Arabica Hills,$19,House blend,Weekly,6
+R0012,Casa Verde,$24,House blend,Weekly,4
+R0012,Arabica Hills,$14,House blend,Weekly,6
+R0012,Nordic Roast,$19,Single origin,Monthly,5
+R0012,Arabica Hills,$24,House blend,Monthly,1
+R0012,Arabica Hills,$14,Single origin,Weekly,6
+R0012,Casa Verde,$24,House blend,Every two weeks,4
+R0012,Casa Verde,$24,Single origin,Every two weeks,5
+R0012,Casa Verde,$19,Single origin,Monthly,4
+R0012,Arabica Hills,$19,House blend,Every two weeks,5
+R0013,Nordic Roast,$14,House blend,Weekly,6
+R0013,Arabica Hills,$24,House blend,Weekly,5
+R0013,Arabica Hills,$24,Single origin,Weekly,3
+R0013,Arabica Hills,$19,Single origin,Monthly,3
+R0013,Nordic Roast,$19,House blend,Every two weeks,4
+R0013,Arabica Hills,$24,House blend,Monthly,1
+R0013,Arabica Hills,$24,Single origin,Monthly,4
+R0013,Nordic Roast,$19,House blend,Monthly,5
+R0013,Nordic Roast,$19,House blend,Weekly,5
+R0013,Arabica Hills,$14,House blend,Every two weeks,3
+R0013,Nordic Roast,$14,Single origin,Every two weeks,6
+R0013,Casa Verde,$24,House blend,Weekly,4
+R0013,Arabica Hills,$24,Single origin,Every two weeks,1
+R0013,Casa Verde,$19,Single origin,Monthly,4
+R0014,Casa Verde,$19,Single origin,Weekly,5
+R0014,Nordic Roast,$19,Single origin,Weekly,7
+R0014,Casa Verde,$19,House blend,Monthly,1
+R0014,Casa Verde,$19,Single origin,Monthly,3
+R0014,Arabica Hills,$24,Single origin,Weekly,5
+R0014,Arabica Hills,$24,House blend,Weekly,4
+R0014,Nordic Roast,$19,House blend,Monthly,4
+R0014,Arabica Hills,$19,House blend,Weekly,5
+R0014,Arabica Hills,$24,House blend,Every two weeks,2
+R0014,Arabica Hills,$24,Single origin,Monthly,3
+R0014,Arabica Hills,$19,House blend,Every two weeks,4
+R0014,Casa Verde,$24,House blend,Every two weeks,2
+R0014,Nordic Roast,$19,House blend,Weekly,6
+R0014,Casa Verde,$24,Single origin,Weekly,3
+R0015,Casa Verde,$19,Single origin,Monthly,3
+R0015,Nordic Roast,$14,House blend,Monthly,4
+R0015,Arabica Hills,$19,Single origin,Weekly,6
+R0015,Nordic Roast,$14,House blend,Every two weeks,7
+R0015,Arabica Hills,$14,Single origin,Weekly,9
+R0015,Casa Verde,$24,House blend,Monthly,1
+R0015,Nordic Roast,$14,Single origin,Weekly,6
+R0015,Casa Verde,$24,House blend,Every two weeks,3
+R0015,Arabica Hills,$14,Single origin,Every two weeks,9
+R0015,Arabica Hills,$19,Single origin,Every two weeks,7
+R0015,Casa Verde,$14,House blend,Monthly,4
+R0015,Casa Verde,$24,Single origin,Every two weeks,2
+R0015,Casa Verde,$19,Single origin,Every two weeks,5
+R0015,Arabica Hills,$19,Single origin,Monthly,4
+R0016,Casa Verde,$24,Single origin,Every two weeks,4
+R0016,Arabica Hills,$14,Single origin,Weekly,8
+R0016,Arabica Hills,$24,House blend,Monthly,2
+R0016,Casa Verde,$19,House blend,Weekly,4
+R0016,Nordic Roast,$14,Single origin,Monthly,7
+R0016,Casa Verde,$14,House blend,Every two weeks,6
+R0016,Nordic Roast,$19,House blend,Every two weeks,7
+R0016,Casa Verde,$14,Single origin,Weekly,5
+R0016,Casa Verde,$19,Single origin,Every two weeks,5
+R0016,Arabica Hills,$19,House blend,Monthly,3
+R0016,Arabica Hills,$14,House blend,Every two weeks,6
+R0016,Nordic Roast,$24,House blend,Weekly,4
+R0016,Casa Verde,$19,House blend,Every two weeks,4
+R0016,Nordic Roast,$24,Single origin,Monthly,5
+R0017,Casa Verde,$19,House blend,Monthly,3
+R0017,Casa Verde,$14,House blend,Every two weeks,8
+R0017,Arabica Hills,$24,Single origin,Monthly,5
+R0017,Nordic Roast,$24,Single origin,Weekly,5
+R0017,Nordic Roast,$19,Single origin,Monthly,3
+R0017,Nordic Roast,$14,Single origin,Weekly,10
+R0017,Casa Verde,$24,Single origin,Weekly,5
+R0017,Nordic Roast,$24,Single origin,Monthly,2
+R0017,Arabica Hills,$24,House blend,Weekly,7
+R0017,Nordic Roast,$24,House blend,Monthly,3
+R0017,Nordic Roast,$19,House blend,Weekly,6
+R0017,Casa Verde,$19,Single origin,Monthly,3
+R0017,Nordic Roast,$14,House blend,Every two weeks,9
+R0017,Casa Verde,$24,Single origin,Monthly,3
+R0018,Casa Verde,$19,Single origin,Weekly,4
+R0018,Casa Verde,$19,House blend,Monthly,2
+R0018,Arabica Hills,$14,Single origin,Weekly,10
+R0018,Casa Verde,$24,House blend,Every two weeks,2
+R0018,Casa Verde,$14,Single origin,Monthly,6
+R0018,Nordic Roast,$24,House blend,Weekly,4
+R0018,Nordic Roast,$24,House blend,Every two weeks,4
+R0018,Arabica Hills,$24,House blend,Weekly,5
+R0018,Casa Verde,$19,Single origin,Monthly,5
+R0018,Nordic Roast,$19,Single origin,Monthly,4
+R0018,Nordic Roast,$19,House blend,Weekly,5
+R0018,Arabica Hills,$14,Single origin,Monthly,7
+R0018,Casa Verde,$19,Single origin,Every two weeks,6
+R0018,Nordic Roast,$14,House blend,Weekly,7
+R0019,Arabica Hills,$24,House blend,Monthly,4
+R0019,Casa Verde,$19,House blend,Monthly,5
+R0019,Nordic Roast,$24,House blend,Monthly,4
+R0019,Arabica Hills,$24,Single origin,Weekly,5
+R0019,Arabica Hills,$19,House blend,Weekly,5
+R0019,Casa Verde,$24,House blend,Monthly,3
+R0019,Nordic Roast,$24,House blend,Every two weeks,4
+R0019,Nordic Roast,$14,Single origin,Weekly,8
+R0019,Nordic Roast,$14,Single origin,Monthly,7
+R0019,Casa Verde,$14,Single origin,Weekly,8
+R0019,Casa Verde,$24,Single origin,Weekly,2
+R0019,Nordic Roast,$19,House blend,Weekly,8
+R0019,Nordic Roast,$24,Single origin,Weekly,5
+R0019,Arabica Hills,$24,Single origin,Every two weeks,5
+R0020,Arabica Hills,$19,House blend,Monthly,4
+R0020,Arabica Hills,$14,Single origin,Monthly,8
+R0020,Arabica Hills,$24,Single origin,Every two weeks,5
+R0020,Nordic Roast,$24,House blend,Every two weeks,2
+R0020,Arabica Hills,$19,Single origin,Weekly,7
+R0020,Casa Verde,$24,House blend,Weekly,1
+R0020,Casa Verde,$19,Single origin,Monthly,2
+R0020,Arabica Hills,$19,Single origin,Every two weeks,6
+R0020,Casa Verde,$24,Single origin,Weekly,5
+R0020,Casa Verde,$19,Single origin,Every two weeks,3
+R0020,Nordic Roast,$14,House blend,Weekly,6
+R0020,Nordic Roast,$14,House blend,Every two weeks,5
+R0020,Arabica Hills,$19,House blend,Weekly,7
+R0020,Arabica Hills,$19,House blend,Every two weeks,4
+R0021,Casa Verde,$14,House blend,Weekly,8
+R0021,Casa Verde,$24,House blend,Every two weeks,2
+R0021,Casa Verde,$19,Single origin,Weekly,9
+R0021,Nordic Roast,$19,Single origin,Weekly,9
+R0021,Arabica Hills,$14,Single origin,Every two weeks,6
+R0021,Casa Verde,$19,Single origin,Every two weeks,5
+R0021,Arabica Hills,$14,House blend,Weekly,7
+R0021,Arabica Hills,$24,House blend,Monthly,1
+R0021,Arabica Hills,$24,House blend,Every two weeks,3
+R0021,Nordic Roast,$19,Single origin,Every two weeks,6
+R0021,Casa Verde,$24,Single origin,Weekly,3
+R0021,Casa Verde,$19,House blend,Weekly,7
+R0021,Nordic Roast,$19,House blend,Monthly,5
+R0021,Casa Verde,$24,House blend,Weekly,4
+R0022,Nordic Roast,$19,House blend,Every two weeks,6
+R0022,Casa Verde,$14,Single origin,Every two weeks,10
+R0022,Casa Verde,$24,House blend,Weekly,2
+R0022,Arabica Hills,$24,Single origin,Weekly,5
+R0022,Arabica Hills,$24,Single origin,Monthly,4
+R0022,Casa Verde,$19,Single origin,Weekly,7
+R0022,Arabica Hills,$19,House blend,Weekly,5
+R0022,Arabica Hills,$24,House blend,Every two weeks,3
+R0022,Arabica Hills,$19,Single origin,Monthly,6
+R0022,Nordic Roast,$19,House blend,Monthly,4
+R0022,Casa Verde,$19,House blend,Weekly,4
+R0022,Casa Verde,$14,Single origin,Weekly,8
+R0022,Nordic Roast,$14,House blend,Weekly,6
+R0022,Arabica Hills,$14,House blend,Monthly,5
+R0023,Casa Verde,$24,Single origin,Weekly,6
+R0023,Arabica Hills,$19,House blend,Monthly,4
+R0023,Arabica Hills,$19,Single origin,Monthly,4
+R0023,Nordic Roast,$14,House blend,Every two weeks,6
+R0023,Nordic Roast,$19,Single origin,Weekly,7
+R0023,Arabica Hills,$14,Single origin,Every two weeks,8
+R0023,Nordic Roast,$14,House blend,Monthly,6
+R0023,Arabica Hills,$24,Single origin,Monthly,4
+R0023,Casa Verde,$14,Single origin,Weekly,7
+R0023,Arabica Hills,$14,House blend,Weekly,5
+R0023,Nordic Roast,$24,Single origin,Weekly,6
+R0023,Casa Verde,$24,Single origin,Every two weeks,7
+R0023,Casa Verde,$19,House blend,Every two weeks,6
+R0023,Arabica Hills,$19,House blend,Every two weeks,6
+R0024,Nordic Roast,$24,Single origin,Monthly,5
+R0024,Arabica Hills,$24,Single origin,Every two weeks,6
+R0024,Casa Verde,$19,House blend,Monthly,4
+R0024,Arabica Hills,$19,Single origin,Weekly,9
+R0024,Arabica Hills,$14,House blend,Monthly,5
+R0024,Arabica Hills,$24,Single origin,Weekly,7
+R0024,Arabica Hills,$24,House blend,Monthly,4
+R0024,Casa Verde,$14,Single origin,Monthly,6
+R0024,Casa Verde,$14,House blend,Every two weeks,6
+R0024,Nordic Roast,$14,House blend,Monthly,6
+R0024,Nordic Roast,$24,House blend,Every two weeks,6
+R0024,Arabica Hills,$14,House blend,Weekly,8
+R0024,Casa Verde,$14,House blend,Weekly,6
+R0024,Arabica Hills,$14,Single origin,Monthly,7
+R0025,Nordic Roast,$14,House blend,Every two weeks,6
+R0025,Casa Verde,$14,House blend,Every two weeks,7
+R0025,Arabica Hills,$14,House blend,Monthly,6
+R0025,Nordic Roast,$14,House blend,Weekly,6
+R0025,Casa Verde,$14,Single origin,Weekly,8
+R0025,Nordic Roast,$19,Single origin,Monthly,6
+R0025,Arabica Hills,$19,House blend,Every two weeks,5
+R0025,Arabica Hills,$14,Single origin,Weekly,8
+R0025,Nordic Roast,$14,Single origin,Monthly,8
+R0025,Casa Verde,$14,House blend,Weekly,7
+R0025,Casa Verde,$19,House blend,Weekly,6
+R0025,Nordic Roast,$24,Single origin,Monthly,5
+R0025,Casa Verde,$14,House blend,Monthly,7
+R0025,Casa Verde,$14,Single origin,Every two weeks,10
+R0026,Arabica Hills,$24,House blend,Weekly,3
+R0026,Arabica Hills,$14,House blend,Weekly,9
+R0026,Nordic Roast,$14,Single origin,Monthly,8
+R0026,Casa Verde,$14,Single origin,Weekly,9
+R0026,Nordic Roast,$19,House blend,Weekly,8
+R0026,Arabica Hills,$14,House blend,Every two weeks,10
+R0026,Casa Verde,$24,Single origin,Every two weeks,3
+R0026,Arabica Hills,$24,Single origin,Weekly,4
+R0026,Nordic Roast,$24,House blend,Monthly,3
+R0026,Nordic Roast,$24,Single origin,Weekly,5
+R0026,Casa Verde,$14,House blend,Weekly,8
+R0026,Casa Verde,$24,House blend,Weekly,3
+R0026,Nordic Roast,$19,Single origin,Weekly,8
+R0026,Casa Verde,$24,House blend,Monthly,1
+R0027,Nordic Roast,$14,House blend,Weekly,9
+R0027,Arabica Hills,$24,Single origin,Every two weeks,4
+R0027,Nordic Roast,$14,Single origin,Weekly,9
+R0027,Casa Verde,$14,House blend,Monthly,5
+R0027,Casa Verde,$14,Single origin,Weekly,7
+R0027,Nordic Roast,$19,House blend,Weekly,6
+R0027,Nordic Roast,$19,Single origin,Every two weeks,9
+R0027,Casa Verde,$19,Single origin,Weekly,6
+R0027,Casa Verde,$14,Single origin,Every two weeks,8
+R0027,Arabica Hills,$24,House blend,Monthly,2
+R0027,Nordic Roast,$24,Single origin,Monthly,6
+R0027,Arabica Hills,$24,House blend,Weekly,5
+R0027,Nordic Roast,$24,Single origin,Weekly,7
+R0027,Casa Verde,$19,House blend,Weekly,6
+R0028,Arabica Hills,$14,Single origin,Weekly,10
+R0028,Casa Verde,$14,Single origin,Monthly,7
+R0028,Casa Verde,$14,House blend,Weekly,8
+R0028,Nordic Roast,$24,House blend,Weekly,5
+R0028,Nordic Roast,$19,House blend,Every two weeks,4
+R0028,Casa Verde,$24,House blend,Weekly,3
+R0028,Arabica Hills,$19,Single origin,Monthly,7
+R0028,Casa Verde,$14,Single origin,Weekly,6
+R0028,Nordic Roast,$14,Single origin,Monthly,7
+R0028,Nordic Roast,$24,House blend,Monthly,2
+R0028,Arabica Hills,$24,House blend,Monthly,4
+R0028,Nordic Roast,$19,Single origin,Weekly,10
+R0028,Nordic Roast,$24,Single origin,Every two weeks,5
+R0028,Nordic Roast,$19,House blend,Weekly,6
+R0029,Arabica Hills,$14,House blend,Weekly,8
+R0029,Nordic Roast,$24,Single origin,Every two weeks,7
+R0029,Casa Verde,$24,Single origin,Weekly,2
+R0029,Casa Verde,$14,House blend,Weekly,4
+R0029,Casa Verde,$19,House blend,Weekly,5
+R0029,Arabica Hills,$24,Single origin,Every two weeks,6
+R0029,Arabica Hills,$24,Single origin,Weekly,6
+R0029,Nordic Roast,$14,Single origin,Weekly,8
+R0029,Nordic Roast,$19,Single origin,Weekly,7
+R0029,Arabica Hills,$19,House blend,Every two weeks,5
+R0029,Casa Verde,$14,House blend,Monthly,2
+R0029,Arabica Hills,$14,House blend,Monthly,6
+R0029,Nordic Roast,$24,Single origin,Monthly,4
+R0029,Nordic Roast,$24,House blend,Every two weeks,2
+R0030,Nordic Roast,$14,Single origin,Every two weeks,6
+R0030,Arabica Hills,$19,House blend,Every two weeks,6
+R0030,Casa Verde,$24,Single origin,Weekly,5
+R0030,Nordic Roast,$24,Single origin,Monthly,5
+R0030,Arabica Hills,$24,Single origin,Weekly,4
+R0030,Casa Verde,$14,House blend,Monthly,4
+R0030,Arabica Hills,$14,Single origin,Monthly,8
+R0030,Nordic Roast,$19,House blend,Every two weeks,7
+R0030,Casa Verde,$19,Single origin,Every two weeks,6
+R0030,Nordic Roast,$24,Single origin,Weekly,7
+R0030,Casa Verde,$24,House blend,Every two weeks,5
+R0030,Arabica Hills,$14,House blend,Weekly,8
+R0030,Arabica Hills,$14,House blend,Every two weeks,7
+R0030,Nordic Roast,$14,House blend,Weekly,8
+R0031,Nordic Roast,$14,House blend,Every two weeks,6
+R0031,Casa Verde,$24,Single origin,Weekly,2
+R0031,Nordic Roast,$19,Single origin,Weekly,7
+R0031,Casa Verde,$24,House blend,Weekly,2
+R0031,Nordic Roast,$14,House blend,Monthly,7
+R0031,Arabica Hills,$19,Single origin,Every two weeks,7
+R0031,Casa Verde,$24,Single origin,Every two weeks,3
+R0031,Casa Verde,$24,House blend,Every two weeks,3
+R0031,Nordic Roast,$24,House blend,Monthly,4
+R0031,Casa Verde,$14,Single origin,Monthly,5
+R0031,Casa Verde,$14,House blend,Every two weeks,7
+R0031,Arabica Hills,$19,House blend,Every two weeks,5
+R0031,Nordic Roast,$24,Single origin,Weekly,4
+R0031,Arabica Hills,$14,House blend,Every two weeks,8
+R0032,Nordic Roast,$14,Single origin,Every two weeks,9
+R0032,Casa Verde,$19,Single origin,Weekly,7
+R0032,Arabica Hills,$24,Single origin,Monthly,5
+R0032,Casa Verde,$19,House blend,Every two weeks,5
+R0032,Casa Verde,$14,House blend,Every two weeks,8
+R0032,Arabica Hills,$14,Single origin,Every two weeks,10
+R0032,Casa Verde,$14,Single origin,Monthly,7
+R0032,Nordic Roast,$24,House blend,Weekly,5
+R0032,Nordic Roast,$19,Single origin,Weekly,7
+R0032,Casa Verde,$24,House blend,Monthly,2
+R0032,Casa Verde,$14,House blend,Weekly,8
+R0032,Nordic Roast,$19,Single origin,Every two weeks,8
+R0032,Arabica Hills,$19,Single origin,Monthly,6
+R0032,Casa Verde,$24,House blend,Every two weeks,3
+R0033,Arabica Hills,$24,Single origin,Weekly,5
+R0033,Nordic Roast,$19,House blend,Every two weeks,7
+R0033,Arabica Hills,$19,Single origin,Monthly,6
+R0033,Nordic Roast,$19,House blend,Monthly,5
+R0033,Casa Verde,$24,House blend,Every two weeks,5
+R0033,Casa Verde,$19,Single origin,Weekly,8
+R0033,Nordic Roast,$24,Single origin,Monthly,5
+R0033,Arabica Hills,$14,Single origin,Weekly,8
+R0033,Nordic Roast,$14,Single origin,Monthly,10
+R0033,Nordic Roast,$14,House blend,Monthly,7
+R0033,Nordic Roast,$14,House blend,Weekly,8
+R0033,Nordic Roast,$14,Single origin,Weekly,10
+R0033,Casa Verde,$14,Single origin,Every two weeks,8
+R0033,Arabica Hills,$14,House blend,Monthly,7
+R0034,Arabica Hills,$14,House blend,Every two weeks,9
+R0034,Nordic Roast,$24,Single origin,Monthly,4
+R0034,Nordic Roast,$24,House blend,Monthly,2
+R0034,Arabica Hills,$14,House blend,Weekly,9
+R0034,Arabica Hills,$19,House blend,Every two weeks,5
+R0034,Arabica Hills,$19,House blend,Weekly,10
+R0034,Casa Verde,$14,House blend,Monthly,5
+R0034,Arabica Hills,$24,Single origin,Weekly,8
+R0034,Arabica Hills,$24,House blend,Every two weeks,5
+R0034,Arabica Hills,$24,House blend,Monthly,5
+R0034,Arabica Hills,$19,House blend,Monthly,7
+R0034,Nordic Roast,$19,Single origin,Every two weeks,6
+R0034,Nordic Roast,$14,House blend,Every two weeks,6
+R0034,Casa Verde,$24,Single origin,Weekly,5
+R0035,Arabica Hills,$14,Single origin,Every two weeks,9
+R0035,Nordic Roast,$19,Single origin,Monthly,4
+R0035,Nordic Roast,$24,Single origin,Weekly,4
+R0035,Arabica Hills,$14,House blend,Weekly,10
+R0035,Arabica Hills,$19,House blend,Monthly,7
+R0035,Nordic Roast,$19,Single origin,Every two weeks,6
+R0035,Nordic Roast,$19,House blend,Weekly,7
+R0035,Arabica Hills,$24,House blend,Monthly,4
+R0035,Casa Verde,$19,Single origin,Monthly,3
+R0035,Arabica Hills,$14,Single origin,Weekly,10
+R0035,Arabica Hills,$24,Single origin,Every two weeks,4
+R0035,Casa Verde,$19,Single origin,Every two weeks,4
+R0035,Nordic Roast,$14,House blend,Weekly,9
+R0035,Arabica Hills,$24,Single origin,Monthly,5
+R0036,Casa Verde,$24,Single origin,Monthly,1
+R0036,Casa Verde,$19,House blend,Monthly,2
+R0036,Casa Verde,$14,Single origin,Every two weeks,3
+R0036,Casa Verde,$24,Single origin,Every two weeks,1
+R0036,Arabica Hills,$14,Single origin,Every two weeks,7
+R0036,Arabica Hills,$19,House blend,Every two weeks,5
+R0036,Nordic Roast,$24,Single origin,Every two weeks,3
+R0036,Arabica Hills,$19,House blend,Weekly,6
+R0036,Nordic Roast,$24,House blend,Weekly,4
+R0036,Nordic Roast,$19,Single origin,Every two weeks,4
+R0036,Nordic Roast,$14,Single origin,Weekly,7
+R0036,Casa Verde,$24,House blend,Every two weeks,1
+R0036,Casa Verde,$14,House blend,Monthly,2
+R0036,Nordic Roast,$19,House blend,Monthly,2
+R0037,Nordic Roast,$24,House blend,Monthly,1
+R0037,Nordic Roast,$14,House blend,Every two weeks,7
+R0037,Casa Verde,$19,Single origin,Monthly,6
+R0037,Casa Verde,$14,Single origin,Weekly,8
+R0037,Arabica Hills,$19,Single origin,Weekly,9
+R0037,Casa Verde,$14,Single origin,Every two weeks,9
+R0037,Nordic Roast,$14,House blend,Weekly,9
+R0037,Casa Verde,$24,House blend,Every two weeks,4
+R0037,Arabica Hills,$24,Single origin,Every two weeks,6
+R0037,Casa Verde,$19,Single origin,Every two weeks,8
+R0037,Nordic Roast,$14,House blend,Monthly,5
+R0037,Casa Verde,$19,House blend,Monthly,7
+R0037,Casa Verde,$24,Single origin,Weekly,4
+R0037,Arabica Hills,$24,House blend,Monthly,2
+R0038,Nordic Roast,$19,Single origin,Weekly,6
+R0038,Nordic Roast,$19,House blend,Monthly,4
+R0038,Casa Verde,$24,House blend,Every two weeks,3
+R0038,Casa Verde,$19,House blend,Monthly,4
+R0038,Casa Verde,$19,House blend,Every two weeks,7
+R0038,Arabica Hills,$14,House blend,Monthly,4
+R0038,Casa Verde,$19,Single origin,Monthly,4
+R0038,Casa Verde,$24,Single origin,Every two weeks,4
+R0038,Arabica Hills,$14,Single origin,Every two weeks,9
+R0038,Nordic Roast,$14,House blend,Every two weeks,9
+R0038,Arabica Hills,$19,Single origin,Every two weeks,8
+R0038,Casa Verde,$14,Single origin,Monthly,6
+R0038,Nordic Roast,$24,House blend,Monthly,3
+R0038,Casa Verde,$14,House blend,Weekly,6
+R0039,Arabica Hills,$19,Single origin,Weekly,9
+R0039,Arabica Hills,$14,House blend,Weekly,9
+R0039,Casa Verde,$19,House blend,Every two weeks,3
+R0039,Nordic Roast,$24,House blend,Weekly,4
+R0039,Casa Verde,$24,Single origin,Weekly,3
+R0039,Nordic Roast,$24,House blend,Every two weeks,2
+R0039,Arabica Hills,$24,Single origin,Every two weeks,4
+R0039,Arabica Hills,$14,Single origin,Weekly,10
+R0039,Nordic Roast,$19,House blend,Every two weeks,5
+R0039,Nordic Roast,$24,House blend,Monthly,3
+R0039,Arabica Hills,$24,House blend,Monthly,5
+R0039,Nordic Roast,$19,House blend,Weekly,7
+R0039,Nordic Roast,$14,House blend,Monthly,7
+R0039,Nordic Roast,$19,Single origin,Weekly,7
+R0040,Nordic Roast,$24,House blend,Monthly,3
+R0040,Arabica Hills,$24,Single origin,Every two weeks,5
+R0040,Nordic Roast,$24,House blend,Weekly,3
+R0040,Arabica Hills,$24,Single origin,Weekly,4
+R0040,Arabica Hills,$19,Single origin,Monthly,5
+R0040,Casa Verde,$14,Single origin,Weekly,6
+R0040,Arabica Hills,$14,House blend,Every two weeks,8
+R0040,Nordic Roast,$19,Single origin,Weekly,4
+R0040,Nordic Roast,$14,Single origin,Monthly,8
+R0040,Casa Verde,$24,Single origin,Monthly,4
+R0040,Nordic Roast,$24,Single origin,Every two weeks,6
+R0040,Casa Verde,$14,House blend,Monthly,4
+R0040,Nordic Roast,$19,Single origin,Monthly,5
+R0040,Casa Verde,$14,House blend,Every two weeks,7
+R0041,Nordic Roast,$19,Single origin,Weekly,6
+R0041,Casa Verde,$24,Single origin,Every two weeks,6
+R0041,Casa Verde,$24,Single origin,Monthly,3
+R0041,Arabica Hills,$19,Single origin,Every two weeks,5
+R0041,Nordic Roast,$19,House blend,Every two weeks,5
+R0041,Nordic Roast,$14,House blend,Monthly,7
+R0041,Nordic Roast,$24,House blend,Every two weeks,5
+R0041,Nordic Roast,$14,Single origin,Weekly,10
+R0041,Nordic Roast,$19,House blend,Monthly,2
+R0041,Nordic Roast,$24,Single origin,Weekly,6
+R0041,Nordic Roast,$24,House blend,Monthly,4
+R0041,Arabica Hills,$19,House blend,Every two weeks,6
+R0041,Nordic Roast,$24,House blend,Weekly,5
+R0041,Arabica Hills,$19,Single origin,Weekly,7
+R0042,Nordic Roast,$19,Single origin,Every two weeks,5
+R0042,Nordic Roast,$24,House blend,Every two weeks,4
+R0042,Nordic Roast,$24,House blend,Weekly,4
+R0042,Nordic Roast,$19,Single origin,Monthly,3
+R0042,Nordic Roast,$24,Single origin,Monthly,3
+R0042,Casa Verde,$24,Single origin,Monthly,4
+R0042,Arabica Hills,$19,Single origin,Weekly,6
+R0042,Arabica Hills,$19,House blend,Weekly,4
+R0042,Casa Verde,$19,House blend,Monthly,4
+R0042,Casa Verde,$14,Single origin,Monthly,7
+R0042,Nordic Roast,$19,Single origin,Weekly,6
+R0042,Arabica Hills,$19,House blend,Monthly,4
+R0042,Nordic Roast,$14,House blend,Every two weeks,7
+R0042,Casa Verde,$14,House blend,Weekly,7
+R0043,Arabica Hills,$24,House blend,Weekly,4
+R0043,Nordic Roast,$19,House blend,Weekly,7
+R0043,Arabica Hills,$24,Single origin,Every two weeks,4
+R0043,Casa Verde,$19,Single origin,Every two weeks,5
+R0043,Casa Verde,$24,House blend,Monthly,1
+R0043,Nordic Roast,$24,House blend,Every two weeks,3
+R0043,Casa Verde,$14,Single origin,Every two weeks,6
+R0043,Nordic Roast,$14,House blend,Every two weeks,6
+R0043,Nordic Roast,$14,Single origin,Weekly,9
+R0043,Nordic Roast,$24,Single origin,Weekly,5
+R0043,Nordic Roast,$14,Single origin,Every two weeks,6
+R0043,Arabica Hills,$14,House blend,Every two weeks,6
+R0043,Nordic Roast,$19,House blend,Monthly,7
+R0043,Arabica Hills,$14,House blend,Weekly,8
+R0044,Casa Verde,$24,Single origin,Weekly,6
+R0044,Casa Verde,$24,House blend,Every two weeks,5
+R0044,Arabica Hills,$24,Single origin,Weekly,6
+R0044,Arabica Hills,$19,House blend,Monthly,4
+R0044,Casa Verde,$14,House blend,Weekly,8
+R0044,Casa Verde,$19,House blend,Every two weeks,7
+R0044,Nordic Roast,$19,Single origin,Monthly,4
+R0044,Arabica Hills,$24,Single origin,Every two weeks,8
+R0044,Arabica Hills,$24,Single origin,Monthly,5
+R0044,Arabica Hills,$14,Single origin,Monthly,6
+R0044,Casa Verde,$19,Single origin,Weekly,7
+R0044,Casa Verde,$14,House blend,Every two weeks,6
+R0044,Arabica Hills,$14,Single origin,Every two weeks,7
+R0044,Casa Verde,$14,Single origin,Every two weeks,7
+R0045,Nordic Roast,$19,Single origin,Weekly,5
+R0045,Nordic Roast,$14,House blend,Every two weeks,7
+R0045,Casa Verde,$24,House blend,Weekly,3
+R0045,Casa Verde,$19,House blend,Every two weeks,4
+R0045,Arabica Hills,$24,House blend,Weekly,5
+R0045,Nordic Roast,$24,House blend,Monthly,2
+R0045,Nordic Roast,$24,Single origin,Weekly,6
+R0045,Casa Verde,$24,Single origin,Monthly,2
+R0045,Casa Verde,$24,Single origin,Weekly,3
+R0045,Nordic Roast,$24,Single origin,Monthly,2
+R0045,Casa Verde,$14,Single origin,Weekly,6
+R0045,Casa Verde,$24,House blend,Every two weeks,3
+R0045,Nordic Roast,$24,Single origin,Every two weeks,3
+R0045,Casa Verde,$19,Single origin,Weekly,4
+R0046,Arabica Hills,$19,Single origin,Every two weeks,6
+R0046,Casa Verde,$24,Single origin,Every two weeks,1
+R0046,Arabica Hills,$24,Single origin,Monthly,5
+R0046,Nordic Roast,$19,Single origin,Weekly,9
+R0046,Casa Verde,$19,Single origin,Every two weeks,5
+R0046,Arabica Hills,$24,House blend,Weekly,5
+R0046,Nordic Roast,$14,Single origin,Weekly,8
+R0046,Casa Verde,$19,Single origin,Monthly,4
+R0046,Casa Verde,$19,House blend,Every two weeks,1
+R0046,Arabica Hills,$19,House blend,Every two weeks,4
+R0046,Casa Verde,$24,House blend,Weekly,2
+R0046,Casa Verde,$14,Single origin,Every two weeks,5
+R0046,Arabica Hills,$19,Single origin,Weekly,10
+R0046,Casa Verde,$24,Single origin,Weekly,3
+R0047,Arabica Hills,$19,Single origin,Monthly,6
+R0047,Casa Verde,$19,Single origin,Weekly,6
+R0047,Nordic Roast,$19,House blend,Monthly,2
+R0047,Casa Verde,$19,Single origin,Every two weeks,8
+R0047,Arabica Hills,$19,House blend,Every two weeks,5
+R0047,Nordic Roast,$14,Single origin,Weekly,9
+R0047,Nordic Roast,$19,Single origin,Every two weeks,6
+R0047,Arabica Hills,$24,House blend,Monthly,2
+R0047,Casa Verde,$19,Single origin,Monthly,5
+R0047,Casa Verde,$14,Single origin,Every two weeks,9
+R0047,Arabica Hills,$24,Single origin,Weekly,6
+R0047,Arabica Hills,$14,Single origin,Monthly,6
+R0047,Casa Verde,$19,House blend,Every two weeks,6
+R0047,Casa Verde,$24,Single origin,Monthly,4
+R0048,Arabica Hills,$24,House blend,Every two weeks,2
+R0048,Arabica Hills,$14,Single origin,Monthly,7
+R0048,Casa Verde,$14,House blend,Every two weeks,6
+R0048,Nordic Roast,$14,House blend,Weekly,7
+R0048,Nordic Roast,$14,House blend,Monthly,6
+R0048,Casa Verde,$19,House blend,Monthly,5
+R0048,Casa Verde,$14,Single origin,Monthly,6
+R0048,Nordic Roast,$24,House blend,Monthly,3
+R0048,Arabica Hills,$19,House blend,Every two weeks,7
+R0048,Casa Verde,$14,Single origin,Every two weeks,4
+R0048,Casa Verde,$14,House blend,Monthly,5
+R0048,Casa Verde,$24,Single origin,Weekly,4
+R0048,Nordic Roast,$24,Single origin,Every two weeks,4
+R0048,Arabica Hills,$19,House blend,Weekly,8
+R0049,Arabica Hills,$14,House blend,Every two weeks,8
+R0049,Casa Verde,$19,House blend,Weekly,4
+R0049,Arabica Hills,$24,House blend,Weekly,5
+R0049,Nordic Roast,$24,House blend,Every two weeks,4
+R0049,Nordic Roast,$19,House blend,Weekly,6
+R0049,Nordic Roast,$14,Single origin,Every two weeks,9
+R0049,Nordic Roast,$14,Single origin,Weekly,8
+R0049,Arabica Hills,$24,Single origin,Monthly,5
+R0049,Nordic Roast,$24,House blend,Weekly,3
+R0049,Casa Verde,$19,House blend,Monthly,2
+R0049,Arabica Hills,$19,House blend,Every two weeks,4
+R0049,Casa Verde,$14,House blend,Every two weeks,6
+R0049,Casa Verde,$14,House blend,Weekly,8
+R0049,Nordic Roast,$24,Single origin,Weekly,5
+R0050,Arabica Hills,$14,Single origin,Every two weeks,9
+R0050,Arabica Hills,$24,Single origin,Every two weeks,6
+R0050,Arabica Hills,$24,Single origin,Monthly,5
+R0050,Nordic Roast,$24,Single origin,Every two weeks,4
+R0050,Nordic Roast,$19,Single origin,Weekly,7
+R0050,Casa Verde,$14,House blend,Weekly,7
+R0050,Casa Verde,$14,Single origin,Every two weeks,8
+R0050,Casa Verde,$19,House blend,Weekly,5
+R0050,Nordic Roast,$24,House blend,Weekly,3
+R0050,Nordic Roast,$14,Single origin,Monthly,7
+R0050,Nordic Roast,$14,House blend,Weekly,6
+R0050,Arabica Hills,$24,Single origin,Weekly,5
+R0050,Casa Verde,$24,House blend,Every two weeks,3
+R0050,Nordic Roast,$19,Single origin,Every two weeks,9
+R0051,Arabica Hills,$19,Single origin,Every two weeks,7
+R0051,Arabica Hills,$14,House blend,Weekly,10
+R0051,Nordic Roast,$14,Single origin,Weekly,10
+R0051,Arabica Hills,$19,Single origin,Monthly,8
+R0051,Arabica Hills,$24,House blend,Every two weeks,7
+R0051,Casa Verde,$14,Single origin,Weekly,8
+R0051,Casa Verde,$24,House blend,Every two weeks,3
+R0051,Nordic Roast,$19,Single origin,Every two weeks,7
+R0051,Nordic Roast,$14,House blend,Every two weeks,9
+R0051,Nordic Roast,$19,House blend,Weekly,6
+R0051,Arabica Hills,$19,House blend,Monthly,7
+R0051,Casa Verde,$14,House blend,Weekly,8
+R0051,Arabica Hills,$24,Single origin,Every two weeks,7
+R0051,Nordic Roast,$14,Single origin,Every two weeks,10
+R0052,Nordic Roast,$19,House blend,Every two weeks,7
+R0052,Arabica Hills,$19,House blend,Weekly,8
+R0052,Nordic Roast,$19,House blend,Weekly,7
+R0052,Casa Verde,$24,House blend,Monthly,2
+R0052,Nordic Roast,$14,Single origin,Every two weeks,6
+R0052,Nordic Roast,$24,House blend,Monthly,5
+R0052,Nordic Roast,$14,House blend,Every two weeks,7
+R0052,Casa Verde,$14,Single origin,Weekly,6
+R0052,Nordic Roast,$14,House blend,Monthly,6
+R0052,Casa Verde,$14,House blend,Weekly,7
+R0052,Nordic Roast,$19,Single origin,Every two weeks,7
+R0052,Nordic Roast,$14,House blend,Weekly,10
+R0052,Casa Verde,$19,Single origin,Monthly,5
+R0052,Casa Verde,$24,Single origin,Every two weeks,3
+R0053,Casa Verde,$19,House blend,Every two weeks,6
+R0053,Casa Verde,$19,Single origin,Monthly,3
+R0053,Arabica Hills,$24,House blend,Weekly,6
+R0053,Casa Verde,$14,House blend,Every two weeks,7
+R0053,Casa Verde,$14,Single origin,Monthly,5
+R0053,Nordic Roast,$14,House blend,Every two weeks,4
+R0053,Arabica Hills,$14,Single origin,Every two weeks,6
+R0053,Nordic Roast,$19,House blend,Monthly,5
+R0053,Casa Verde,$19,House blend,Weekly,8
+R0053,Casa Verde,$24,Single origin,Every two weeks,3
+R0053,Nordic Roast,$19,House blend,Weekly,8
+R0053,Arabica Hills,$24,House blend,Every two weeks,3
+R0053,Nordic Roast,$14,Single origin,Every two weeks,6
+R0053,Nordic Roast,$24,House blend,Every two weeks,3
+R0054,Arabica Hills,$24,House blend,Every two weeks,4
+R0054,Arabica Hills,$19,House blend,Every two weeks,6
+R0054,Nordic Roast,$19,Single origin,Monthly,6
+R0054,Casa Verde,$14,Single origin,Monthly,7
+R0054,Arabica Hills,$24,Single origin,Every two weeks,7
+R0054,Nordic Roast,$14,Single origin,Weekly,6
+R0054,Nordic Roast,$24,Single origin,Every two weeks,4
+R0054,Arabica Hills,$19,House blend,Monthly,3
+R0054,Casa Verde,$14,Single origin,Every two weeks,9
+R0054,Nordic Roast,$19,Single origin,Every two weeks,6
+R0054,Nordic Roast,$24,Single origin,Weekly,4
+R0054,Casa Verde,$24,House blend,Every two weeks,2
+R0054,Nordic Roast,$19,House blend,Weekly,3
+R0054,Casa Verde,$24,House blend,Monthly,1
+R0055,Nordic Roast,$19,Single origin,Every two weeks,9
+R0055,Nordic Roast,$24,House blend,Monthly,1
+R0055,Casa Verde,$19,House blend,Weekly,2
+R0055,Arabica Hills,$24,Single origin,Weekly,4
+R0055,Casa Verde,$24,House blend,Weekly,2
+R0055,Arabica Hills,$14,Single origin,Weekly,8
+R0055,Arabica Hills,$24,House blend,Every two weeks,4
+R0055,Nordic Roast,$19,Single origin,Weekly,5
+R0055,Arabica Hills,$19,House blend,Weekly,5
+R0055,Casa Verde,$24,House blend,Monthly,2
+R0055,Arabica Hills,$24,House blend,Weekly,3
+R0055,Casa Verde,$19,House blend,Every two weeks,6
+R0055,Arabica Hills,$19,House blend,Monthly,4
+R0055,Casa Verde,$24,House blend,Every two weeks,3
+R0056,Casa Verde,$24,House blend,Monthly,1
+R0056,Nordic Roast,$19,Single origin,Weekly,6
+R0056,Arabica Hills,$14,Single origin,Monthly,7
+R0056,Nordic Roast,$24,Single origin,Monthly,6
+R0056,Arabica Hills,$24,Single origin,Every two weeks,8
+R0056,Arabica Hills,$19,Single origin,Weekly,6
+R0056,Casa Verde,$19,House blend,Monthly,3
+R0056,Nordic Roast,$24,House blend,Every two weeks,4
+R0056,Casa Verde,$19,Single origin,Weekly,5
+R0056,Nordic Roast,$14,House blend,Every two weeks,8
+R0056,Casa Verde,$24,Single origin,Monthly,5
+R0056,Nordic Roast,$24,House blend,Monthly,3
+R0056,Nordic Roast,$19,House blend,Monthly,6
+R0056,Nordic Roast,$14,House blend,Weekly,7
+R0057,Casa Verde,$19,Single origin,Monthly,4
+R0057,Casa Verde,$24,Single origin,Monthly,4
+R0057,Nordic Roast,$19,House blend,Every two weeks,6
+R0057,Arabica Hills,$19,House blend,Monthly,7
+R0057,Arabica Hills,$19,House blend,Weekly,6
+R0057,Arabica Hills,$19,Single origin,Monthly,6
+R0057,Nordic Roast,$19,House blend,Weekly,6
+R0057,Arabica Hills,$24,Single origin,Every two weeks,5
+R0057,Nordic Roast,$24,House blend,Every two weeks,4
+R0057,Arabica Hills,$24,Single origin,Monthly,4
+R0057,Arabica Hills,$24,Single origin,Weekly,5
+R0057,Casa Verde,$14,Single origin,Monthly,6
+R0057,Nordic Roast,$24,Single origin,Monthly,3
+R0057,Casa Verde,$14,House blend,Monthly,6
+R0058,Arabica Hills,$14,Single origin,Monthly,5
+R0058,Arabica Hills,$14,House blend,Monthly,6
+R0058,Casa Verde,$19,House blend,Every two weeks,5
+R0058,Arabica Hills,$14,House blend,Weekly,6
+R0058,Arabica Hills,$19,House blend,Every two weeks,4
+R0058,Nordic Roast,$24,Single origin,Every two weeks,3
+R0058,Nordic Roast,$14,Single origin,Monthly,6
+R0058,Nordic Roast,$24,House blend,Every two weeks,4
+R0058,Casa Verde,$14,House blend,Monthly,4
+R0058,Arabica Hills,$24,House blend,Monthly,1
+R0058,Arabica Hills,$14,Single origin,Weekly,8
+R0058,Casa Verde,$14,Single origin,Monthly,6
+R0058,Casa Verde,$14,House blend,Every two weeks,6
+R0058,Arabica Hills,$24,Single origin,Monthly,3
+R0059,Casa Verde,$19,House blend,Weekly,5
+R0059,Casa Verde,$14,House blend,Every two weeks,7
+R0059,Arabica Hills,$14,House blend,Every two weeks,9
+R0059,Arabica Hills,$14,House blend,Weekly,7
+R0059,Casa Verde,$19,Single origin,Every two weeks,7
+R0059,Arabica Hills,$14,Single origin,Monthly,6
+R0059,Nordic Roast,$19,House blend,Weekly,8
+R0059,Casa Verde,$19,House blend,Every two weeks,6
+R0059,Nordic Roast,$14,Single origin,Weekly,9
+R0059,Nordic Roast,$24,Single origin,Every two weeks,8
+R0059,Arabica Hills,$24,Single origin,Monthly,5
+R0059,Casa Verde,$14,Single origin,Every two weeks,7
+R0059,Nordic Roast,$24,Single origin,Monthly,6
+R0059,Nordic Roast,$24,House blend,Weekly,7
+R0060,Nordic Roast,$19,Single origin,Weekly,7
+R0060,Arabica Hills,$24,Single origin,Monthly,4
+R0060,Casa Verde,$19,Single origin,Every two weeks,6
+R0060,Nordic Roast,$19,House blend,Weekly,5
+R0060,Arabica Hills,$19,House blend,Every two weeks,5
+R0060,Nordic Roast,$24,Single origin,Monthly,4
+R0060,Arabica Hills,$24,Single origin,Every two weeks,5
+R0060,Casa Verde,$24,Single origin,Monthly,4
+R0060,Nordic Roast,$19,House blend,Every two weeks,8
+R0060,Casa Verde,$14,Single origin,Every two weeks,5
+R0060,Arabica Hills,$24,Single origin,Weekly,4
+R0060,Nordic Roast,$24,House blend,Every two weeks,4
+R0060,Nordic Roast,$24,House blend,Weekly,4
+R0060,Nordic Roast,$19,House blend,Monthly,5
+R0061,Casa Verde,$14,House blend,Weekly,6
+R0061,Nordic Roast,$19,Single origin,Weekly,7
+R0061,Casa Verde,$14,Single origin,Every two weeks,7
+R0061,Arabica Hills,$19,House blend,Weekly,7
+R0061,Casa Verde,$19,Single origin,Monthly,4
+R0061,Casa Verde,$24,Single origin,Every two weeks,4
+R0061,Arabica Hills,$14,Single origin,Every two weeks,7
+R0061,Arabica Hills,$24,Single origin,Weekly,6
+R0061,Casa Verde,$14,Single origin,Monthly,5
+R0061,Nordic Roast,$14,House blend,Monthly,7
+R0061,Casa Verde,$14,Single origin,Weekly,6
+R0061,Casa Verde,$24,Single origin,Weekly,4
+R0061,Arabica Hills,$24,Single origin,Every two weeks,6
+R0061,Nordic Roast,$14,Single origin,Every two weeks,9
+R0062,Casa Verde,$19,Single origin,Weekly,8
+R0062,Casa Verde,$24,House blend,Monthly,3
+R0062,Arabica Hills,$19,Single origin,Weekly,10
+R0062,Nordic Roast,$19,Single origin,Weekly,9
+R0062,Arabica Hills,$19,House blend,Monthly,6
+R0062,Nordic Roast,$14,House blend,Monthly,5
+R0062,Nordic Roast,$24,Single origin,Weekly,2
+R0062,Casa Verde,$19,Single origin,Monthly,4
+R0062,Nordic Roast,$14,Single origin,Every two weeks,8
+R0062,Nordic Roast,$14,House blend,Every two weeks,9
+R0062,Arabica Hills,$24,Single origin,Monthly,4
+R0062,Casa Verde,$14,House blend,Weekly,8
+R0062,Arabica Hills,$24,Single origin,Every two weeks,6
+R0062,Arabica Hills,$19,Single origin,Monthly,7
+R0063,Nordic Roast,$14,House blend,Every two weeks,4
+R0063,Nordic Roast,$14,House blend,Weekly,6
+R0063,Arabica Hills,$24,House blend,Monthly,4
+R0063,Arabica Hills,$19,Single origin,Monthly,6
+R0063,Arabica Hills,$14,House blend,Every two weeks,6
+R0063,Casa Verde,$14,Single origin,Every two weeks,6
+R0063,Nordic Roast,$24,House blend,Weekly,3
+R0063,Arabica Hills,$14,Single origin,Weekly,8
+R0063,Arabica Hills,$14,Single origin,Monthly,8
+R0063,Casa Verde,$24,Single origin,Weekly,5
+R0063,Arabica Hills,$24,Single origin,Every two weeks,7
+R0063,Arabica Hills,$14,House blend,Monthly,5
+R0063,Nordic Roast,$24,House blend,Monthly,3
+R0063,Arabica Hills,$19,Single origin,Every two weeks,8
+R0064,Arabica Hills,$19,House blend,Monthly,5
+R0064,Casa Verde,$24,Single origin,Every two weeks,3
+R0064,Nordic Roast,$14,House blend,Weekly,7
+R0064,Casa Verde,$14,Single origin,Weekly,8
+R0064,Nordic Roast,$14,Single origin,Every two weeks,10
+R0064,Nordic Roast,$14,House blend,Monthly,8
+R0064,Nordic Roast,$19,Single origin,Monthly,7
+R0064,Arabica Hills,$19,Single origin,Monthly,8
+R0064,Nordic Roast,$24,House blend,Every two weeks,6
+R0064,Nordic Roast,$14,Single origin,Weekly,10
+R0064,Arabica Hills,$19,House blend,Every two weeks,7
+R0064,Arabica Hills,$14,Single origin,Every two weeks,8
+R0064,Arabica Hills,$24,Single origin,Monthly,6
+R0064,Arabica Hills,$24,House blend,Every two weeks,5
+R0065,Casa Verde,$14,House blend,Weekly,3
+R0065,Casa Verde,$19,Single origin,Every two weeks,6
+R0065,Nordic Roast,$19,Single origin,Monthly,6
+R0065,Casa Verde,$24,House blend,Weekly,2
+R0065,Casa Verde,$24,House blend,Every two weeks,1
+R0065,Arabica Hills,$19,Single origin,Every two weeks,6
+R0065,Arabica Hills,$14,Single origin,Weekly,6
+R0065,Nordic Roast,$19,House blend,Monthly,5
+R0065,Casa Verde,$14,House blend,Every two weeks,5
+R0065,Nordic Roast,$24,Single origin,Weekly,4
+R0065,Casa Verde,$24,Single origin,Weekly,2
+R0065,Arabica Hills,$19,House blend,Monthly,5
+R0065,Casa Verde,$19,Single origin,Weekly,4
+R0065,Arabica Hills,$19,Single origin,Weekly,7
+R0066,Nordic Roast,$24,Single origin,Weekly,6
+R0066,Casa Verde,$19,House blend,Weekly,8
+R0066,Casa Verde,$19,Single origin,Weekly,6
+R0066,Casa Verde,$19,House blend,Monthly,2
+R0066,Casa Verde,$14,House blend,Every two weeks,8
+R0066,Arabica Hills,$24,House blend,Monthly,3
+R0066,Nordic Roast,$14,House blend,Monthly,7
+R0066,Casa Verde,$19,Single origin,Monthly,3
+R0066,Casa Verde,$14,House blend,Weekly,8
+R0066,Nordic Roast,$19,Single origin,Every two weeks,10
+R0066,Casa Verde,$14,House blend,Monthly,4
+R0066,Arabica Hills,$24,House blend,Every two weeks,6
+R0066,Nordic Roast,$19,House blend,Monthly,5
+R0066,Arabica Hills,$19,Single origin,Weekly,10
+R0067,Arabica Hills,$24,Single origin,Every two weeks,6
+R0067,Arabica Hills,$19,House blend,Weekly,6
+R0067,Nordic Roast,$14,Single origin,Every two weeks,7
+R0067,Casa Verde,$14,House blend,Monthly,5
+R0067,Nordic Roast,$14,House blend,Weekly,7
+R0067,Casa Verde,$14,Single origin,Every two weeks,8
+R0067,Nordic Roast,$14,House blend,Every two weeks,6
+R0067,Arabica Hills,$14,Single origin,Weekly,9
+R0067,Nordic Roast,$24,Single origin,Monthly,4
+R0067,Nordic Roast,$24,Single origin,Every two weeks,5
+R0067,Casa Verde,$14,Single origin,Weekly,8
+R0067,Casa Verde,$19,House blend,Every two weeks,5
+R0067,Arabica Hills,$14,House blend,Every two weeks,7
+R0067,Casa Verde,$24,Single origin,Weekly,6
+R0068,Casa Verde,$14,Single origin,Weekly,7
+R0068,Arabica Hills,$19,House blend,Monthly,8
+R0068,Nordic Roast,$24,Single origin,Monthly,4
+R0068,Casa Verde,$24,Single origin,Weekly,4
+R0068,Nordic Roast,$14,House blend,Monthly,8
+R0068,Casa Verde,$19,House blend,Every two weeks,7
+R0068,Nordic Roast,$19,House blend,Monthly,5
+R0068,Nordic Roast,$14,House blend,Weekly,8
+R0068,Nordic Roast,$24,Single origin,Every two weeks,5
+R0068,Arabica Hills,$19,House blend,Weekly,7
+R0068,Nordic Roast,$19,House blend,Weekly,8
+R0068,Nordic Roast,$24,House blend,Every two weeks,5
+R0068,Arabica Hills,$19,Single origin,Weekly,6
+R0068,Nordic Roast,$14,Single origin,Weekly,7
+R0069,Nordic Roast,$19,Single origin,Monthly,5
+R0069,Arabica Hills,$24,Single origin,Every two weeks,4
+R0069,Nordic Roast,$24,House blend,Weekly,3
+R0069,Nordic Roast,$14,Single origin,Weekly,8
+R0069,Casa Verde,$19,Single origin,Monthly,4
+R0069,Nordic Roast,$14,House blend,Monthly,6
+R0069,Casa Verde,$24,House blend,Every two weeks,1
+R0069,Arabica Hills,$24,House blend,Monthly,2
+R0069,Nordic Roast,$14,Single origin,Every two weeks,7
+R0069,Arabica Hills,$14,Single origin,Weekly,10
+R0069,Nordic Roast,$24,House blend,Monthly,3
+R0069,Nordic Roast,$24,Single origin,Monthly,2
+R0069,Arabica Hills,$19,Single origin,Weekly,8
+R0069,Nordic Roast,$19,House blend,Every two weeks,6
+R0070,Arabica Hills,$24,Single origin,Every two weeks,4
+R0070,Nordic Roast,$19,Single origin,Monthly,6
+R0070,Arabica Hills,$19,House blend,Every two weeks,8
+R0070,Arabica Hills,$14,House blend,Every two weeks,6
+R0070,Casa Verde,$19,House blend,Every two weeks,6
+R0070,Nordic Roast,$24,House blend,Monthly,3
+R0070,Arabica Hills,$19,Single origin,Every two weeks,8
+R0070,Arabica Hills,$19,House blend,Weekly,8
+R0070,Casa Verde,$19,House blend,Weekly,6
+R0070,Nordic Roast,$14,House blend,Every two weeks,7
+R0070,Nordic Roast,$24,House blend,Weekly,4
+R0070,Arabica Hills,$24,House blend,Every two weeks,3
+R0070,Casa Verde,$19,Single origin,Monthly,7
+R0070,Casa Verde,$14,Single origin,Weekly,10
+R0071,Arabica Hills,$14,House blend,Every two weeks,8
+R0071,Arabica Hills,$24,Single origin,Weekly,3
+R0071,Arabica Hills,$14,Single origin,Monthly,7
+R0071,Arabica Hills,$19,House blend,Every two weeks,6
+R0071,Nordic Roast,$14,Single origin,Weekly,9
+R0071,Arabica Hills,$24,House blend,Monthly,2
+R0071,Casa Verde,$24,Single origin,Weekly,4
+R0071,Arabica Hills,$14,Single origin,Weekly,7
+R0071,Nordic Roast,$24,House blend,Every two weeks,5
+R0071,Arabica Hills,$14,House blend,Weekly,7
+R0071,Casa Verde,$19,Single origin,Weekly,4
+R0071,Casa Verde,$24,House blend,Weekly,3
+R0071,Arabica Hills,$19,Single origin,Monthly,4
+R0071,Nordic Roast,$24,House blend,Weekly,7
+R0072,Casa Verde,$19,House blend,Weekly,3
+R0072,Nordic Roast,$19,House blend,Monthly,6
+R0072,Casa Verde,$19,Single origin,Weekly,4
+R0072,Nordic Roast,$24,Single origin,Weekly,4
+R0072,Arabica Hills,$14,House blend,Weekly,9
+R0072,Arabica Hills,$14,Single origin,Every two weeks,9
+R0072,Casa Verde,$14,Single origin,Monthly,5
+R0072,Arabica Hills,$19,Single origin,Weekly,5
+R0072,Nordic Roast,$19,Single origin,Weekly,5
+R0072,Arabica Hills,$24,Single origin,Every two weeks,4
+R0072,Nordic Roast,$19,Single origin,Monthly,5
+R0072,Nordic Roast,$24,Single origin,Monthly,4
+R0072,Arabica Hills,$19,House blend,Monthly,4
+R0072,Nordic Roast,$24,House blend,Monthly,4
+R0073,Nordic Roast,$19,House blend,Every two weeks,5
+R0073,Nordic Roast,$14,Single origin,Every two weeks,6
+R0073,Casa Verde,$24,Single origin,Weekly,3
+R0073,Casa Verde,$14,Single origin,Every two weeks,5
+R0073,Nordic Roast,$14,Single origin,Monthly,5
+R0073,Arabica Hills,$14,Single origin,Weekly,8
+R0073,Casa Verde,$19,Single origin,Monthly,3
+R0073,Nordic Roast,$14,House blend,Every two weeks,5
+R0073,Nordic Roast,$24,Single origin,Monthly,4
+R0073,Nordic Roast,$19,House blend,Monthly,5
+R0073,Arabica Hills,$24,House blend,Every two weeks,4
+R0073,Arabica Hills,$14,House blend,Monthly,4
+R0073,Casa Verde,$19,House blend,Every two weeks,4
+R0073,Arabica Hills,$19,House blend,Every two weeks,6
+R0074,Nordic Roast,$24,Single origin,Weekly,5
+R0074,Arabica Hills,$24,Single origin,Monthly,5
+R0074,Arabica Hills,$14,Single origin,Monthly,8
+R0074,Nordic Roast,$19,House blend,Every two weeks,5
+R0074,Casa Verde,$14,Single origin,Every two weeks,7
+R0074,Arabica Hills,$19,House blend,Monthly,5
+R0074,Casa Verde,$14,House blend,Weekly,5
+R0074,Nordic Roast,$14,Single origin,Monthly,10
+R0074,Arabica Hills,$24,House blend,Monthly,5
+R0074,Nordic Roast,$24,House blend,Monthly,1
+R0074,Casa Verde,$19,House blend,Monthly,2
+R0074,Casa Verde,$19,House blend,Every two weeks,4
+R0074,Arabica Hills,$19,House blend,Every two weeks,5
+R0074,Nordic Roast,$24,House blend,Every two weeks,3
+R0075,Casa Verde,$19,House blend,Weekly,4
+R0075,Casa Verde,$14,Single origin,Monthly,6
+R0075,Casa Verde,$24,Single origin,Every two weeks,3
+R0075,Nordic Roast,$14,Single origin,Monthly,7
+R0075,Nordic Roast,$14,Single origin,Every two weeks,9
+R0075,Nordic Roast,$24,Single origin,Monthly,4
+R0075,Arabica Hills,$24,House blend,Every two weeks,3
+R0075,Arabica Hills,$14,Single origin,Monthly,8
+R0075,Arabica Hills,$14,House blend,Every two weeks,7
+R0075,Casa Verde,$24,House blend,Weekly,3
+R0075,Nordic Roast,$24,House blend,Monthly,4
+R0075,Casa Verde,$14,House blend,Monthly,4
+R0075,Nordic Roast,$14,Single origin,Weekly,8
+R0075,Nordic Roast,$14,House blend,Weekly,6
+R0076,Nordic Roast,$19,House blend,Every two weeks,6
+R0076,Arabica Hills,$14,Single origin,Weekly,7
+R0076,Arabica Hills,$24,House blend,Weekly,6
+R0076,Nordic Roast,$14,Single origin,Every two weeks,8
+R0076,Casa Verde,$24,House blend,Monthly,2
+R0076,Arabica Hills,$14,House blend,Monthly,10
+R0076,Casa Verde,$24,Single origin,Every two weeks,2
+R0076,Arabica Hills,$19,House blend,Every two weeks,8
+R0076,Casa Verde,$24,House blend,Every two weeks,5
+R0076,Nordic Roast,$19,Single origin,Every two weeks,6
+R0076,Nordic Roast,$14,Single origin,Weekly,8
+R0076,Arabica Hills,$24,House blend,Every two weeks,6
+R0076,Casa Verde,$14,House blend,Every two weeks,6
+R0076,Casa Verde,$14,Single origin,Monthly,7
+R0077,Nordic Roast,$19,House blend,Weekly,8
+R0077,Nordic Roast,$24,House blend,Every two weeks,5
+R0077,Arabica Hills,$24,House blend,Weekly,5
+R0077,Arabica Hills,$19,Single origin,Every two weeks,5
+R0077,Casa Verde,$19,House blend,Weekly,7
+R0077,Casa Verde,$14,Single origin,Every two weeks,6
+R0077,Arabica Hills,$19,House blend,Every two weeks,6
+R0077,Nordic Roast,$24,House blend,Weekly,6
+R0077,Nordic Roast,$24,Single origin,Weekly,4
+R0077,Arabica Hills,$14,Single origin,Monthly,5
+R0077,Casa Verde,$24,House blend,Every two weeks,5
+R0077,Casa Verde,$19,House blend,Monthly,5
+R0077,Nordic Roast,$19,House blend,Monthly,5
+R0077,Arabica Hills,$19,House blend,Monthly,6
+R0078,Arabica Hills,$19,Single origin,Weekly,6
+R0078,Arabica Hills,$24,House blend,Weekly,5
+R0078,Nordic Roast,$19,House blend,Monthly,5
+R0078,Arabica Hills,$19,Single origin,Monthly,7
+R0078,Arabica Hills,$24,House blend,Monthly,2
+R0078,Casa Verde,$14,Single origin,Weekly,5
+R0078,Casa Verde,$14,House blend,Monthly,2
+R0078,Casa Verde,$19,House blend,Every two weeks,6
+R0078,Casa Verde,$24,House blend,Weekly,3
+R0078,Nordic Roast,$19,House blend,Every two weeks,4
+R0078,Nordic Roast,$24,House blend,Every two weeks,3
+R0078,Arabica Hills,$14,House blend,Every two weeks,6
+R0078,Arabica Hills,$24,House blend,Every two weeks,2
+R0078,Arabica Hills,$14,House blend,Weekly,5
+R0079,Arabica Hills,$14,Single origin,Weekly,6
+R0079,Nordic Roast,$24,House blend,Every two weeks,4
+R0079,Arabica Hills,$19,House blend,Monthly,4
+R0079,Casa Verde,$24,House blend,Weekly,4
+R0079,Nordic Roast,$24,Single origin,Weekly,4
+R0079,Nordic Roast,$19,Single origin,Monthly,5
+R0079,Casa Verde,$19,House blend,Weekly,5
+R0079,Casa Verde,$24,House blend,Monthly,3
+R0079,Nordic Roast,$14,House blend,Monthly,4
+R0079,Arabica Hills,$24,Single origin,Monthly,1
+R0079,Arabica Hills,$24,Single origin,Weekly,4
+R0079,Casa Verde,$19,House blend,Every two weeks,3
+R0079,Nordic Roast,$19,House blend,Weekly,6
+R0079,Arabica Hills,$24,House blend,Weekly,4
+R0080,Arabica Hills,$14,Single origin,Every two weeks,8
+R0080,Arabica Hills,$14,Single origin,Weekly,6
+R0080,Casa Verde,$14,House blend,Every two weeks,8
+R0080,Arabica Hills,$24,Single origin,Monthly,4
+R0080,Arabica Hills,$24,House blend,Monthly,4
+R0080,Casa Verde,$24,Single origin,Every two weeks,7
+R0080,Nordic Roast,$24,House blend,Monthly,3
+R0080,Arabica Hills,$19,House blend,Weekly,7
+R0080,Arabica Hills,$19,House blend,Monthly,4
+R0080,Casa Verde,$19,House blend,Every two weeks,7
+R0080,Arabica Hills,$24,Single origin,Weekly,9
+R0080,Casa Verde,$24,House blend,Monthly,1
+R0080,Nordic Roast,$19,House blend,Weekly,7
+R0080,Nordic Roast,$19,House blend,Every two weeks,7
+R0081,Arabica Hills,$19,Single origin,Every two weeks,10
+R0081,Nordic Roast,$14,House blend,Monthly,6
+R0081,Arabica Hills,$24,Single origin,Every two weeks,8
+R0081,Arabica Hills,$14,Single origin,Monthly,8
+R0081,Arabica Hills,$24,Single origin,Monthly,4
+R0081,Arabica Hills,$14,Single origin,Every two weeks,8
+R0081,Nordic Roast,$19,House blend,Monthly,3
+R0081,Nordic Roast,$24,House blend,Monthly,3
+R0081,Nordic Roast,$24,Single origin,Weekly,5
+R0081,Casa Verde,$14,House blend,Monthly,8
+R0081,Nordic Roast,$14,House blend,Every two weeks,6
+R0081,Casa Verde,$24,House blend,Every two weeks,7
+R0081,Nordic Roast,$19,Single origin,Monthly,6
+R0081,Nordic Roast,$14,House blend,Weekly,8
+R0082,Casa Verde,$14,Single origin,Every two weeks,8
+R0082,Casa Verde,$14,Single origin,Monthly,6
+R0082,Arabica Hills,$24,Single origin,Weekly,4
+R0082,Nordic Roast,$14,Single origin,Every two weeks,10
+R0082,Nordic Roast,$14,House blend,Weekly,9
+R0082,Casa Verde,$14,House blend,Monthly,6
+R0082,Nordic Roast,$24,Single origin,Monthly,4
+R0082,Casa Verde,$24,Single origin,Weekly,4
+R0082,Nordic Roast,$24,House blend,Monthly,2
+R0082,Casa Verde,$24,House blend,Weekly,5
+R0082,Arabica Hills,$19,Single origin,Every two weeks,7
+R0082,Arabica Hills,$19,House blend,Every two weeks,8
+R0082,Casa Verde,$19,Single origin,Monthly,5
+R0082,Nordic Roast,$19,House blend,Every two weeks,7
+R0083,Casa Verde,$24,House blend,Monthly,3
+R0083,Casa Verde,$19,Single origin,Monthly,3
+R0083,Nordic Roast,$14,Single origin,Every two weeks,7
+R0083,Nordic Roast,$19,Single origin,Every two weeks,7
+R0083,Arabica Hills,$14,Single origin,Monthly,6
+R0083,Casa Verde,$14,House blend,Weekly,7
+R0083,Nordic Roast,$14,Single origin,Weekly,9
+R0083,Arabica Hills,$24,House blend,Monthly,4
+R0083,Arabica Hills,$14,Single origin,Every two weeks,10
+R0083,Nordic Roast,$19,House blend,Weekly,7
+R0083,Arabica Hills,$24,House blend,Weekly,6
+R0083,Casa Verde,$19,Single origin,Weekly,6
+R0083,Arabica Hills,$19,Single origin,Weekly,8
+R0083,Arabica Hills,$19,Single origin,Monthly,7
+R0084,Arabica Hills,$24,House blend,Weekly,5
+R0084,Nordic Roast,$14,House blend,Weekly,9
+R0084,Nordic Roast,$19,House blend,Weekly,7
+R0084,Arabica Hills,$19,Single origin,Monthly,8
+R0084,Nordic Roast,$19,House blend,Every two weeks,8
+R0084,Arabica Hills,$14,Single origin,Weekly,9
+R0084,Nordic Roast,$14,House blend,Monthly,8
+R0084,Nordic Roast,$24,Single origin,Every two weeks,6
+R0084,Nordic Roast,$24,House blend,Weekly,5
+R0084,Casa Verde,$24,Single origin,Every two weeks,4
+R0084,Casa Verde,$19,House blend,Every two weeks,5
+R0084,Nordic Roast,$14,Single origin,Monthly,10
+R0084,Arabica Hills,$24,House blend,Every two weeks,4
+R0084,Arabica Hills,$14,House blend,Weekly,8
+R0085,Casa Verde,$14,House blend,Monthly,6
+R0085,Nordic Roast,$19,House blend,Weekly,7
+R0085,Arabica Hills,$24,House blend,Monthly,3
+R0085,Casa Verde,$19,House blend,Every two weeks,4
+R0085,Nordic Roast,$14,Single origin,Every two weeks,7
+R0085,Nordic Roast,$24,Single origin,Monthly,4
+R0085,Arabica Hills,$24,House blend,Weekly,3
+R0085,Arabica Hills,$24,Single origin,Every two weeks,6
+R0085,Casa Verde,$24,House blend,Every two weeks,3
+R0085,Casa Verde,$19,Single origin,Monthly,5
+R0085,Casa Verde,$19,Single origin,Every two weeks,7
+R0085,Arabica Hills,$14,Single origin,Weekly,8
+R0085,Arabica Hills,$19,House blend,Monthly,5
+R0085,Casa Verde,$24,Single origin,Monthly,3
+R0086,Arabica Hills,$19,Single origin,Weekly,9
+R0086,Nordic Roast,$24,Single origin,Weekly,7
+R0086,Arabica Hills,$24,House blend,Weekly,8
+R0086,Casa Verde,$24,Single origin,Weekly,4
+R0086,Casa Verde,$14,Single origin,Every two weeks,8
+R0086,Nordic Roast,$24,House blend,Every two weeks,4
+R0086,Nordic Roast,$14,House blend,Every two weeks,9
+R0086,Arabica Hills,$24,Single origin,Weekly,7
+R0086,Arabica Hills,$19,House blend,Every two weeks,7
+R0086,Casa Verde,$14,House blend,Every two weeks,5
+R0086,Nordic Roast,$14,Single origin,Monthly,6
+R0086,Nordic Roast,$14,Single origin,Every two weeks,8
+R0086,Nordic Roast,$24,Single origin,Every two weeks,5
+R0086,Arabica Hills,$24,Single origin,Monthly,4
+R0087,Nordic Roast,$24,House blend,Every two weeks,3
+R0087,Casa Verde,$14,Single origin,Monthly,5
+R0087,Casa Verde,$14,Single origin,Every two weeks,7
+R0087,Arabica Hills,$19,House blend,Weekly,7
+R0087,Nordic Roast,$24,Single origin,Monthly,4
+R0087,Nordic Roast,$14,Single origin,Every two weeks,8
+R0087,Casa Verde,$14,Single origin,Weekly,9
+R0087,Nordic Roast,$24,Single origin,Weekly,6
+R0087,Casa Verde,$24,Single origin,Weekly,5
+R0087,Nordic Roast,$14,House blend,Monthly,5
+R0087,Arabica Hills,$14,Single origin,Weekly,10
+R0087,Arabica Hills,$19,Single origin,Monthly,6
+R0087,Nordic Roast,$19,House blend,Monthly,5
+R0087,Casa Verde,$19,Single origin,Weekly,7
+R0088,Nordic Roast,$24,Single origin,Weekly,7
+R0088,Nordic Roast,$14,House blend,Monthly,3
+R0088,Casa Verde,$19,House blend,Monthly,1
+R0088,Arabica Hills,$24,House blend,Weekly,5
+R0088,Arabica Hills,$19,Single origin,Every two weeks,6
+R0088,Nordic Roast,$24,Single origin,Monthly,1
+R0088,Arabica Hills,$19,House blend,Every two weeks,6
+R0088,Casa Verde,$14,House blend,Every two weeks,5
+R0088,Casa Verde,$19,House blend,Weekly,4
+R0088,Casa Verde,$19,Single origin,Monthly,3
+R0088,Casa Verde,$14,House blend,Monthly,4
+R0088,Nordic Roast,$24,House blend,Weekly,4
+R0088,Arabica Hills,$14,Single origin,Weekly,8
+R0088,Nordic Roast,$19,Single origin,Monthly,3
+R0089,Nordic Roast,$19,House blend,Every two weeks,5
+R0089,Arabica Hills,$24,House blend,Weekly,6
+R0089,Casa Verde,$24,Single origin,Monthly,5
+R0089,Arabica Hills,$24,Single origin,Monthly,7
+R0089,Casa Verde,$19,Single origin,Every two weeks,4
+R0089,Casa Verde,$19,House blend,Monthly,4
+R0089,Casa Verde,$14,Single origin,Every two weeks,7
+R0089,Nordic Roast,$19,House blend,Monthly,6
+R0089,Nordic Roast,$14,Single origin,Weekly,8
+R0089,Nordic Roast,$19,House blend,Weekly,5
+R0089,Arabica Hills,$19,House blend,Monthly,3
+R0089,Nordic Roast,$24,House blend,Monthly,6
+R0089,Casa Verde,$24,House blend,Weekly,3
+R0089,Arabica Hills,$14,Single origin,Weekly,10
+R0090,Nordic Roast,$14,House blend,Every two weeks,6
+R0090,Casa Verde,$14,Single origin,Weekly,7
+R0090,Casa Verde,$24,House blend,Weekly,4
+R0090,Nordic Roast,$19,House blend,Monthly,6
+R0090,Casa Verde,$19,Single origin,Weekly,5
+R0090,Arabica Hills,$24,Single origin,Monthly,4
+R0090,Nordic Roast,$14,Single origin,Weekly,8
+R0090,Arabica Hills,$14,House blend,Every two weeks,9
+R0090,Nordic Roast,$14,Single origin,Monthly,7
+R0090,Nordic Roast,$14,Single origin,Every two weeks,5
+R0090,Arabica Hills,$19,House blend,Weekly,7
+R0090,Arabica Hills,$24,Single origin,Weekly,5
+R0090,Casa Verde,$14,House blend,Monthly,7
+R0090,Casa Verde,$24,Single origin,Weekly,4
+R0091,Arabica Hills,$19,House blend,Monthly,4
+R0091,Nordic Roast,$14,House blend,Monthly,7
+R0091,Arabica Hills,$19,Single origin,Every two weeks,7
+R0091,Arabica Hills,$24,House blend,Weekly,5
+R0091,Nordic Roast,$24,House blend,Every two weeks,4
+R0091,Arabica Hills,$14,Single origin,Every two weeks,10
+R0091,Nordic Roast,$14,House blend,Every two weeks,7
+R0091,Casa Verde,$19,House blend,Every two weeks,5
+R0091,Nordic Roast,$14,House blend,Weekly,8
+R0091,Nordic Roast,$14,Single origin,Weekly,9
+R0091,Nordic Roast,$24,Single origin,Weekly,3
+R0091,Nordic Roast,$19,House blend,Monthly,1
+R0091,Arabica Hills,$24,Single origin,Monthly,4
+R0091,Casa Verde,$14,Single origin,Weekly,10
+R0092,Arabica Hills,$24,Single origin,Monthly,4
+R0092,Casa Verde,$14,House blend,Every two weeks,7
+R0092,Arabica Hills,$24,Single origin,Every two weeks,5
+R0092,Arabica Hills,$19,House blend,Weekly,5
+R0092,Nordic Roast,$24,House blend,Every two weeks,1
+R0092,Arabica Hills,$24,House blend,Every two weeks,4
+R0092,Nordic Roast,$24,Single origin,Every two weeks,3
+R0092,Casa Verde,$24,Single origin,Every two weeks,2
+R0092,Arabica Hills,$14,House blend,Monthly,5
+R0092,Nordic Roast,$19,House blend,Weekly,5
+R0092,Casa Verde,$14,Single origin,Monthly,4
+R0092,Nordic Roast,$14,House blend,Weekly,5
+R0092,Casa Verde,$14,House blend,Weekly,5
+R0092,Casa Verde,$19,House blend,Weekly,5
+R0093,Nordic Roast,$19,Single origin,Monthly,6
+R0093,Casa Verde,$24,Single origin,Every two weeks,4
+R0093,Arabica Hills,$19,House blend,Weekly,5
+R0093,Casa Verde,$24,Single origin,Monthly,1
+R0093,Casa Verde,$14,House blend,Every two weeks,7
+R0093,Nordic Roast,$19,House blend,Weekly,7
+R0093,Nordic Roast,$24,Single origin,Weekly,4
+R0093,Casa Verde,$14,House blend,Weekly,7
+R0093,Arabica Hills,$24,House blend,Weekly,3
+R0093,Arabica Hills,$19,Single origin,Monthly,5
+R0093,Arabica Hills,$14,Single origin,Monthly,6
+R0093,Nordic Roast,$19,House blend,Every two weeks,5
+R0093,Nordic Roast,$14,House blend,Weekly,7
+R0093,Arabica Hills,$19,House blend,Monthly,4
+R0094,Casa Verde,$14,Single origin,Weekly,7
+R0094,Arabica Hills,$24,Single origin,Every two weeks,5
+R0094,Arabica Hills,$24,House blend,Monthly,4
+R0094,Nordic Roast,$14,Single origin,Monthly,5
+R0094,Casa Verde,$19,Single origin,Every two weeks,6
+R0094,Nordic Roast,$24,House blend,Monthly,4
+R0094,Nordic Roast,$14,House blend,Every two weeks,5
+R0094,Arabica Hills,$14,House blend,Weekly,6
+R0094,Casa Verde,$14,House blend,Every two weeks,5
+R0094,Arabica Hills,$14,House blend,Every two weeks,8
+R0094,Arabica Hills,$24,Single origin,Monthly,4
+R0094,Casa Verde,$14,Single origin,Every two weeks,7
+R0094,Arabica Hills,$19,Single origin,Weekly,9
+R0094,Casa Verde,$14,House blend,Monthly,4
+R0095,Casa Verde,$19,House blend,Every two weeks,4
+R0095,Arabica Hills,$14,House blend,Monthly,7
+R0095,Arabica Hills,$24,House blend,Weekly,7
+R0095,Casa Verde,$24,Single origin,Weekly,3
+R0095,Casa Verde,$24,House blend,Weekly,3
+R0095,Arabica Hills,$24,House blend,Every two weeks,6
+R0095,Arabica Hills,$24,House blend,Monthly,7
+R0095,Nordic Roast,$14,Single origin,Monthly,8
+R0095,Arabica Hills,$19,Single origin,Weekly,10
+R0095,Casa Verde,$14,Single origin,Every two weeks,6
+R0095,Nordic Roast,$19,House blend,Monthly,4
+R0095,Nordic Roast,$24,Single origin,Weekly,6
+R0095,Casa Verde,$19,Single origin,Every two weeks,6
+R0095,Nordic Roast,$19,House blend,Weekly,5
+R0096,Casa Verde,$19,House blend,Monthly,6
+R0096,Casa Verde,$19,Single origin,Every two weeks,6
+R0096,Casa Verde,$19,House blend,Every two weeks,8
+R0096,Arabica Hills,$14,Single origin,Every two weeks,9
+R0096,Nordic Roast,$19,House blend,Monthly,4
+R0096,Nordic Roast,$14,House blend,Weekly,8
+R0096,Nordic Roast,$24,Single origin,Weekly,6
+R0096,Arabica Hills,$24,House blend,Every two weeks,3
+R0096,Nordic Roast,$19,Single origin,Weekly,9
+R0096,Arabica Hills,$14,Single origin,Weekly,9
+R0096,Nordic Roast,$14,Single origin,Every two weeks,10
+R0096,Nordic Roast,$19,House blend,Weekly,5
+R0096,Casa Verde,$24,Single origin,Every two weeks,3
+R0096,Arabica Hills,$19,House blend,Monthly,6
+R0097,Arabica Hills,$19,House blend,Weekly,7
+R0097,Arabica Hills,$19,House blend,Every two weeks,4
+R0097,Nordic Roast,$14,House blend,Every two weeks,6
+R0097,Arabica Hills,$24,House blend,Every two weeks,3
+R0097,Casa Verde,$14,Single origin,Weekly,9
+R0097,Casa Verde,$24,House blend,Weekly,3
+R0097,Casa Verde,$24,Single origin,Every two weeks,2
+R0097,Arabica Hills,$19,Single origin,Monthly,7
+R0097,Casa Verde,$24,House blend,Every two weeks,1
+R0097,Arabica Hills,$14,Single origin,Weekly,10
+R0097,Nordic Roast,$24,House blend,Monthly,4
+R0097,Nordic Roast,$19,House blend,Weekly,7
+R0097,Nordic Roast,$14,House blend,Weekly,10
+R0097,Nordic Roast,$14,Single origin,Monthly,9
+R0098,Nordic Roast,$14,Single origin,Weekly,9
+R0098,Casa Verde,$14,House blend,Monthly,5
+R0098,Arabica Hills,$24,House blend,Every two weeks,6
+R0098,Arabica Hills,$24,Single origin,Monthly,4
+R0098,Arabica Hills,$19,House blend,Weekly,8
+R0098,Casa Verde,$24,Single origin,Monthly,5
+R0098,Arabica Hills,$19,House blend,Every two weeks,7
+R0098,Casa Verde,$14,Single origin,Every two weeks,9
+R0098,Nordic Roast,$19,House blend,Monthly,4
+R0098,Nordic Roast,$14,House blend,Every two weeks,7
+R0098,Casa Verde,$24,House blend,Monthly,3
+R0098,Nordic Roast,$24,Single origin,Monthly,4
+R0098,Nordic Roast,$14,Single origin,Every two weeks,10
+R0098,Casa Verde,$19,House blend,Weekly,4
+R0099,Nordic Roast,$24,Single origin,Weekly,6
+R0099,Arabica Hills,$24,Single origin,Weekly,6
+R0099,Casa Verde,$14,House blend,Monthly,2
+R0099,Arabica Hills,$24,House blend,Monthly,4
+R0099,Casa Verde,$14,House blend,Every two weeks,5
+R0099,Arabica Hills,$14,House blend,Monthly,3
+R0099,Nordic Roast,$14,Single origin,Weekly,7
+R0099,Nordic Roast,$14,Single origin,Every two weeks,7
+R0099,Nordic Roast,$19,House blend,Every two weeks,7
+R0099,Arabica Hills,$19,House blend,Every two weeks,7
+R0099,Casa Verde,$24,Single origin,Monthly,1
+R0099,Nordic Roast,$19,House blend,Monthly,4
+R0099,Arabica Hills,$19,Single origin,Weekly,8
+R0099,Nordic Roast,$24,Single origin,Every two weeks,4
+R0100,Nordic Roast,$19,Single origin,Every two weeks,6
+R0100,Nordic Roast,$24,Single origin,Weekly,4
+R0100,Nordic Roast,$24,House blend,Weekly,6
+R0100,Casa Verde,$14,House blend,Every two weeks,7
+R0100,Arabica Hills,$19,Single origin,Weekly,5
+R0100,Casa Verde,$14,Single origin,Every two weeks,9
+R0100,Arabica Hills,$14,Single origin,Every two weeks,9
+R0100,Nordic Roast,$14,House blend,Monthly,6
+R0100,Arabica Hills,$24,House blend,Every two weeks,4
+R0100,Casa Verde,$24,Single origin,Monthly,4
+R0100,Arabica Hills,$24,Single origin,Every two weeks,6
+R0100,Casa Verde,$19,House blend,Monthly,4
+R0100,Arabica Hills,$14,House blend,Every two weeks,7
+R0100,Arabica Hills,$19,House blend,Weekly,5
+R0101,Casa Verde,$14,House blend,Monthly,7
+R0101,Arabica Hills,$19,House blend,Every two weeks,5
+R0101,Arabica Hills,$24,Single origin,Weekly,4
+R0101,Nordic Roast,$24,Single origin,Monthly,3
+R0101,Nordic Roast,$14,House blend,Monthly,5
+R0101,Casa Verde,$19,House blend,Weekly,4
+R0101,Nordic Roast,$14,Single origin,Every two weeks,10
+R0101,Nordic Roast,$14,House blend,Weekly,8
+R0101,Nordic Roast,$24,House blend,Weekly,4
+R0101,Arabica Hills,$14,Single origin,Weekly,10
+R0101,Casa Verde,$24,House blend,Every two weeks,6
+R0101,Nordic Roast,$19,House blend,Every two weeks,6
+R0101,Casa Verde,$19,Single origin,Monthly,6
+R0101,Nordic Roast,$19,House blend,Monthly,5
+R0102,Arabica Hills,$14,Single origin,Every two weeks,8
+R0102,Arabica Hills,$19,Single origin,Every two weeks,7
+R0102,Casa Verde,$19,Single origin,Monthly,3
+R0102,Nordic Roast,$19,Single origin,Every two weeks,7
+R0102,Casa Verde,$24,Single origin,Weekly,6
+R0102,Arabica Hills,$19,Single origin,Weekly,6
+R0102,Nordic Roast,$24,House blend,Every two weeks,7
+R0102,Casa Verde,$19,Single origin,Weekly,5
+R0102,Arabica Hills,$24,Single origin,Weekly,6
+R0102,Casa Verde,$14,House blend,Weekly,7
+R0102,Casa Verde,$14,Single origin,Weekly,7
+R0102,Nordic Roast,$19,House blend,Weekly,7
+R0102,Casa Verde,$19,House blend,Weekly,3
+R0102,Arabica Hills,$24,Single origin,Every two weeks,6
+R0103,Nordic Roast,$19,House blend,Weekly,7
+R0103,Arabica Hills,$19,House blend,Weekly,5
+R0103,Nordic Roast,$14,House blend,Weekly,9
+R0103,Arabica Hills,$24,House blend,Monthly,4
+R0103,Nordic Roast,$24,Single origin,Weekly,4
+R0103,Nordic Roast,$24,House blend,Monthly,5
+R0103,Nordic Roast,$14,House blend,Every two weeks,8
+R0103,Arabica Hills,$19,House blend,Monthly,3
+R0103,Nordic Roast,$14,Single origin,Weekly,7
+R0103,Casa Verde,$14,Single origin,Every two weeks,9
+R0103,Arabica Hills,$24,Single origin,Monthly,2
+R0103,Nordic Roast,$24,Single origin,Monthly,4
+R0103,Arabica Hills,$24,Single origin,Weekly,3
+R0103,Arabica Hills,$24,House blend,Weekly,5
+R0104,Nordic Roast,$24,House blend,Weekly,4
+R0104,Arabica Hills,$24,House blend,Every two weeks,3
+R0104,Arabica Hills,$19,Single origin,Weekly,6
+R0104,Arabica Hills,$14,Single origin,Every two weeks,8
+R0104,Arabica Hills,$14,House blend,Monthly,5
+R0104,Nordic Roast,$19,House blend,Monthly,5
+R0104,Nordic Roast,$14,House blend,Monthly,6
+R0104,Arabica Hills,$24,Single origin,Weekly,6
+R0104,Casa Verde,$14,Single origin,Monthly,8
+R0104,Nordic Roast,$14,House blend,Every two weeks,7
+R0104,Arabica Hills,$14,Single origin,Weekly,6
+R0104,Nordic Roast,$19,House blend,Weekly,6
+R0104,Arabica Hills,$19,Single origin,Every two weeks,6
+R0104,Casa Verde,$14,House blend,Monthly,6
+R0105,Nordic Roast,$19,House blend,Monthly,8
+R0105,Casa Verde,$19,House blend,Monthly,5
+R0105,Arabica Hills,$24,House blend,Monthly,6
+R0105,Casa Verde,$19,House blend,Every two weeks,6
+R0105,Arabica Hills,$19,House blend,Monthly,6
+R0105,Arabica Hills,$24,House blend,Weekly,5
+R0105,Nordic Roast,$24,House blend,Every two weeks,3
+R0105,Nordic Roast,$14,Single origin,Monthly,8
+R0105,Nordic Roast,$14,House blend,Weekly,9
+R0105,Arabica Hills,$19,Single origin,Every two weeks,7
+R0105,Casa Verde,$14,Single origin,Weekly,8
+R0105,Casa Verde,$19,Single origin,Every two weeks,5
+R0105,Arabica Hills,$14,House blend,Every two weeks,9
+R0105,Arabica Hills,$14,Single origin,Monthly,7
+R0106,Arabica Hills,$24,Single origin,Weekly,4
+R0106,Nordic Roast,$19,Single origin,Weekly,6
+R0106,Arabica Hills,$24,Single origin,Every two weeks,3
+R0106,Arabica Hills,$19,House blend,Weekly,7
+R0106,Arabica Hills,$19,Single origin,Every two weeks,7
+R0106,Arabica Hills,$24,Single origin,Monthly,3
+R0106,Casa Verde,$14,Single origin,Monthly,5
+R0106,Casa Verde,$14,House blend,Monthly,7
+R0106,Arabica Hills,$14,Single origin,Every two weeks,7
+R0106,Casa Verde,$19,House blend,Weekly,5
+R0106,Casa Verde,$24,Single origin,Weekly,3
+R0106,Nordic Roast,$24,House blend,Monthly,1
+R0106,Arabica Hills,$14,House blend,Monthly,7
+R0106,Arabica Hills,$19,Single origin,Weekly,8
+R0107,Nordic Roast,$14,House blend,Monthly,6
+R0107,Arabica Hills,$24,Single origin,Weekly,5
+R0107,Nordic Roast,$19,House blend,Monthly,5
+R0107,Casa Verde,$19,Single origin,Monthly,5
+R0107,Nordic Roast,$24,Single origin,Weekly,7
+R0107,Casa Verde,$24,Single origin,Every two weeks,3
+R0107,Arabica Hills,$24,House blend,Monthly,5
+R0107,Arabica Hills,$14,House blend,Weekly,10
+R0107,Arabica Hills,$24,Single origin,Monthly,5
+R0107,Nordic Roast,$24,House blend,Monthly,4
+R0107,Arabica Hills,$24,House blend,Weekly,6
+R0107,Nordic Roast,$14,House blend,Weekly,7
+R0107,Casa Verde,$14,Single origin,Weekly,8
+R0107,Nordic Roast,$19,House blend,Every two weeks,7
+R0108,Nordic Roast,$19,House blend,Weekly,8
+R0108,Nordic Roast,$14,Single origin,Monthly,7
+R0108,Nordic Roast,$24,House blend,Monthly,4
+R0108,Casa Verde,$14,Single origin,Monthly,5
+R0108,Arabica Hills,$24,House blend,Weekly,5
+R0108,Arabica Hills,$19,House blend,Every two weeks,8
+R0108,Arabica Hills,$19,Single origin,Weekly,8
+R0108,Casa Verde,$24,Single origin,Monthly,2
+R0108,Arabica Hills,$19,Single origin,Monthly,5
+R0108,Nordic Roast,$14,Single origin,Weekly,10
+R0108,Casa Verde,$14,Single origin,Weekly,7
+R0108,Casa Verde,$14,House blend,Every two weeks,8
+R0108,Casa Verde,$19,Single origin,Weekly,7
+R0108,Nordic Roast,$24,Single origin,Monthly,4
+R0109,Nordic Roast,$14,House blend,Every two weeks,8
+R0109,Nordic Roast,$24,House blend,Every two weeks,6
+R0109,Nordic Roast,$19,Single origin,Every two weeks,7
+R0109,Casa Verde,$24,Single origin,Every two weeks,6
+R0109,Casa Verde,$19,Single origin,Every two weeks,6
+R0109,Arabica Hills,$19,House blend,Weekly,6
+R0109,Nordic Roast,$19,Single origin,Weekly,6
+R0109,Arabica Hills,$14,Single origin,Weekly,8
+R0109,Arabica Hills,$24,House blend,Every two weeks,6
+R0109,Casa Verde,$19,House blend,Monthly,4
+R0109,Arabica Hills,$14,Single origin,Monthly,6
+R0109,Nordic Roast,$14,Single origin,Weekly,8
+R0109,Nordic Roast,$19,Single origin,Monthly,5
+R0109,Nordic Roast,$24,Single origin,Monthly,2
+R0110,Nordic Roast,$24,Single origin,Every two weeks,6
+R0110,Arabica Hills,$24,Single origin,Every two weeks,5
+R0110,Arabica Hills,$19,Single origin,Weekly,7
+R0110,Casa Verde,$19,Single origin,Every two weeks,7
+R0110,Arabica Hills,$19,House blend,Monthly,4
+R0110,Nordic Roast,$14,House blend,Monthly,6
+R0110,Casa Verde,$14,House blend,Monthly,2
+R0110,Casa Verde,$14,House blend,Weekly,6
+R0110,Casa Verde,$19,Single origin,Weekly,5
+R0110,Casa Verde,$19,House blend,Every two weeks,5
+R0110,Nordic Roast,$14,Single origin,Every two weeks,8
+R0110,Arabica Hills,$19,Single origin,Every two weeks,7
+R0110,Arabica Hills,$14,House blend,Monthly,6
+R0110,Nordic Roast,$24,Single origin,Weekly,6
+R0111,Nordic Roast,$14,House blend,Monthly,4
+R0111,Nordic Roast,$24,Single origin,Weekly,6
+R0111,Casa Verde,$19,Single origin,Every two weeks,5
+R0111,Nordic Roast,$24,Single origin,Every two weeks,4
+R0111,Casa Verde,$24,House blend,Every two weeks,1
+R0111,Arabica Hills,$24,House blend,Monthly,2
+R0111,Nordic Roast,$24,House blend,Monthly,1
+R0111,Arabica Hills,$24,Single origin,Every two weeks,3
+R0111,Casa Verde,$19,Single origin,Weekly,7
+R0111,Nordic Roast,$14,House blend,Weekly,6
+R0111,Casa Verde,$14,House blend,Weekly,2
+R0111,Arabica Hills,$19,Single origin,Weekly,8
+R0111,Arabica Hills,$24,Single origin,Monthly,5
+R0111,Casa Verde,$19,House blend,Monthly,2
+R0112,Arabica Hills,$24,House blend,Weekly,3
+R0112,Arabica Hills,$24,House blend,Monthly,4
+R0112,Nordic Roast,$14,House blend,Monthly,4
+R0112,Casa Verde,$14,House blend,Every two weeks,4
+R0112,Arabica Hills,$19,House blend,Weekly,5
+R0112,Casa Verde,$19,House blend,Every two weeks,4
+R0112,Arabica Hills,$14,Single origin,Every two weeks,8
+R0112,Casa Verde,$14,Single origin,Monthly,2
+R0112,Nordic Roast,$24,Single origin,Monthly,2
+R0112,Casa Verde,$19,House blend,Monthly,2
+R0112,Arabica Hills,$14,House blend,Weekly,7
+R0112,Casa Verde,$19,House blend,Weekly,3
+R0112,Arabica Hills,$14,Single origin,Weekly,7
+R0112,Casa Verde,$24,House blend,Every two weeks,2
+R0113,Casa Verde,$14,Single origin,Monthly,6
+R0113,Casa Verde,$19,House blend,Weekly,4
+R0113,Casa Verde,$24,House blend,Weekly,3
+R0113,Casa Verde,$14,Single origin,Every two weeks,7
+R0113,Casa Verde,$19,Single origin,Weekly,6
+R0113,Arabica Hills,$14,House blend,Monthly,5
+R0113,Arabica Hills,$19,House blend,Weekly,4
+R0113,Casa Verde,$14,House blend,Weekly,6
+R0113,Arabica Hills,$19,House blend,Monthly,3
+R0113,Casa Verde,$24,House blend,Monthly,2
+R0113,Nordic Roast,$24,Single origin,Every two weeks,4
+R0113,Nordic Roast,$14,Single origin,Weekly,8
+R0113,Arabica Hills,$14,Single origin,Monthly,7
+R0113,Arabica Hills,$14,Single origin,Every two weeks,6
+R0114,Casa Verde,$14,Single origin,Monthly,6
+R0114,Casa Verde,$19,House blend,Weekly,5
+R0114,Nordic Roast,$19,House blend,Monthly,5
+R0114,Casa Verde,$19,House blend,Every two weeks,7
+R0114,Nordic Roast,$14,Single origin,Weekly,9
+R0114,Nordic Roast,$14,Single origin,Monthly,9
+R0114,Arabica Hills,$19,House blend,Monthly,6
+R0114,Arabica Hills,$14,House blend,Monthly,6
+R0114,Arabica Hills,$24,Single origin,Weekly,5
+R0114,Nordic Roast,$24,House blend,Every two weeks,4
+R0114,Nordic Roast,$24,Single origin,Every two weeks,5
+R0114,Arabica Hills,$14,Single origin,Weekly,10
+R0114,Nordic Roast,$14,House blend,Monthly,7
+R0114,Nordic Roast,$24,Single origin,Monthly,5
+R0115,Arabica Hills,$24,Single origin,Monthly,3
+R0115,Nordic Roast,$19,House blend,Weekly,5
+R0115,Nordic Roast,$24,House blend,Every two weeks,6
+R0115,Arabica Hills,$24,House blend,Weekly,5
+R0115,Nordic Roast,$19,House blend,Monthly,5
+R0115,Casa Verde,$14,Single origin,Every two weeks,9
+R0115,Casa Verde,$19,Single origin,Monthly,5
+R0115,Casa Verde,$19,House blend,Weekly,4
+R0115,Arabica Hills,$19,Single origin,Monthly,6
+R0115,Casa Verde,$24,Single origin,Weekly,2
+R0115,Arabica Hills,$19,Single origin,Weekly,8
+R0115,Arabica Hills,$14,House blend,Weekly,7
+R0115,Arabica Hills,$14,Single origin,Monthly,8
+R0115,Casa Verde,$24,Single origin,Every two weeks,5
+R0116,Arabica Hills,$14,House blend,Weekly,7
+R0116,Nordic Roast,$19,House blend,Weekly,6
+R0116,Arabica Hills,$24,House blend,Monthly,5
+R0116,Nordic Roast,$14,House blend,Every two weeks,8
+R0116,Arabica Hills,$14,Single origin,Monthly,7
+R0116,Casa Verde,$19,Single origin,Every two weeks,3
+R0116,Casa Verde,$24,House blend,Every two weeks,2
+R0116,Nordic Roast,$19,Single origin,Monthly,6
+R0116,Arabica Hills,$19,Single origin,Monthly,5
+R0116,Nordic Roast,$14,Single origin,Weekly,8
+R0116,Arabica Hills,$24,House blend,Weekly,4
+R0116,Casa Verde,$24,House blend,Monthly,3
+R0116,Arabica Hills,$24,Single origin,Weekly,6
+R0116,Nordic Roast,$14,House blend,Monthly,6
+R0117,Casa Verde,$14,House blend,Weekly,7
+R0117,Nordic Roast,$14,Single origin,Weekly,9
+R0117,Arabica Hills,$24,House blend,Every two weeks,2
+R0117,Nordic Roast,$24,Single origin,Every two weeks,6
+R0117,Casa Verde,$24,Single origin,Weekly,6
+R0117,Casa Verde,$24,House blend,Weekly,3
+R0117,Nordic Roast,$19,Single origin,Every two weeks,9
+R0117,Casa Verde,$14,Single origin,Monthly,6
+R0117,Nordic Roast,$19,Single origin,Monthly,8
+R0117,Casa Verde,$19,House blend,Every two weeks,4
+R0117,Casa Verde,$19,Single origin,Weekly,8
+R0117,Nordic Roast,$24,Single origin,Monthly,5
+R0117,Nordic Roast,$24,House blend,Every two weeks,5
+R0117,Nordic Roast,$19,House blend,Monthly,7
+R0118,Casa Verde,$14,Single origin,Every two weeks,7
+R0118,Arabica Hills,$14,Single origin,Monthly,7
+R0118,Casa Verde,$14,House blend,Monthly,5
+R0118,Arabica Hills,$24,Single origin,Monthly,2
+R0118,Casa Verde,$14,Single origin,Monthly,4
+R0118,Casa Verde,$19,House blend,Monthly,4
+R0118,Arabica Hills,$24,Single origin,Every two weeks,5
+R0118,Nordic Roast,$19,House blend,Weekly,5
+R0118,Arabica Hills,$19,Single origin,Every two weeks,5
+R0118,Nordic Roast,$24,House blend,Monthly,2
+R0118,Nordic Roast,$19,House blend,Monthly,2
+R0118,Casa Verde,$24,Single origin,Monthly,2
+R0118,Arabica Hills,$14,House blend,Weekly,9
+R0118,Nordic Roast,$14,Single origin,Every two weeks,8
+R0119,Nordic Roast,$24,Single origin,Monthly,3
+R0119,Nordic Roast,$14,Single origin,Monthly,4
+R0119,Nordic Roast,$19,Single origin,Monthly,3
+R0119,Nordic Roast,$24,House blend,Weekly,8
+R0119,Casa Verde,$14,House blend,Every two weeks,7
+R0119,Arabica Hills,$19,House blend,Weekly,6
+R0119,Casa Verde,$24,House blend,Every two weeks,5
+R0119,Casa Verde,$19,Single origin,Weekly,3
+R0119,Arabica Hills,$14,House blend,Monthly,6
+R0119,Arabica Hills,$14,Single origin,Weekly,8
+R0119,Nordic Roast,$24,House blend,Every two weeks,7
+R0119,Casa Verde,$24,House blend,Monthly,2
+R0119,Casa Verde,$19,Single origin,Every two weeks,5
+R0119,Nordic Roast,$19,House blend,Every two weeks,8
+R0120,Arabica Hills,$14,Single origin,Weekly,8
+R0120,Nordic Roast,$14,House blend,Monthly,5
+R0120,Nordic Roast,$19,House blend,Every two weeks,8
+R0120,Casa Verde,$19,House blend,Monthly,3
+R0120,Casa Verde,$24,House blend,Every two weeks,2
+R0120,Arabica Hills,$14,Single origin,Every two weeks,8
+R0120,Casa Verde,$14,Single origin,Monthly,4
+R0120,Nordic Roast,$24,House blend,Monthly,4
+R0120,Arabica Hills,$19,Single origin,Every two weeks,8
+R0120,Nordic Roast,$24,House blend,Weekly,4
+R0120,Nordic Roast,$19,House blend,Weekly,8
+R0120,Casa Verde,$14,Single origin,Every two weeks,6
+R0120,Arabica Hills,$14,House blend,Every two weeks,7
+R0120,Arabica Hills,$24,Single origin,Monthly,4
+R0121,Arabica Hills,$14,Single origin,Monthly,5
+R0121,Casa Verde,$19,House blend,Monthly,2
+R0121,Nordic Roast,$19,Single origin,Weekly,8
+R0121,Nordic Roast,$14,Single origin,Weekly,9
+R0121,Arabica Hills,$19,Single origin,Monthly,4
+R0121,Nordic Roast,$24,House blend,Every two weeks,3
+R0121,Casa Verde,$19,Single origin,Monthly,2
+R0121,Arabica Hills,$24,House blend,Monthly,1
+R0121,Arabica Hills,$24,Single origin,Monthly,3
+R0121,Nordic Roast,$14,Single origin,Monthly,5
+R0121,Nordic Roast,$24,Single origin,Weekly,2
+R0121,Arabica Hills,$14,House blend,Weekly,8
+R0121,Casa Verde,$24,House blend,Weekly,2
+R0121,Casa Verde,$19,Single origin,Weekly,5
+R0122,Nordic Roast,$19,House blend,Every two weeks,4
+R0122,Casa Verde,$14,House blend,Weekly,6
+R0122,Arabica Hills,$19,House blend,Weekly,5
+R0122,Nordic Roast,$14,House blend,Weekly,6
+R0122,Casa Verde,$19,Single origin,Monthly,5
+R0122,Casa Verde,$19,House blend,Weekly,7
+R0122,Arabica Hills,$19,House blend,Every two weeks,6
+R0122,Arabica Hills,$24,House blend,Every two weeks,4
+R0122,Arabica Hills,$19,Single origin,Monthly,5
+R0122,Nordic Roast,$19,Single origin,Every two weeks,6
+R0122,Casa Verde,$19,Single origin,Weekly,3
+R0122,Casa Verde,$19,Single origin,Every two weeks,4
+R0122,Casa Verde,$14,Single origin,Every two weeks,6
+R0122,Arabica Hills,$14,Single origin,Weekly,8
+R0123,Nordic Roast,$14,House blend,Every two weeks,8
+R0123,Casa Verde,$19,Single origin,Monthly,3
+R0123,Arabica Hills,$19,House blend,Monthly,7
+R0123,Arabica Hills,$14,House blend,Weekly,9
+R0123,Nordic Roast,$19,House blend,Every two weeks,6
+R0123,Nordic Roast,$14,House blend,Monthly,6
+R0123,Casa Verde,$14,Single origin,Weekly,8
+R0123,Nordic Roast,$19,House blend,Monthly,5
+R0123,Nordic Roast,$19,Single origin,Monthly,4
+R0123,Arabica Hills,$19,Single origin,Weekly,8
+R0123,Nordic Roast,$24,House blend,Every two weeks,3
+R0123,Nordic Roast,$19,House blend,Weekly,6
+R0123,Casa Verde,$24,Single origin,Every two weeks,2
+R0123,Arabica Hills,$24,House blend,Weekly,4
+R0124,Arabica Hills,$24,Single origin,Monthly,3
+R0124,Nordic Roast,$14,Single origin,Weekly,8
+R0124,Nordic Roast,$14,House blend,Weekly,4
+R0124,Arabica Hills,$19,House blend,Weekly,4
+R0124,Casa Verde,$14,House blend,Every two weeks,4
+R0124,Arabica Hills,$24,Single origin,Weekly,3
+R0124,Arabica Hills,$14,House blend,Every two weeks,7
+R0124,Nordic Roast,$24,House blend,Weekly,2
+R0124,Nordic Roast,$24,House blend,Every two weeks,1
+R0124,Nordic Roast,$19,Single origin,Monthly,5
+R0124,Nordic Roast,$24,House blend,Monthly,2
+R0124,Arabica Hills,$19,House blend,Every two weeks,5
+R0124,Nordic Roast,$19,House blend,Weekly,3
+R0124,Casa Verde,$14,Single origin,Every two weeks,9
+R0125,Arabica Hills,$19,Single origin,Every two weeks,6
+R0125,Nordic Roast,$24,House blend,Weekly,7
+R0125,Nordic Roast,$19,Single origin,Monthly,4
+R0125,Arabica Hills,$19,Single origin,Monthly,6
+R0125,Arabica Hills,$24,Single origin,Weekly,6
+R0125,Arabica Hills,$24,Single origin,Monthly,3
+R0125,Casa Verde,$19,House blend,Monthly,4
+R0125,Casa Verde,$19,Single origin,Monthly,4
+R0125,Nordic Roast,$14,Single origin,Monthly,7
+R0125,Arabica Hills,$24,House blend,Every two weeks,4
+R0125,Casa Verde,$14,Single origin,Monthly,4
+R0125,Casa Verde,$19,House blend,Weekly,7
+R0125,Casa Verde,$14,House blend,Monthly,5
+R0125,Casa Verde,$14,House blend,Every two weeks,6
+R0126,Arabica Hills,$19,Single origin,Monthly,5
+R0126,Nordic Roast,$24,Single origin,Every two weeks,4
+R0126,Nordic Roast,$19,House blend,Every two weeks,6
+R0126,Arabica Hills,$19,House blend,Monthly,5
+R0126,Nordic Roast,$14,Single origin,Weekly,10
+R0126,Casa Verde,$24,Single origin,Weekly,5
+R0126,Casa Verde,$14,House blend,Every two weeks,4
+R0126,Arabica Hills,$14,Single origin,Weekly,10
+R0126,Casa Verde,$14,House blend,Weekly,9
+R0126,Casa Verde,$24,House blend,Every two weeks,3
+R0126,Casa Verde,$14,Single origin,Weekly,10
+R0126,Arabica Hills,$24,Single origin,Monthly,3
+R0126,Nordic Roast,$24,House blend,Monthly,5
+R0126,Arabica Hills,$24,Single origin,Weekly,6
+R0127,Arabica Hills,$14,Single origin,Weekly,10
+R0127,Casa Verde,$19,Single origin,Weekly,4
+R0127,Arabica Hills,$19,Single origin,Monthly,4
+R0127,Casa Verde,$14,House blend,Every two weeks,8
+R0127,Arabica Hills,$24,House blend,Every two weeks,5
+R0127,Nordic Roast,$19,Single origin,Weekly,7
+R0127,Arabica Hills,$24,Single origin,Every two weeks,5
+R0127,Casa Verde,$19,Single origin,Monthly,3
+R0127,Casa Verde,$14,Single origin,Weekly,9
+R0127,Arabica Hills,$19,Single origin,Every two weeks,7
+R0127,Nordic Roast,$19,House blend,Every two weeks,6
+R0127,Casa Verde,$24,House blend,Weekly,2
+R0127,Arabica Hills,$19,House blend,Weekly,6
+R0127,Arabica Hills,$19,Single origin,Weekly,7
+R0128,Arabica Hills,$24,House blend,Weekly,4
+R0128,Casa Verde,$19,Single origin,Every two weeks,10
+R0128,Casa Verde,$19,House blend,Every two weeks,5
+R0128,Arabica Hills,$19,House blend,Monthly,2
+R0128,Nordic Roast,$24,Single origin,Monthly,5
+R0128,Arabica Hills,$14,House blend,Weekly,8
+R0128,Casa Verde,$24,House blend,Every two weeks,4
+R0128,Nordic Roast,$19,House blend,Weekly,5
+R0128,Nordic Roast,$19,Single origin,Every two weeks,7
+R0128,Casa Verde,$24,Single origin,Weekly,7
+R0128,Nordic Roast,$24,Single origin,Weekly,7
+R0128,Casa Verde,$14,Single origin,Monthly,7
+R0128,Casa Verde,$24,House blend,Weekly,5
+R0128,Nordic Roast,$14,Single origin,Weekly,10
+R0129,Casa Verde,$14,Single origin,Weekly,7
+R0129,Nordic Roast,$19,House blend,Every two weeks,5
+R0129,Arabica Hills,$19,House blend,Weekly,7
+R0129,Arabica Hills,$14,House blend,Weekly,8
+R0129,Nordic Roast,$14,House blend,Monthly,5
+R0129,Nordic Roast,$19,House blend,Weekly,4
+R0129,Arabica Hills,$19,Single origin,Every two weeks,7
+R0129,Casa Verde,$19,Single origin,Monthly,6
+R0129,Nordic Roast,$24,Single origin,Monthly,3
+R0129,Arabica Hills,$24,House blend,Monthly,5
+R0129,Casa Verde,$14,House blend,Monthly,5
+R0129,Nordic Roast,$24,Single origin,Every two weeks,4
+R0129,Casa Verde,$24,Single origin,Monthly,4
+R0129,Nordic Roast,$19,Single origin,Weekly,6
+R0130,Arabica Hills,$19,House blend,Every two weeks,4
+R0130,Arabica Hills,$14,House blend,Monthly,5
+R0130,Casa Verde,$19,Single origin,Weekly,4
+R0130,Arabica Hills,$19,House blend,Weekly,6
+R0130,Casa Verde,$24,House blend,Weekly,2
+R0130,Arabica Hills,$24,Single origin,Monthly,5
+R0130,Arabica Hills,$19,Single origin,Weekly,6
+R0130,Arabica Hills,$24,House blend,Every two weeks,1
+R0130,Arabica Hills,$24,Single origin,Weekly,5
+R0130,Arabica Hills,$24,House blend,Weekly,3
+R0130,Casa Verde,$14,House blend,Monthly,4
+R0130,Casa Verde,$24,House blend,Monthly,2
+R0130,Casa Verde,$24,Single origin,Every two weeks,4
+R0130,Nordic Roast,$14,Single origin,Weekly,10
+R0131,Casa Verde,$19,Single origin,Monthly,4
+R0131,Casa Verde,$19,House blend,Every two weeks,6
+R0131,Casa Verde,$24,Single origin,Monthly,5
+R0131,Nordic Roast,$24,House blend,Every two weeks,4
+R0131,Nordic Roast,$24,Single origin,Weekly,7
+R0131,Arabica Hills,$19,House blend,Weekly,8
+R0131,Casa Verde,$19,Single origin,Every two weeks,7
+R0131,Nordic Roast,$14,Single origin,Monthly,6
+R0131,Nordic Roast,$24,Single origin,Monthly,4
+R0131,Arabica Hills,$14,House blend,Weekly,8
+R0131,Arabica Hills,$24,House blend,Every two weeks,5
+R0131,Arabica Hills,$19,Single origin,Weekly,9
+R0131,Casa Verde,$24,House blend,Every two weeks,4
+R0131,Arabica Hills,$24,House blend,Weekly,6
+R0132,Nordic Roast,$24,Single origin,Monthly,3
+R0132,Casa Verde,$14,House blend,Monthly,5
+R0132,Casa Verde,$14,House blend,Every two weeks,6
+R0132,Casa Verde,$19,House blend,Every two weeks,5
+R0132,Nordic Roast,$24,House blend,Every two weeks,4
+R0132,Nordic Roast,$19,House blend,Every two weeks,7
+R0132,Casa Verde,$14,House blend,Weekly,5
+R0132,Arabica Hills,$19,Single origin,Every two weeks,6
+R0132,Nordic Roast,$19,Single origin,Every two weeks,9
+R0132,Nordic Roast,$24,Single origin,Weekly,5
+R0132,Nordic Roast,$14,House blend,Weekly,7
+R0132,Casa Verde,$19,Single origin,Every two weeks,5
+R0132,Nordic Roast,$14,Single origin,Weekly,8
+R0132,Nordic Roast,$14,House blend,Monthly,7
+R0133,Casa Verde,$24,Single origin,Monthly,5
+R0133,Arabica Hills,$14,Single origin,Monthly,8
+R0133,Arabica Hills,$14,House blend,Weekly,8
+R0133,Nordic Roast,$24,House blend,Every two weeks,4
+R0133,Nordic Roast,$14,House blend,Every two weeks,9
+R0133,Casa Verde,$19,House blend,Monthly,5
+R0133,Nordic Roast,$24,House blend,Weekly,7
+R0133,Arabica Hills,$24,House blend,Monthly,5
+R0133,Casa Verde,$24,House blend,Every two weeks,3
+R0133,Casa Verde,$19,Single origin,Monthly,5
+R0133,Arabica Hills,$14,Single origin,Weekly,9
+R0133,Nordic Roast,$14,Single origin,Monthly,6
+R0133,Nordic Roast,$19,House blend,Every two weeks,6
+R0133,Casa Verde,$14,House blend,Monthly,5
+R0134,Casa Verde,$24,Single origin,Every two weeks,3
+R0134,Nordic Roast,$14,Single origin,Monthly,4
+R0134,Arabica Hills,$14,House blend,Weekly,9
+R0134,Arabica Hills,$19,Single origin,Weekly,6
+R0134,Arabica Hills,$24,House blend,Every two weeks,5
+R0134,Nordic Roast,$24,Single origin,Every two weeks,3
+R0134,Nordic Roast,$24,House blend,Weekly,5
+R0134,Casa Verde,$14,House blend,Every two weeks,5
+R0134,Nordic Roast,$24,House blend,Every two weeks,3
+R0134,Arabica Hills,$24,Single origin,Every two weeks,5
+R0134,Arabica Hills,$14,Single origin,Monthly,5
+R0134,Casa Verde,$24,House blend,Weekly,5
+R0134,Nordic Roast,$19,House blend,Monthly,3
+R0134,Arabica Hills,$19,House blend,Every two weeks,3
+R0135,Arabica Hills,$24,Single origin,Monthly,5
+R0135,Arabica Hills,$24,Single origin,Every two weeks,5
+R0135,Casa Verde,$19,Single origin,Monthly,6
+R0135,Nordic Roast,$24,Single origin,Monthly,5
+R0135,Nordic Roast,$14,House blend,Every two weeks,7
+R0135,Arabica Hills,$14,House blend,Weekly,9
+R0135,Casa Verde,$24,House blend,Weekly,4
+R0135,Arabica Hills,$14,Single origin,Every two weeks,10
+R0135,Casa Verde,$19,House blend,Weekly,8
+R0135,Arabica Hills,$24,Single origin,Weekly,6
+R0135,Casa Verde,$19,Single origin,Weekly,8
+R0135,Arabica Hills,$14,Single origin,Monthly,9
+R0135,Casa Verde,$19,House blend,Every two weeks,4
+R0135,Nordic Roast,$14,Single origin,Monthly,8
+R0136,Arabica Hills,$14,House blend,Weekly,8
+R0136,Nordic Roast,$19,Single origin,Monthly,6
+R0136,Arabica Hills,$19,House blend,Weekly,7
+R0136,Arabica Hills,$14,Single origin,Every two weeks,10
+R0136,Casa Verde,$19,House blend,Weekly,6
+R0136,Arabica Hills,$19,Single origin,Monthly,6
+R0136,Arabica Hills,$24,Single origin,Every two weeks,6
+R0136,Casa Verde,$14,Single origin,Every two weeks,6
+R0136,Nordic Roast,$14,Single origin,Weekly,9
+R0136,Casa Verde,$24,House blend,Monthly,3
+R0136,Casa Verde,$14,Single origin,Monthly,7
+R0136,Arabica Hills,$24,Single origin,Monthly,5
+R0136,Nordic Roast,$24,House blend,Monthly,3
+R0136,Casa Verde,$14,Single origin,Weekly,9
+R0137,Arabica Hills,$14,Single origin,Weekly,8
+R0137,Casa Verde,$14,House blend,Monthly,5
+R0137,Casa Verde,$19,Single origin,Monthly,5
+R0137,Arabica Hills,$19,House blend,Weekly,7
+R0137,Casa Verde,$19,Single origin,Weekly,6
+R0137,Arabica Hills,$14,House blend,Monthly,7
+R0137,Nordic Roast,$19,House blend,Weekly,6
+R0137,Nordic Roast,$19,Single origin,Weekly,4
+R0137,Nordic Roast,$24,Single origin,Monthly,5
+R0137,Arabica Hills,$24,House blend,Every two weeks,3
+R0137,Casa Verde,$24,House blend,Weekly,4
+R0137,Casa Verde,$24,House blend,Every two weeks,3
+R0137,Casa Verde,$24,Single origin,Weekly,5
+R0137,Casa Verde,$14,House blend,Weekly,7
+R0138,Nordic Roast,$14,Single origin,Weekly,9
+R0138,Arabica Hills,$24,Single origin,Weekly,6
+R0138,Nordic Roast,$24,Single origin,Every two weeks,6
+R0138,Nordic Roast,$14,House blend,Monthly,3
+R0138,Nordic Roast,$19,House blend,Monthly,4
+R0138,Nordic Roast,$14,Single origin,Monthly,5
+R0138,Nordic Roast,$24,House blend,Weekly,5
+R0138,Casa Verde,$19,Single origin,Every two weeks,6
+R0138,Casa Verde,$24,House blend,Weekly,5
+R0138,Nordic Roast,$24,House blend,Monthly,1
+R0138,Casa Verde,$24,House blend,Every two weeks,3
+R0138,Casa Verde,$24,House blend,Monthly,2
+R0138,Nordic Roast,$24,House blend,Every two weeks,5
+R0138,Casa Verde,$14,Single origin,Monthly,4
+R0139,Casa Verde,$14,Single origin,Weekly,7
+R0139,Arabica Hills,$19,Single origin,Every two weeks,9
+R0139,Casa Verde,$19,Single origin,Every two weeks,7
+R0139,Arabica Hills,$14,House blend,Weekly,8
+R0139,Casa Verde,$19,Single origin,Weekly,6
+R0139,Nordic Roast,$14,House blend,Weekly,10
+R0139,Arabica Hills,$14,House blend,Monthly,6
+R0139,Casa Verde,$14,House blend,Every two weeks,8
+R0139,Arabica Hills,$14,Single origin,Monthly,9
+R0139,Arabica Hills,$14,House blend,Every two weeks,7
+R0139,Casa Verde,$24,Single origin,Monthly,2
+R0139,Arabica Hills,$19,Single origin,Weekly,8
+R0139,Casa Verde,$19,Single origin,Monthly,4
+R0139,Casa Verde,$24,House blend,Weekly,2
+R0140,Casa Verde,$14,Single origin,Weekly,6
+R0140,Nordic Roast,$14,House blend,Every two weeks,7
+R0140,Arabica Hills,$24,Single origin,Every two weeks,4
+R0140,Nordic Roast,$24,House blend,Every two weeks,4
+R0140,Casa Verde,$19,House blend,Weekly,6
+R0140,Nordic Roast,$19,Single origin,Weekly,8
+R0140,Nordic Roast,$24,Single origin,Weekly,5
+R0140,Arabica Hills,$19,House blend,Every two weeks,6
+R0140,Casa Verde,$14,House blend,Every two weeks,4
+R0140,Nordic Roast,$14,Single origin,Monthly,6
+R0140,Nordic Roast,$19,Single origin,Every two weeks,5
+R0140,Arabica Hills,$24,Single origin,Weekly,5
+R0140,Arabica Hills,$14,House blend,Every two weeks,8
+R0140,Nordic Roast,$24,House blend,Monthly,3
+R0141,Arabica Hills,$24,Single origin,Every two weeks,5
+R0141,Casa Verde,$24,House blend,Weekly,4
+R0141,Casa Verde,$14,House blend,Weekly,7
+R0141,Nordic Roast,$19,Single origin,Monthly,6
+R0141,Casa Verde,$24,Single origin,Weekly,5
+R0141,Arabica Hills,$14,House blend,Every two weeks,7
+R0141,Nordic Roast,$19,House blend,Weekly,4
+R0141,Arabica Hills,$14,Single origin,Weekly,8
+R0141,Arabica Hills,$24,Single origin,Monthly,3
+R0141,Arabica Hills,$24,Single origin,Weekly,6
+R0141,Casa Verde,$14,House blend,Every two weeks,7
+R0141,Arabica Hills,$14,Single origin,Every two weeks,10
+R0141,Arabica Hills,$19,House blend,Weekly,6
+R0141,Casa Verde,$24,House blend,Every two weeks,3
+R0142,Nordic Roast,$24,House blend,Every two weeks,6
+R0142,Nordic Roast,$19,House blend,Monthly,7
+R0142,Casa Verde,$19,Single origin,Every two weeks,6
+R0142,Casa Verde,$24,House blend,Weekly,5
+R0142,Nordic Roast,$24,House blend,Weekly,5
+R0142,Arabica Hills,$19,House blend,Weekly,6
+R0142,Casa Verde,$14,House blend,Monthly,6
+R0142,Nordic Roast,$24,Single origin,Every two weeks,4
+R0142,Casa Verde,$24,Single origin,Monthly,3
+R0142,Casa Verde,$19,House blend,Every two weeks,5
+R0142,Nordic Roast,$24,Single origin,Monthly,3
+R0142,Arabica Hills,$24,House blend,Weekly,6
+R0142,Arabica Hills,$19,Single origin,Weekly,6
+R0142,Nordic Roast,$14,House blend,Monthly,7
+R0143,Arabica Hills,$14,House blend,Weekly,6
+R0143,Casa Verde,$14,Single origin,Monthly,5
+R0143,Arabica Hills,$24,House blend,Monthly,2
+R0143,Casa Verde,$24,Single origin,Every two weeks,2
+R0143,Nordic Roast,$24,House blend,Every two weeks,1
+R0143,Arabica Hills,$24,House blend,Weekly,4
+R0143,Arabica Hills,$19,Single origin,Every two weeks,6
+R0143,Arabica Hills,$24,Single origin,Monthly,2
+R0143,Arabica Hills,$24,Single origin,Weekly,4
+R0143,Casa Verde,$24,Single origin,Weekly,4
+R0143,Nordic Roast,$24,House blend,Monthly,1
+R0143,Casa Verde,$24,Single origin,Monthly,2
+R0143,Arabica Hills,$19,House blend,Monthly,3
+R0143,Nordic Roast,$14,House blend,Weekly,5
+R0144,Arabica Hills,$14,Single origin,Weekly,5
+R0144,Casa Verde,$19,Single origin,Every two weeks,5
+R0144,Nordic Roast,$14,House blend,Weekly,8
+R0144,Arabica Hills,$24,House blend,Weekly,3
+R0144,Nordic Roast,$24,House blend,Every two weeks,2
+R0144,Casa Verde,$24,Single origin,Weekly,4
+R0144,Nordic Roast,$24,Single origin,Monthly,4
+R0144,Nordic Roast,$14,House blend,Monthly,7
+R0144,Arabica Hills,$19,House blend,Weekly,5
+R0144,Nordic Roast,$19,House blend,Every two weeks,5
+R0144,Nordic Roast,$19,House blend,Monthly,6
+R0144,Nordic Roast,$24,House blend,Weekly,2
+R0144,Arabica Hills,$19,Single origin,Monthly,7
+R0144,Arabica Hills,$14,House blend,Weekly,9
+R0145,Casa Verde,$24,Single origin,Monthly,3
+R0145,Nordic Roast,$19,Single origin,Every two weeks,6
+R0145,Casa Verde,$14,Single origin,Every two weeks,6
+R0145,Arabica Hills,$24,Single origin,Every two weeks,5
+R0145,Casa Verde,$14,Single origin,Monthly,3
+R0145,Arabica Hills,$19,House blend,Every two weeks,9
+R0145,Arabica Hills,$14,Single origin,Weekly,9
+R0145,Arabica Hills,$14,Single origin,Every two weeks,9
+R0145,Casa Verde,$14,House blend,Monthly,5
+R0145,Casa Verde,$14,Single origin,Weekly,6
+R0145,Nordic Roast,$14,House blend,Every two weeks,8
+R0145,Nordic Roast,$14,Single origin,Monthly,8
+R0145,Arabica Hills,$19,House blend,Monthly,8
+R0145,Casa Verde,$19,Single origin,Monthly,3
+R0146,Nordic Roast,$19,House blend,Every two weeks,5
+R0146,Casa Verde,$14,Single origin,Every two weeks,8
+R0146,Nordic Roast,$19,Single origin,Weekly,8
+R0146,Arabica Hills,$24,Single origin,Weekly,4
+R0146,Arabica Hills,$14,House blend,Weekly,9
+R0146,Arabica Hills,$19,Single origin,Every two weeks,8
+R0146,Casa Verde,$24,House blend,Every two weeks,3
+R0146,Nordic Roast,$19,House blend,Weekly,5
+R0146,Nordic Roast,$24,Single origin,Monthly,2
+R0146,Arabica Hills,$14,House blend,Every two weeks,7
+R0146,Nordic Roast,$19,Single origin,Monthly,4
+R0146,Arabica Hills,$14,Single origin,Monthly,7
+R0146,Nordic Roast,$24,House blend,Every two weeks,2
+R0146,Nordic Roast,$19,Single origin,Every two weeks,8
+R0147,Arabica Hills,$14,House blend,Monthly,5
+R0147,Casa Verde,$14,House blend,Monthly,5
+R0147,Arabica Hills,$14,Single origin,Every two weeks,6
+R0147,Nordic Roast,$14,House blend,Weekly,7
+R0147,Arabica Hills,$19,Single origin,Monthly,6
+R0147,Arabica Hills,$24,Single origin,Monthly,3
+R0147,Casa Verde,$24,Single origin,Weekly,3
+R0147,Arabica Hills,$19,Single origin,Every two weeks,7
+R0147,Arabica Hills,$14,House blend,Weekly,6
+R0147,Nordic Roast,$14,Single origin,Monthly,7
+R0147,Arabica Hills,$14,Single origin,Weekly,7
+R0147,Nordic Roast,$24,Single origin,Monthly,4
+R0147,Casa Verde,$24,Single origin,Every two weeks,4
+R0147,Casa Verde,$24,Single origin,Monthly,2
+R0148,Nordic Roast,$14,Single origin,Weekly,8
+R0148,Nordic Roast,$19,House blend,Weekly,7
+R0148,Nordic Roast,$14,House blend,Every two weeks,8
+R0148,Arabica Hills,$14,Single origin,Every two weeks,10
+R0148,Nordic Roast,$19,Single origin,Every two weeks,9
+R0148,Arabica Hills,$19,House blend,Weekly,7
+R0148,Nordic Roast,$19,Single origin,Weekly,7
+R0148,Casa Verde,$19,Single origin,Every two weeks,6
+R0148,Casa Verde,$19,Single origin,Monthly,5
+R0148,Arabica Hills,$14,House blend,Weekly,8
+R0148,Arabica Hills,$19,Single origin,Weekly,6
+R0148,Arabica Hills,$24,Single origin,Every two weeks,6
+R0148,Arabica Hills,$24,House blend,Monthly,4
+R0148,Casa Verde,$14,House blend,Weekly,8
+R0149,Nordic Roast,$14,House blend,Weekly,6
+R0149,Casa Verde,$14,House blend,Every two weeks,5
+R0149,Arabica Hills,$24,House blend,Weekly,4
+R0149,Arabica Hills,$14,House blend,Weekly,8
+R0149,Casa Verde,$19,Single origin,Every two weeks,6
+R0149,Arabica Hills,$14,Single origin,Weekly,8
+R0149,Nordic Roast,$14,Single origin,Weekly,9
+R0149,Nordic Roast,$14,Single origin,Monthly,6
+R0149,Nordic Roast,$19,House blend,Weekly,5
+R0149,Casa Verde,$14,House blend,Weekly,6
+R0149,Casa Verde,$19,Single origin,Weekly,4
+R0149,Arabica Hills,$19,Single origin,Monthly,4
+R0149,Arabica Hills,$24,Single origin,Monthly,6
+R0149,Nordic Roast,$24,Single origin,Monthly,5
+R0150,Nordic Roast,$19,Single origin,Every two weeks,7
+R0150,Arabica Hills,$19,Single origin,Weekly,8
+R0150,Nordic Roast,$14,House blend,Weekly,9
+R0150,Casa Verde,$19,House blend,Every two weeks,6
+R0150,Casa Verde,$24,Single origin,Every two weeks,7
+R0150,Casa Verde,$19,House blend,Weekly,8
+R0150,Nordic Roast,$24,Single origin,Weekly,6
+R0150,Nordic Roast,$14,Single origin,Every two weeks,9
+R0150,Arabica Hills,$19,House blend,Monthly,6
+R0150,Nordic Roast,$19,House blend,Every two weeks,6
+R0150,Arabica Hills,$14,Single origin,Weekly,10
+R0150,Casa Verde,$14,House blend,Weekly,9
+R0150,Arabica Hills,$14,Single origin,Every two weeks,8
+R0150,Nordic Roast,$24,House blend,Every two weeks,5
+R0151,Arabica Hills,$14,Single origin,Every two weeks,9
+R0151,Nordic Roast,$24,House blend,Every two weeks,3
+R0151,Nordic Roast,$14,House blend,Monthly,8
+R0151,Nordic Roast,$24,Single origin,Monthly,4
+R0151,Nordic Roast,$14,House blend,Every two weeks,8
+R0151,Arabica Hills,$14,House blend,Every two weeks,9
+R0151,Arabica Hills,$19,House blend,Monthly,6
+R0151,Arabica Hills,$24,Single origin,Monthly,3
+R0151,Casa Verde,$14,House blend,Weekly,7
+R0151,Arabica Hills,$24,House blend,Every two weeks,3
+R0151,Nordic Roast,$19,House blend,Weekly,5
+R0151,Arabica Hills,$19,Single origin,Weekly,6
+R0151,Casa Verde,$14,Single origin,Monthly,8
+R0151,Arabica Hills,$19,House blend,Weekly,5
+R0152,Casa Verde,$14,Single origin,Every two weeks,10
+R0152,Arabica Hills,$24,House blend,Weekly,6
+R0152,Arabica Hills,$14,Single origin,Every two weeks,10
+R0152,Casa Verde,$14,House blend,Monthly,6
+R0152,Arabica Hills,$19,House blend,Weekly,7
+R0152,Nordic Roast,$24,Single origin,Weekly,6
+R0152,Arabica Hills,$14,Single origin,Weekly,10
+R0152,Arabica Hills,$24,Single origin,Weekly,5
+R0152,Arabica Hills,$19,House blend,Every two weeks,8
+R0152,Casa Verde,$19,House blend,Monthly,6
+R0152,Casa Verde,$19,Single origin,Weekly,8
+R0152,Nordic Roast,$24,Single origin,Monthly,7
+R0152,Nordic Roast,$19,Single origin,Weekly,9
+R0152,Nordic Roast,$14,House blend,Every two weeks,8
+R0153,Casa Verde,$24,House blend,Monthly,4
+R0153,Casa Verde,$19,House blend,Monthly,4
+R0153,Arabica Hills,$24,Single origin,Weekly,5
+R0153,Casa Verde,$19,Single origin,Weekly,6
+R0153,Arabica Hills,$24,Single origin,Monthly,5
+R0153,Casa Verde,$19,House blend,Weekly,5
+R0153,Casa Verde,$14,House blend,Monthly,7
+R0153,Arabica Hills,$19,House blend,Every two weeks,5
+R0153,Casa Verde,$24,House blend,Every two weeks,4
+R0153,Arabica Hills,$24,House blend,Every two weeks,5
+R0153,Nordic Roast,$14,Single origin,Monthly,6
+R0153,Arabica Hills,$19,House blend,Weekly,5
+R0153,Arabica Hills,$14,Single origin,Weekly,8
+R0153,Nordic Roast,$24,Single origin,Monthly,3
+R0154,Nordic Roast,$19,House blend,Every two weeks,5
+R0154,Casa Verde,$19,House blend,Every two weeks,3
+R0154,Arabica Hills,$19,House blend,Weekly,5
+R0154,Arabica Hills,$19,House blend,Every two weeks,4
+R0154,Arabica Hills,$14,Single origin,Weekly,8
+R0154,Nordic Roast,$14,House blend,Weekly,4
+R0154,Casa Verde,$19,Single origin,Weekly,5
+R0154,Nordic Roast,$19,House blend,Monthly,5
+R0154,Nordic Roast,$14,House blend,Monthly,7
+R0154,Nordic Roast,$19,Single origin,Every two weeks,6
+R0154,Nordic Roast,$19,Single origin,Monthly,4
+R0154,Arabica Hills,$19,Single origin,Weekly,6
+R0154,Nordic Roast,$19,Single origin,Weekly,6
+R0154,Arabica Hills,$24,House blend,Every two weeks,1
+R0155,Casa Verde,$14,Single origin,Every two weeks,7
+R0155,Nordic Roast,$19,Single origin,Monthly,5
+R0155,Nordic Roast,$24,House blend,Every two weeks,7
+R0155,Arabica Hills,$24,Single origin,Monthly,4
+R0155,Casa Verde,$19,House blend,Monthly,4
+R0155,Nordic Roast,$19,House blend,Every two weeks,7
+R0155,Casa Verde,$14,Single origin,Monthly,7
+R0155,Casa Verde,$24,Single origin,Every two weeks,6
+R0155,Nordic Roast,$19,House blend,Weekly,6
+R0155,Casa Verde,$24,Single origin,Monthly,5
+R0155,Arabica Hills,$19,House blend,Monthly,4
+R0155,Arabica Hills,$19,Single origin,Monthly,5
+R0155,Arabica Hills,$14,House blend,Every two weeks,7
+R0155,Nordic Roast,$14,House blend,Monthly,8
+R0156,Arabica Hills,$24,Single origin,Monthly,5
+R0156,Arabica Hills,$24,Single origin,Every two weeks,5
+R0156,Casa Verde,$24,Single origin,Monthly,3
+R0156,Casa Verde,$24,House blend,Weekly,2
+R0156,Nordic Roast,$19,House blend,Monthly,6
+R0156,Nordic Roast,$24,House blend,Weekly,6
+R0156,Nordic Roast,$24,Single origin,Monthly,4
+R0156,Arabica Hills,$19,House blend,Monthly,4
+R0156,Arabica Hills,$14,Single origin,Weekly,10
+R0156,Arabica Hills,$14,House blend,Monthly,6
+R0156,Nordic Roast,$19,Single origin,Monthly,5
+R0156,Casa Verde,$14,Single origin,Weekly,8
+R0156,Nordic Roast,$19,Single origin,Weekly,7
+R0156,Nordic Roast,$24,House blend,Every two weeks,4
+R0157,Casa Verde,$14,Single origin,Every two weeks,5
+R0157,Arabica Hills,$24,House blend,Monthly,4
+R0157,Casa Verde,$14,House blend,Weekly,6
+R0157,Nordic Roast,$19,House blend,Every two weeks,6
+R0157,Arabica Hills,$24,Single origin,Every two weeks,5
+R0157,Arabica Hills,$14,Single origin,Every two weeks,6
+R0157,Arabica Hills,$24,Single origin,Monthly,4
+R0157,Arabica Hills,$14,House blend,Weekly,9
+R0157,Arabica Hills,$19,Single origin,Every two weeks,5
+R0157,Casa Verde,$14,House blend,Every two weeks,4
+R0157,Nordic Roast,$14,House blend,Monthly,6
+R0157,Nordic Roast,$24,House blend,Weekly,8
+R0157,Casa Verde,$24,House blend,Every two weeks,1
+R0157,Arabica Hills,$14,Single origin,Monthly,7
+R0158,Casa Verde,$19,Single origin,Monthly,3
+R0158,Nordic Roast,$19,Single origin,Weekly,5
+R0158,Nordic Roast,$14,Single origin,Weekly,8
+R0158,Casa Verde,$24,Single origin,Every two weeks,3
+R0158,Arabica Hills,$14,House blend,Every two weeks,10
+R0158,Casa Verde,$14,House blend,Monthly,6
+R0158,Casa Verde,$14,Single origin,Monthly,6
+R0158,Casa Verde,$24,Single origin,Weekly,4
+R0158,Arabica Hills,$19,House blend,Weekly,8
+R0158,Casa Verde,$24,House blend,Every two weeks,4
+R0158,Arabica Hills,$14,Single origin,Weekly,7
+R0158,Nordic Roast,$14,House blend,Weekly,7
+R0158,Nordic Roast,$19,House blend,Weekly,8
+R0158,Nordic Roast,$24,Single origin,Every two weeks,6
+R0159,Arabica Hills,$24,Single origin,Every two weeks,6
+R0159,Casa Verde,$19,Single origin,Monthly,5
+R0159,Arabica Hills,$19,House blend,Every two weeks,9
+R0159,Casa Verde,$24,House blend,Every two weeks,2
+R0159,Casa Verde,$24,Single origin,Weekly,5
+R0159,Nordic Roast,$24,Single origin,Every two weeks,6
+R0159,Nordic Roast,$19,House blend,Weekly,9
+R0159,Nordic Roast,$24,House blend,Every two weeks,4
+R0159,Casa Verde,$14,House blend,Monthly,6
+R0159,Arabica Hills,$19,House blend,Monthly,8
+R0159,Nordic Roast,$19,Single origin,Monthly,6
+R0159,Casa Verde,$14,House blend,Every two weeks,4
+R0159,Casa Verde,$14,House blend,Weekly,7
+R0159,Nordic Roast,$24,House blend,Weekly,5
+R0160,Arabica Hills,$19,Single origin,Weekly,8
+R0160,Casa Verde,$14,Single origin,Monthly,7
+R0160,Nordic Roast,$19,House blend,Monthly,4
+R0160,Arabica Hills,$19,House blend,Every two weeks,7
+R0160,Casa Verde,$24,Single origin,Weekly,5
+R0160,Arabica Hills,$24,House blend,Every two weeks,6
+R0160,Arabica Hills,$24,Single origin,Every two weeks,5
+R0160,Casa Verde,$19,Single origin,Every two weeks,5
+R0160,Arabica Hills,$14,House blend,Every two weeks,9
+R0160,Casa Verde,$24,House blend,Every two weeks,5
+R0160,Arabica Hills,$24,House blend,Monthly,2
+R0160,Casa Verde,$19,Single origin,Weekly,7
+R0160,Casa Verde,$24,House blend,Monthly,2
+R0160,Casa Verde,$19,House blend,Every two weeks,5
+R0161,Arabica Hills,$24,Single origin,Weekly,5
+R0161,Casa Verde,$24,Single origin,Weekly,3
+R0161,Nordic Roast,$14,Single origin,Weekly,6
+R0161,Casa Verde,$24,House blend,Monthly,3
+R0161,Arabica Hills,$14,Single origin,Monthly,8
+R0161,Nordic Roast,$24,House blend,Every two weeks,3
+R0161,Casa Verde,$19,Single origin,Weekly,7
+R0161,Casa Verde,$19,House blend,Weekly,7
+R0161,Arabica Hills,$24,House blend,Weekly,3
+R0161,Nordic Roast,$24,Single origin,Every two weeks,7
+R0161,Nordic Roast,$24,Single origin,Weekly,3
+R0161,Arabica Hills,$14,House blend,Every two weeks,7
+R0161,Nordic Roast,$14,Single origin,Every two weeks,6
+R0161,Arabica Hills,$24,Single origin,Every two weeks,5
+R0162,Nordic Roast,$19,Single origin,Every two weeks,6
+R0162,Nordic Roast,$24,House blend,Weekly,4
+R0162,Nordic Roast,$24,House blend,Monthly,2
+R0162,Nordic Roast,$19,House blend,Weekly,6
+R0162,Casa Verde,$19,House blend,Every two weeks,5
+R0162,Nordic Roast,$19,House blend,Every two weeks,6
+R0162,Nordic Roast,$14,Single origin,Every two weeks,7
+R0162,Casa Verde,$24,House blend,Monthly,5
+R0162,Arabica Hills,$14,Single origin,Every two weeks,6
+R0162,Arabica Hills,$14,Single origin,Weekly,8
+R0162,Casa Verde,$19,Single origin,Monthly,4
+R0162,Casa Verde,$14,Single origin,Weekly,6
+R0162,Casa Verde,$14,House blend,Monthly,5
+R0162,Arabica Hills,$24,Single origin,Weekly,6
+R0163,Nordic Roast,$24,House blend,Weekly,5
+R0163,Nordic Roast,$24,House blend,Monthly,2
+R0163,Nordic Roast,$19,Single origin,Every two weeks,8
+R0163,Arabica Hills,$24,House blend,Monthly,1
+R0163,Casa Verde,$24,Single origin,Weekly,4
+R0163,Casa Verde,$24,House blend,Every two weeks,4
+R0163,Arabica Hills,$24,House blend,Weekly,4
+R0163,Nordic Roast,$14,House blend,Monthly,6
+R0163,Casa Verde,$19,House blend,Weekly,7
+R0163,Casa Verde,$24,House blend,Monthly,1
+R0163,Arabica Hills,$19,House blend,Every two weeks,7
+R0163,Arabica Hills,$24,House blend,Every two weeks,4
+R0163,Casa Verde,$14,Single origin,Monthly,4
+R0163,Arabica Hills,$19,Single origin,Monthly,4
+R0164,Nordic Roast,$14,House blend,Every two weeks,7
+R0164,Casa Verde,$24,Single origin,Weekly,4
+R0164,Casa Verde,$19,House blend,Every two weeks,5
+R0164,Casa Verde,$24,Single origin,Monthly,2
+R0164,Nordic Roast,$24,Single origin,Weekly,4
+R0164,Casa Verde,$19,Single origin,Weekly,5
+R0164,Casa Verde,$14,Single origin,Monthly,5
+R0164,Nordic Roast,$19,Single origin,Every two weeks,6
+R0164,Arabica Hills,$24,House blend,Every two weeks,3
+R0164,Nordic Roast,$14,Single origin,Weekly,7
+R0164,Arabica Hills,$14,Single origin,Every two weeks,10
+R0164,Casa Verde,$19,House blend,Monthly,1
+R0164,Casa Verde,$24,House blend,Every two weeks,4
+R0164,Arabica Hills,$14,Single origin,Weekly,10
+R0165,Nordic Roast,$14,House blend,Every two weeks,8
+R0165,Casa Verde,$14,Single origin,Monthly,5
+R0165,Arabica Hills,$19,House blend,Every two weeks,7
+R0165,Casa Verde,$19,Single origin,Weekly,5
+R0165,Arabica Hills,$19,Single origin,Every two weeks,6
+R0165,Arabica Hills,$24,House blend,Weekly,6
+R0165,Nordic Roast,$14,House blend,Monthly,7
+R0165,Nordic Roast,$19,Single origin,Every two weeks,6
+R0165,Arabica Hills,$14,Single origin,Weekly,7
+R0165,Arabica Hills,$19,Single origin,Weekly,8
+R0165,Arabica Hills,$19,House blend,Monthly,5
+R0165,Casa Verde,$14,House blend,Weekly,6
+R0165,Nordic Roast,$19,House blend,Every two weeks,7
+R0165,Nordic Roast,$14,Single origin,Every two weeks,7
+R0166,Casa Verde,$19,Single origin,Monthly,5
+R0166,Casa Verde,$19,House blend,Every two weeks,5
+R0166,Nordic Roast,$24,Single origin,Every two weeks,5
+R0166,Nordic Roast,$19,House blend,Every two weeks,7
+R0166,Arabica Hills,$19,Single origin,Weekly,8
+R0166,Nordic Roast,$14,House blend,Monthly,7
+R0166,Arabica Hills,$24,Single origin,Monthly,6
+R0166,Casa Verde,$14,House blend,Weekly,8
+R0166,Nordic Roast,$24,Single origin,Monthly,3
+R0166,Nordic Roast,$14,House blend,Every two weeks,8
+R0166,Nordic Roast,$24,Single origin,Weekly,5
+R0166,Arabica Hills,$19,House blend,Every two weeks,6
+R0166,Arabica Hills,$24,House blend,Every two weeks,5
+R0166,Nordic Roast,$19,Single origin,Weekly,6
+R0167,Nordic Roast,$19,House blend,Weekly,7
+R0167,Nordic Roast,$19,House blend,Monthly,3
+R0167,Casa Verde,$24,House blend,Weekly,3
+R0167,Arabica Hills,$14,House blend,Weekly,6
+R0167,Arabica Hills,$19,Single origin,Monthly,4
+R0167,Casa Verde,$14,House blend,Weekly,6
+R0167,Nordic Roast,$19,Single origin,Monthly,5
+R0167,Casa Verde,$24,Single origin,Monthly,2
+R0167,Arabica Hills,$24,House blend,Weekly,6
+R0167,Casa Verde,$19,House blend,Every two weeks,5
+R0167,Nordic Roast,$14,House blend,Weekly,7
+R0167,Nordic Roast,$19,Single origin,Every two weeks,5
+R0167,Nordic Roast,$14,House blend,Monthly,5
+R0167,Casa Verde,$24,Single origin,Every two weeks,6
+R0168,Arabica Hills,$14,House blend,Monthly,8
+R0168,Casa Verde,$24,House blend,Monthly,1
+R0168,Casa Verde,$14,Single origin,Weekly,6
+R0168,Arabica Hills,$19,House blend,Weekly,6
+R0168,Casa Verde,$14,Single origin,Monthly,5
+R0168,Casa Verde,$19,House blend,Weekly,3
+R0168,Arabica Hills,$19,House blend,Monthly,6
+R0168,Nordic Roast,$19,House blend,Weekly,6
+R0168,Nordic Roast,$19,House blend,Monthly,3
+R0168,Nordic Roast,$14,Single origin,Every two weeks,8
+R0168,Arabica Hills,$19,House blend,Every two weeks,7
+R0168,Nordic Roast,$19,House blend,Every two weeks,6
+R0168,Nordic Roast,$14,House blend,Monthly,6
+R0168,Casa Verde,$19,House blend,Monthly,3
+R0169,Arabica Hills,$19,House blend,Every two weeks,7
+R0169,Nordic Roast,$24,Single origin,Every two weeks,5
+R0169,Arabica Hills,$14,Single origin,Every two weeks,8
+R0169,Casa Verde,$19,House blend,Weekly,5
+R0169,Nordic Roast,$14,Single origin,Weekly,10
+R0169,Arabica Hills,$24,Single origin,Monthly,6
+R0169,Arabica Hills,$24,Single origin,Weekly,7
+R0169,Casa Verde,$24,House blend,Weekly,5
+R0169,Nordic Roast,$14,Single origin,Every two weeks,8
+R0169,Nordic Roast,$14,House blend,Monthly,7
+R0169,Nordic Roast,$14,House blend,Weekly,9
+R0169,Arabica Hills,$14,House blend,Weekly,9
+R0169,Nordic Roast,$19,House blend,Monthly,5
+R0169,Arabica Hills,$14,House blend,Monthly,8
+R0170,Arabica Hills,$19,Single origin,Monthly,6
+R0170,Casa Verde,$19,House blend,Weekly,5
+R0170,Arabica Hills,$14,Single origin,Every two weeks,9
+R0170,Casa Verde,$24,Single origin,Every two weeks,3
+R0170,Nordic Roast,$24,House blend,Weekly,5
+R0170,Casa Verde,$14,Single origin,Monthly,7
+R0170,Nordic Roast,$24,House blend,Every two weeks,5
+R0170,Casa Verde,$24,House blend,Monthly,3
+R0170,Nordic Roast,$19,House blend,Monthly,5
+R0170,Casa Verde,$14,House blend,Weekly,9
+R0170,Arabica Hills,$24,House blend,Weekly,5
+R0170,Casa Verde,$24,Single origin,Weekly,4
+R0170,Arabica Hills,$24,Single origin,Every two weeks,3
+R0170,Casa Verde,$14,Single origin,Weekly,9
+R0171,Casa Verde,$14,House blend,Weekly,8
+R0171,Casa Verde,$19,Single origin,Weekly,7
+R0171,Nordic Roast,$19,House blend,Every two weeks,5
+R0171,Nordic Roast,$19,House blend,Monthly,4
+R0171,Nordic Roast,$14,House blend,Every two weeks,6
+R0171,Arabica Hills,$14,Single origin,Weekly,9
+R0171,Casa Verde,$24,House blend,Weekly,6
+R0171,Casa Verde,$14,House blend,Monthly,4
+R0171,Nordic Roast,$14,Single origin,Monthly,7
+R0171,Casa Verde,$24,Single origin,Every two weeks,3
+R0171,Arabica Hills,$24,House blend,Monthly,3
+R0171,Nordic Roast,$19,Single origin,Weekly,8
+R0171,Arabica Hills,$24,House blend,Weekly,5
+R0171,Nordic Roast,$24,Single origin,Monthly,2
+R0172,Nordic Roast,$24,House blend,Monthly,2
+R0172,Nordic Roast,$24,House blend,Every two weeks,4
+R0172,Nordic Roast,$14,Single origin,Weekly,9
+R0172,Casa Verde,$14,Single origin,Weekly,7
+R0172,Casa Verde,$14,House blend,Weekly,7
+R0172,Arabica Hills,$24,House blend,Monthly,3
+R0172,Casa Verde,$24,House blend,Weekly,2
+R0172,Casa Verde,$19,House blend,Weekly,5
+R0172,Casa Verde,$24,Single origin,Monthly,1
+R0172,Nordic Roast,$24,Single origin,Weekly,4
+R0172,Casa Verde,$19,Single origin,Every two weeks,5
+R0172,Arabica Hills,$24,Single origin,Monthly,3
+R0172,Nordic Roast,$19,House blend,Monthly,3
+R0172,Arabica Hills,$14,Single origin,Every two weeks,8
+R0173,Nordic Roast,$24,House blend,Every two weeks,4
+R0173,Nordic Roast,$24,Single origin,Every two weeks,5
+R0173,Arabica Hills,$14,Single origin,Monthly,8
+R0173,Nordic Roast,$19,House blend,Monthly,5
+R0173,Casa Verde,$14,House blend,Weekly,9
+R0173,Casa Verde,$19,House blend,Every two weeks,5
+R0173,Casa Verde,$14,Single origin,Every two weeks,9
+R0173,Casa Verde,$19,House blend,Weekly,5
+R0173,Arabica Hills,$14,House blend,Every two weeks,8
+R0173,Arabica Hills,$14,Single origin,Weekly,10
+R0173,Nordic Roast,$14,House blend,Monthly,7
+R0173,Casa Verde,$24,House blend,Weekly,3
+R0173,Arabica Hills,$19,House blend,Weekly,7
+R0173,Casa Verde,$19,House blend,Monthly,4
+R0174,Nordic Roast,$14,House blend,Every two weeks,7
+R0174,Casa Verde,$14,House blend,Monthly,5
+R0174,Nordic Roast,$14,Single origin,Monthly,7
+R0174,Arabica Hills,$19,Single origin,Every two weeks,7
+R0174,Casa Verde,$19,House blend,Every two weeks,6
+R0174,Casa Verde,$19,Single origin,Monthly,6
+R0174,Casa Verde,$24,Single origin,Monthly,5
+R0174,Casa Verde,$14,House blend,Weekly,5
+R0174,Arabica Hills,$14,Single origin,Every two weeks,8
+R0174,Arabica Hills,$24,House blend,Monthly,2
+R0174,Casa Verde,$14,Single origin,Monthly,6
+R0174,Arabica Hills,$19,House blend,Every two weeks,4
+R0174,Nordic Roast,$14,Single origin,Weekly,7
+R0174,Arabica Hills,$19,Single origin,Monthly,5
+R0175,Casa Verde,$14,Single origin,Weekly,9
+R0175,Nordic Roast,$24,House blend,Monthly,5
+R0175,Casa Verde,$14,House blend,Monthly,4
+R0175,Arabica Hills,$14,Single origin,Every two weeks,9
+R0175,Casa Verde,$14,House blend,Weekly,7
+R0175,Casa Verde,$24,House blend,Every two weeks,3
+R0175,Arabica Hills,$24,House blend,Every two weeks,7
+R0175,Nordic Roast,$24,Single origin,Monthly,2
+R0175,Nordic Roast,$19,Single origin,Every two weeks,6
+R0175,Arabica Hills,$24,Single origin,Monthly,3
+R0175,Casa Verde,$24,Single origin,Monthly,2
+R0175,Arabica Hills,$14,House blend,Weekly,8
+R0175,Casa Verde,$24,Single origin,Weekly,8
+R0175,Casa Verde,$14,House blend,Every two weeks,7
+R0176,Nordic Roast,$24,House blend,Weekly,4
+R0176,Nordic Roast,$19,House blend,Monthly,6
+R0176,Arabica Hills,$14,House blend,Weekly,9
+R0176,Arabica Hills,$24,Single origin,Monthly,5
+R0176,Nordic Roast,$14,House blend,Monthly,6
+R0176,Arabica Hills,$24,House blend,Every two weeks,5
+R0176,Casa Verde,$19,Single origin,Every two weeks,6
+R0176,Casa Verde,$24,House blend,Every two weeks,5
+R0176,Arabica Hills,$14,Single origin,Monthly,7
+R0176,Casa Verde,$24,Single origin,Weekly,3
+R0176,Arabica Hills,$24,House blend,Monthly,4
+R0176,Casa Verde,$14,House blend,Weekly,7
+R0176,Arabica Hills,$24,Single origin,Every two weeks,6
+R0176,Arabica Hills,$19,Single origin,Every two weeks,6
+R0177,Nordic Roast,$14,Single origin,Every two weeks,9
+R0177,Arabica Hills,$19,Single origin,Every two weeks,7
+R0177,Nordic Roast,$19,Single origin,Every two weeks,5
+R0177,Nordic Roast,$19,Single origin,Weekly,6
+R0177,Arabica Hills,$14,Single origin,Monthly,9
+R0177,Arabica Hills,$14,Single origin,Every two weeks,9
+R0177,Arabica Hills,$24,Single origin,Monthly,3
+R0177,Arabica Hills,$19,Single origin,Weekly,7
+R0177,Arabica Hills,$24,House blend,Weekly,6
+R0177,Nordic Roast,$24,Single origin,Every two weeks,3
+R0177,Casa Verde,$19,House blend,Monthly,3
+R0177,Arabica Hills,$14,Single origin,Weekly,8
+R0177,Casa Verde,$24,House blend,Every two weeks,5
+R0177,Casa Verde,$19,House blend,Every two weeks,5
+R0178,Casa Verde,$14,Single origin,Monthly,8
+R0178,Nordic Roast,$19,House blend,Every two weeks,5
+R0178,Arabica Hills,$19,Single origin,Monthly,8
+R0178,Arabica Hills,$14,Single origin,Weekly,10
+R0178,Casa Verde,$24,Single origin,Monthly,2
+R0178,Casa Verde,$24,House blend,Every two weeks,2
+R0178,Nordic Roast,$14,Single origin,Monthly,7
+R0178,Arabica Hills,$24,House blend,Weekly,6
+R0178,Casa Verde,$19,Single origin,Every two weeks,6
+R0178,Arabica Hills,$14,Single origin,Monthly,8
+R0178,Casa Verde,$19,Single origin,Weekly,5
+R0178,Nordic Roast,$19,Single origin,Weekly,6
+R0178,Casa Verde,$24,Single origin,Weekly,3
+R0178,Casa Verde,$14,House blend,Every two weeks,8
+R0179,Nordic Roast,$14,Single origin,Monthly,6
+R0179,Casa Verde,$14,Single origin,Every two weeks,5
+R0179,Arabica Hills,$24,Single origin,Every two weeks,3
+R0179,Casa Verde,$24,House blend,Every two weeks,4
+R0179,Arabica Hills,$24,Single origin,Weekly,5
+R0179,Casa Verde,$24,Single origin,Monthly,3
+R0179,Nordic Roast,$24,Single origin,Monthly,4
+R0179,Arabica Hills,$14,Single origin,Monthly,7
+R0179,Nordic Roast,$24,Single origin,Weekly,4
+R0179,Casa Verde,$19,Single origin,Every two weeks,6
+R0179,Casa Verde,$19,House blend,Weekly,4
+R0179,Casa Verde,$19,House blend,Monthly,4
+R0179,Casa Verde,$19,Single origin,Weekly,7
+R0179,Nordic Roast,$19,Single origin,Weekly,6
+R0180,Casa Verde,$19,Single origin,Monthly,5
+R0180,Casa Verde,$14,House blend,Monthly,6
+R0180,Casa Verde,$14,House blend,Every two weeks,6
+R0180,Nordic Roast,$19,House blend,Every two weeks,5
+R0180,Casa Verde,$24,Single origin,Every two weeks,3
+R0180,Casa Verde,$19,House blend,Monthly,6
+R0180,Arabica Hills,$19,House blend,Every two weeks,5
+R0180,Arabica Hills,$14,Single origin,Every two weeks,7
+R0180,Nordic Roast,$14,House blend,Weekly,7
+R0180,Arabica Hills,$14,Single origin,Weekly,10
+R0180,Arabica Hills,$14,House blend,Monthly,7
+R0180,Arabica Hills,$19,Single origin,Every two weeks,6
+R0180,Arabica Hills,$19,Single origin,Monthly,6
+R0180,Casa Verde,$14,Single origin,Weekly,8
+R0181,Nordic Roast,$24,Single origin,Weekly,5
+R0181,Casa Verde,$19,Single origin,Weekly,7
+R0181,Nordic Roast,$19,Single origin,Monthly,4
+R0181,Casa Verde,$19,Single origin,Monthly,4
+R0181,Casa Verde,$24,Single origin,Monthly,3
+R0181,Casa Verde,$14,House blend,Every two weeks,7
+R0181,Casa Verde,$14,Single origin,Every two weeks,8
+R0181,Nordic Roast,$14,Single origin,Every two weeks,9
+R0181,Arabica Hills,$19,House blend,Monthly,6
+R0181,Nordic Roast,$24,House blend,Every two weeks,4
+R0181,Arabica Hills,$24,Single origin,Weekly,6
+R0181,Arabica Hills,$24,Single origin,Every two weeks,6
+R0181,Arabica Hills,$24,House blend,Monthly,5
+R0181,Arabica Hills,$19,House blend,Weekly,8
+R0182,Casa Verde,$24,Single origin,Weekly,4
+R0182,Arabica Hills,$19,House blend,Every two weeks,8
+R0182,Casa Verde,$24,Single origin,Monthly,1
+R0182,Nordic Roast,$14,House blend,Weekly,6
+R0182,Arabica Hills,$14,Single origin,Weekly,8
+R0182,Arabica Hills,$14,House blend,Every two weeks,8
+R0182,Casa Verde,$19,Single origin,Weekly,6
+R0182,Arabica Hills,$24,Single origin,Every two weeks,6
+R0182,Arabica Hills,$19,House blend,Monthly,2
+R0182,Nordic Roast,$19,House blend,Weekly,6
+R0182,Arabica Hills,$14,Single origin,Every two weeks,8
+R0182,Nordic Roast,$24,Single origin,Every two weeks,6
+R0182,Nordic Roast,$19,House blend,Every two weeks,6
+R0182,Casa Verde,$24,House blend,Monthly,1
+R0183,Nordic Roast,$24,Single origin,Monthly,5
+R0183,Arabica Hills,$24,Single origin,Every two weeks,6
+R0183,Nordic Roast,$19,House blend,Weekly,5
+R0183,Casa Verde,$19,Single origin,Every two weeks,4
+R0183,Nordic Roast,$24,House blend,Weekly,5
+R0183,Casa Verde,$14,House blend,Weekly,8
+R0183,Casa Verde,$14,House blend,Every two weeks,8
+R0183,Nordic Roast,$24,Single origin,Every two weeks,5
+R0183,Arabica Hills,$19,Single origin,Weekly,5
+R0183,Nordic Roast,$24,House blend,Monthly,5
+R0183,Nordic Roast,$14,Single origin,Every two weeks,8
+R0183,Arabica Hills,$19,Single origin,Every two weeks,6
+R0183,Arabica Hills,$24,Single origin,Weekly,6
+R0183,Casa Verde,$14,Single origin,Every two weeks,7
+R0184,Nordic Roast,$14,Single origin,Weekly,4
+R0184,Arabica Hills,$14,House blend,Every two weeks,8
+R0184,Arabica Hills,$14,House blend,Monthly,5
+R0184,Arabica Hills,$19,Single origin,Every two weeks,4
+R0184,Casa Verde,$24,Single origin,Monthly,3
+R0184,Casa Verde,$19,Single origin,Every two weeks,5
+R0184,Casa Verde,$24,Single origin,Weekly,4
+R0184,Casa Verde,$24,Single origin,Every two weeks,4
+R0184,Casa Verde,$24,House blend,Weekly,3
+R0184,Casa Verde,$24,House blend,Every two weeks,2
+R0184,Arabica Hills,$24,House blend,Weekly,4
+R0184,Arabica Hills,$24,House blend,Every two weeks,5
+R0184,Casa Verde,$14,House blend,Every two weeks,5
+R0184,Casa Verde,$19,Single origin,Weekly,4
+R0185,Nordic Roast,$24,Single origin,Monthly,2
+R0185,Casa Verde,$14,House blend,Monthly,6
+R0185,Arabica Hills,$19,Single origin,Every two weeks,7
+R0185,Arabica Hills,$24,Single origin,Every two weeks,6
+R0185,Casa Verde,$24,Single origin,Weekly,3
+R0185,Nordic Roast,$14,Single origin,Monthly,7
+R0185,Casa Verde,$19,Single origin,Monthly,4
+R0185,Casa Verde,$24,House blend,Every two weeks,2
+R0185,Arabica Hills,$24,House blend,Monthly,1
+R0185,Nordic Roast,$19,House blend,Monthly,4
+R0185,Nordic Roast,$24,Single origin,Every two weeks,5
+R0185,Arabica Hills,$14,Single origin,Every two weeks,8
+R0185,Nordic Roast,$14,House blend,Monthly,6
+R0185,Nordic Roast,$24,House blend,Monthly,2
+R0186,Arabica Hills,$14,House blend,Monthly,4
+R0186,Casa Verde,$19,House blend,Weekly,5
+R0186,Nordic Roast,$24,House blend,Weekly,6
+R0186,Arabica Hills,$24,Single origin,Every two weeks,4
+R0186,Arabica Hills,$24,Single origin,Weekly,5
+R0186,Arabica Hills,$19,House blend,Every two weeks,6
+R0186,Nordic Roast,$24,House blend,Every two weeks,5
+R0186,Casa Verde,$24,Single origin,Weekly,6
+R0186,Arabica Hills,$19,Single origin,Every two weeks,5
+R0186,Nordic Roast,$19,House blend,Weekly,6
+R0186,Arabica Hills,$14,Single origin,Weekly,8
+R0186,Arabica Hills,$14,Single origin,Monthly,7
+R0186,Arabica Hills,$14,House blend,Weekly,8
+R0186,Arabica Hills,$24,House blend,Weekly,3
+R0187,Casa Verde,$24,House blend,Monthly,2
+R0187,Nordic Roast,$19,Single origin,Weekly,7
+R0187,Arabica Hills,$14,Single origin,Monthly,6
+R0187,Arabica Hills,$24,Single origin,Every two weeks,7
+R0187,Nordic Roast,$24,House blend,Every two weeks,3
+R0187,Casa Verde,$24,House blend,Every two weeks,3
+R0187,Casa Verde,$19,House blend,Monthly,3
+R0187,Nordic Roast,$14,Single origin,Weekly,7
+R0187,Arabica Hills,$24,Single origin,Monthly,2
+R0187,Arabica Hills,$14,House blend,Monthly,3
+R0187,Casa Verde,$24,House blend,Weekly,3
+R0187,Arabica Hills,$19,House blend,Weekly,5
+R0187,Arabica Hills,$24,House blend,Every two weeks,4
+R0187,Casa Verde,$24,Single origin,Every two weeks,4
+R0188,Casa Verde,$24,House blend,Weekly,4
+R0188,Nordic Roast,$24,Single origin,Monthly,5
+R0188,Nordic Roast,$19,House blend,Monthly,3
+R0188,Casa Verde,$14,Single origin,Every two weeks,5
+R0188,Casa Verde,$24,Single origin,Monthly,4
+R0188,Casa Verde,$24,House blend,Monthly,2
+R0188,Arabica Hills,$19,Single origin,Every two weeks,6
+R0188,Casa Verde,$24,Single origin,Every two weeks,5
+R0188,Arabica Hills,$19,House blend,Every two weeks,6
+R0188,Arabica Hills,$14,House blend,Monthly,6
+R0188,Arabica Hills,$14,Single origin,Monthly,6
+R0188,Casa Verde,$14,House blend,Weekly,6
+R0188,Arabica Hills,$19,House blend,Weekly,6
+R0188,Arabica Hills,$14,House blend,Every two weeks,8
+R0189,Casa Verde,$19,Single origin,Weekly,6
+R0189,Arabica Hills,$19,Single origin,Every two weeks,6
+R0189,Casa Verde,$14,House blend,Weekly,6
+R0189,Nordic Roast,$19,House blend,Monthly,5
+R0189,Casa Verde,$19,House blend,Weekly,4
+R0189,Nordic Roast,$14,Single origin,Weekly,8
+R0189,Casa Verde,$14,Single origin,Every two weeks,4
+R0189,Nordic Roast,$14,House blend,Every two weeks,7
+R0189,Casa Verde,$19,House blend,Monthly,3
+R0189,Arabica Hills,$14,House blend,Every two weeks,7
+R0189,Nordic Roast,$24,House blend,Every two weeks,4
+R0189,Arabica Hills,$19,House blend,Weekly,7
+R0189,Nordic Roast,$19,Single origin,Weekly,6
+R0189,Casa Verde,$19,Single origin,Monthly,4
+R0190,Arabica Hills,$14,House blend,Every two weeks,6
+R0190,Nordic Roast,$24,Single origin,Every two weeks,2
+R0190,Nordic Roast,$24,Single origin,Weekly,4
+R0190,Arabica Hills,$24,Single origin,Every two weeks,3
+R0190,Arabica Hills,$24,Single origin,Monthly,3
+R0190,Casa Verde,$19,Single origin,Monthly,5
+R0190,Nordic Roast,$14,House blend,Weekly,6
+R0190,Arabica Hills,$24,Single origin,Weekly,2
+R0190,Casa Verde,$24,Single origin,Every two weeks,2
+R0190,Casa Verde,$24,House blend,Monthly,2
+R0190,Casa Verde,$19,Single origin,Weekly,4
+R0190,Arabica Hills,$14,Single origin,Monthly,7
+R0190,Nordic Roast,$19,House blend,Weekly,6
+R0190,Nordic Roast,$14,House blend,Monthly,7
+R0191,Arabica Hills,$24,House blend,Weekly,5
+R0191,Arabica Hills,$14,House blend,Every two weeks,7
+R0191,Arabica Hills,$24,House blend,Every two weeks,4
+R0191,Arabica Hills,$14,House blend,Monthly,8
+R0191,Casa Verde,$14,House blend,Every two weeks,7
+R0191,Casa Verde,$24,Single origin,Every two weeks,4
+R0191,Casa Verde,$19,Single origin,Every two weeks,7
+R0191,Casa Verde,$14,House blend,Weekly,7
+R0191,Casa Verde,$24,Single origin,Weekly,5
+R0191,Arabica Hills,$24,Single origin,Every two weeks,4
+R0191,Casa Verde,$24,House blend,Weekly,3
+R0191,Nordic Roast,$19,Single origin,Every two weeks,8
+R0191,Casa Verde,$19,Single origin,Monthly,5
+R0191,Nordic Roast,$14,House blend,Every two weeks,8
+R0192,Casa Verde,$24,Single origin,Every two weeks,3
+R0192,Nordic Roast,$19,House blend,Weekly,6
+R0192,Casa Verde,$24,Single origin,Monthly,2
+R0192,Casa Verde,$14,Single origin,Weekly,7
+R0192,Arabica Hills,$24,Single origin,Every two weeks,4
+R0192,Arabica Hills,$24,House blend,Every two weeks,3
+R0192,Nordic Roast,$14,Single origin,Weekly,8
+R0192,Casa Verde,$19,House blend,Every two weeks,2
+R0192,Casa Verde,$19,Single origin,Weekly,5
+R0192,Nordic Roast,$24,Single origin,Weekly,5
+R0192,Casa Verde,$14,Single origin,Every two weeks,5
+R0192,Arabica Hills,$19,Single origin,Weekly,7
+R0192,Nordic Roast,$14,House blend,Weekly,5
+R0192,Casa Verde,$19,House blend,Weekly,4
+R0193,Casa Verde,$24,House blend,Monthly,1
+R0193,Nordic Roast,$14,Single origin,Monthly,8
+R0193,Arabica Hills,$24,Single origin,Weekly,4
+R0193,Arabica Hills,$19,Single origin,Monthly,6
+R0193,Casa Verde,$24,House blend,Weekly,2
+R0193,Arabica Hills,$14,House blend,Weekly,8
+R0193,Nordic Roast,$24,Single origin,Monthly,3
+R0193,Casa Verde,$14,House blend,Weekly,5
+R0193,Casa Verde,$24,Single origin,Monthly,2
+R0193,Nordic Roast,$24,Single origin,Every two weeks,4
+R0193,Nordic Roast,$14,Single origin,Every two weeks,8
+R0193,Arabica Hills,$24,Single origin,Monthly,4
+R0193,Arabica Hills,$19,House blend,Monthly,5
+R0193,Arabica Hills,$24,House blend,Monthly,2
+R0194,Arabica Hills,$14,Single origin,Monthly,5
+R0194,Casa Verde,$14,House blend,Monthly,5
+R0194,Nordic Roast,$24,Single origin,Monthly,4
+R0194,Nordic Roast,$19,Single origin,Every two weeks,8
+R0194,Casa Verde,$19,House blend,Every two weeks,5
+R0194,Nordic Roast,$19,Single origin,Monthly,3
+R0194,Nordic Roast,$19,Single origin,Weekly,7
+R0194,Nordic Roast,$14,Single origin,Every two weeks,8
+R0194,Nordic Roast,$14,Single origin,Monthly,7
+R0194,Arabica Hills,$24,Single origin,Weekly,6
+R0194,Casa Verde,$14,Single origin,Weekly,9
+R0194,Casa Verde,$24,Single origin,Every two weeks,5
+R0194,Arabica Hills,$24,House blend,Monthly,3
+R0194,Casa Verde,$14,House blend,Every two weeks,9
+R0195,Arabica Hills,$19,Single origin,Weekly,8
+R0195,Nordic Roast,$24,Single origin,Every two weeks,3
+R0195,Arabica Hills,$14,Single origin,Weekly,9
+R0195,Nordic Roast,$24,House blend,Every two weeks,4
+R0195,Casa Verde,$19,Single origin,Every two weeks,6
+R0195,Nordic Roast,$14,House blend,Weekly,7
+R0195,Arabica Hills,$14,House blend,Weekly,10
+R0195,Nordic Roast,$14,Single origin,Weekly,8
+R0195,Arabica Hills,$19,House blend,Every two weeks,5
+R0195,Nordic Roast,$14,Single origin,Monthly,7
+R0195,Arabica Hills,$19,Single origin,Every two weeks,8
+R0195,Arabica Hills,$19,House blend,Monthly,4
+R0195,Arabica Hills,$19,House blend,Weekly,7
+R0195,Arabica Hills,$24,Single origin,Monthly,3
+R0196,Casa Verde,$24,Single origin,Monthly,4
+R0196,Casa Verde,$14,Single origin,Monthly,6
+R0196,Arabica Hills,$24,Single origin,Monthly,5
+R0196,Arabica Hills,$14,House blend,Every two weeks,6
+R0196,Casa Verde,$14,House blend,Weekly,6
+R0196,Arabica Hills,$19,House blend,Monthly,4
+R0196,Arabica Hills,$19,Single origin,Every two weeks,7
+R0196,Casa Verde,$24,Single origin,Every two weeks,1
+R0196,Arabica Hills,$14,House blend,Monthly,6
+R0196,Casa Verde,$19,Single origin,Every two weeks,5
+R0196,Casa Verde,$19,House blend,Monthly,4
+R0196,Casa Verde,$24,Single origin,Weekly,7
+R0196,Arabica Hills,$14,Single origin,Every two weeks,8
+R0196,Nordic Roast,$19,House blend,Weekly,6
+R0197,Casa Verde,$14,House blend,Monthly,6
+R0197,Arabica Hills,$24,House blend,Monthly,2
+R0197,Arabica Hills,$24,Single origin,Every two weeks,5
+R0197,Casa Verde,$24,House blend,Every two weeks,4
+R0197,Casa Verde,$24,Single origin,Monthly,1
+R0197,Arabica Hills,$19,House blend,Monthly,4
+R0197,Nordic Roast,$19,House blend,Monthly,3
+R0197,Nordic Roast,$19,House blend,Weekly,7
+R0197,Casa Verde,$14,House blend,Every two weeks,6
+R0197,Arabica Hills,$14,House blend,Every two weeks,9
+R0197,Nordic Roast,$24,Single origin,Weekly,7
+R0197,Nordic Roast,$24,Single origin,Every two weeks,4
+R0197,Casa Verde,$19,Single origin,Weekly,7
+R0197,Nordic Roast,$24,Single origin,Monthly,3
+R0198,Casa Verde,$14,House blend,Monthly,6
+R0198,Arabica Hills,$19,Single origin,Monthly,3
+R0198,Casa Verde,$19,House blend,Monthly,4
+R0198,Casa Verde,$19,Single origin,Every two weeks,5
+R0198,Nordic Roast,$24,Single origin,Monthly,4
+R0198,Nordic Roast,$14,Single origin,Monthly,6
+R0198,Arabica Hills,$24,Single origin,Every two weeks,4
+R0198,Nordic Roast,$14,House blend,Weekly,8
+R0198,Casa Verde,$19,Single origin,Weekly,6
+R0198,Nordic Roast,$19,House blend,Weekly,6
+R0198,Arabica Hills,$24,House blend,Monthly,3
+R0198,Arabica Hills,$19,Single origin,Every two weeks,6
+R0198,Casa Verde,$14,Single origin,Weekly,7
+R0198,Casa Verde,$24,House blend,Weekly,3
+R0199,Casa Verde,$14,Single origin,Every two weeks,6
+R0199,Nordic Roast,$24,House blend,Every two weeks,4
+R0199,Nordic Roast,$14,Single origin,Weekly,8
+R0199,Arabica Hills,$14,Single origin,Weekly,8
+R0199,Arabica Hills,$14,House blend,Every two weeks,7
+R0199,Nordic Roast,$24,House blend,Monthly,1
+R0199,Casa Verde,$24,House blend,Weekly,3
+R0199,Arabica Hills,$24,Single origin,Every two weeks,6
+R0199,Arabica Hills,$14,House blend,Weekly,8
+R0199,Arabica Hills,$24,House blend,Monthly,2
+R0199,Casa Verde,$14,House blend,Monthly,6
+R0199,Casa Verde,$24,House blend,Every two weeks,2
+R0199,Nordic Roast,$19,Single origin,Every two weeks,7
+R0199,Casa Verde,$19,Single origin,Weekly,5
+R0200,Nordic Roast,$19,House blend,Every two weeks,6
+R0200,Casa Verde,$14,Single origin,Weekly,7
+R0200,Casa Verde,$14,Single origin,Every two weeks,7
+R0200,Casa Verde,$19,House blend,Every two weeks,3
+R0200,Arabica Hills,$14,House blend,Every two weeks,7
+R0200,Casa Verde,$24,House blend,Every two weeks,2
+R0200,Nordic Roast,$14,Single origin,Every two weeks,9
+R0200,Nordic Roast,$14,Single origin,Monthly,7
+R0200,Nordic Roast,$19,Single origin,Weekly,8
+R0200,Nordic Roast,$14,House blend,Monthly,6
+R0200,Nordic Roast,$14,House blend,Weekly,8
+R0200,Nordic Roast,$24,House blend,Weekly,6
+R0200,Casa Verde,$24,Single origin,Weekly,4
+R0200,Arabica Hills,$14,House blend,Weekly,8

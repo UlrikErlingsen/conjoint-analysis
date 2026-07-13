@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "conjoint-analysis"
+version = "0.1.0"
+description = "ChoiceSignal: open, local-first conjoint (preference) analysis for marketers"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "AGPL-3.0-or-later" }
+authors = [{ name = "Ulrik Erlingsen" }]
+keywords = ["conjoint analysis", "market research", "pricing", "marketing analytics", "streamlit"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Office/Business",
+]
+dependencies = [
+  "numpy>=1.24,<3",
+  "openpyxl>=3.1,<4",
+  "pandas>=2.0,<3",
+  "plotly>=5.18,<7",
+  "streamlit>=1.38,<2",
+  "xlrd>=2.0,<3",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[project.urls]
+Homepage = "https://github.com/UlrikErlingsen/conjoint-analysis"
+Documentation = "https://github.com/UlrikErlingsen/conjoint-analysis/blob/main/docs/data_guide.md"
+Issues = "https://github.com/UlrikErlingsen/conjoint-analysis/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="ChoiceSignal mark">
+  <rect width="128" height="128" rx="30" fill="#173C3A"/>
+  <rect x="26" y="30" width="42" height="14" rx="7" fill="#83D2B4" opacity="0.85"/>
+  <rect x="26" y="57" width="76" height="14" rx="7" fill="#F2C66D"/>
+  <rect x="26" y="84" width="56" height="14" rx="7" fill="#83D2B4" opacity="0.55"/>
+  <circle cx="103" cy="64" r="14" fill="#D95B40"/>
+  <path d="M96.5 64.5l4.5 4.5 9-10" fill="none" stroke="#F8F5ED" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
