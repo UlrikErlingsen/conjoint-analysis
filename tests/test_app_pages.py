@@ -28,7 +28,7 @@ def test_loading_a_demo_navigates_to_page_one_and_keeps_the_radio_in_sync():
     next(button for button in app.sidebar.button if button.label == "Demo · coffee subscriptions").click().run()
     assert app.sidebar.radio[0].value == "1 · Data & design"
     assert app.session_state["nav_target"] == "1 · Data & design"
-    assert any(metric.label == "Rows (ratings)" and metric.value == "2,800" for metric in app.metric)
+    assert any(metric.label == "Rows (ratings)" and metric.value == "4,200" for metric in app.metric)
     assert not app.exception, [error.value for error in app.exception]
 
 

@@ -6,9 +6,13 @@ import pytest
 
 from choicesignal.conjoint import (
     ConjointDesign,
+    adjust_shares,
     build_design,
+    cannibalization_report,
     design_report,
     estimate_conjoint,
+    ideal_products,
+    optimal_products,
     simulate_shares,
 )
 from choicesignal.errors import DataProblem
@@ -88,24 +92,25 @@ def test_design_validation_errors_are_friendly():
         build_design(frame, "respondent_id", "rating", ["rating"])
 
 
-def test_simulator_prefers_the_dominant_product():
+STRONG_COFFEE = {
+    "brand": "Arabica Hills", "price_per_month": "$14", "beans": "Single origin", "delivery": "Weekly",
+}
+WEAK_COFFEE = {
+    "brand": "Casa Verde", "price_per_month": "$24", "beans": "House blend", "delivery": "Monthly",
+}
+
+
+def test_simulator_prefers_the_dominant_product_under_all_three_rules():
     frame = _coffee_frame()
     design = _coffee_design(frame)
     result = estimate_conjoint(frame, design)
-    products = {
-        "Premium cheap": {
-            "brand": "Arabica Hills", "price_per_month": "$14", "beans": "Single origin", "delivery": "Weekly",
-        },
-        "Weak expensive": {
-            "brand": "Casa Verde", "price_per_month": "$24", "beans": "House blend", "delivery": "Monthly",
-        },
-    }
-    shares = simulate_shares(result.individual, products, design)
-    assert np.isclose(shares["first_choice_share_%"].sum(), 100, atol=0.1)
-    assert np.isclose(shares["share_of_preference_%"].sum(), 100, atol=0.1)
-    dominant = shares[shares["product"] == "Premium cheap"].iloc[0]
+    shares = simulate_shares(result, {"Premium cheap": STRONG_COFFEE, "Weak expensive": WEAK_COFFEE}, design)
+    for column in ("first_choice_share_%", "share_of_preference_%", "logit_share_%"):
+        assert np.isclose(shares[column].sum(), 100, atol=0.2)
+        assert shares.set_index("product")[column]["Premium cheap"] > shares.set_index("product")[column]["Weak expensive"]
+    dominant = shares.set_index("product").loc["Premium cheap"]
     assert dominant["first_choice_share_%"] > 85
-    assert dominant["share_of_preference_%"] > 60
+    assert dominant["mean_predicted_rating"] > shares.set_index("product").loc["Weak expensive"]["mean_predicted_rating"]
 
 
 def test_simulator_requires_individual_estimates_and_valid_levels():
@@ -113,17 +118,74 @@ def test_simulator_requires_individual_estimates_and_valid_levels():
     design = _coffee_design(frame)
     result = estimate_conjoint(frame, design)
     with pytest.raises(DataProblem, match="at least two products"):
-        simulate_shares(result.individual, {"Only one": {}}, design)
+        simulate_shares(result, {"Only one": {}}, design)
     with pytest.raises(DataProblem, match="valid level"):
         simulate_shares(
-            result.individual,
-            {"A": {"brand": "Nope", "price_per_month": "$14", "beans": "Single origin", "delivery": "Weekly"},
-             "B": {"brand": "Casa Verde", "price_per_month": "$24", "beans": "House blend", "delivery": "Monthly"}},
+            result,
+            {"A": {**STRONG_COFFEE, "brand": "Nope"}, "B": WEAK_COFFEE},
             design,
         )
-    empty = result.individual.iloc[0:0]
+    pooled_only = estimate_conjoint(frame.groupby("respondent_id").head(3).reset_index(drop=True), design)
     with pytest.raises(DataProblem, match="individual estimates"):
-        simulate_shares(empty, {"A": {}, "B": {}}, design)
+        simulate_shares(pooled_only, {"A": STRONG_COFFEE, "B": WEAK_COFFEE}, design)
+
+
+def test_optimal_search_finds_the_true_best_design():
+    frame = _coffee_frame()
+    design = _coffee_design(frame)
+    result = estimate_conjoint(frame, design)
+    best_without_competitors = optimal_products(result, design, competitors=None, top_n=3)
+    top = best_without_competitors.iloc[0]
+    for attribute, level_values in TRUE_COFFEE.items():
+        assert top[attribute] == max(level_values, key=level_values.get)
+    against = optimal_products(result, design, competitors={"Weak": WEAK_COFFEE, "Strong": STRONG_COFFEE}, top_n=3)
+    assert "first_choice_share_vs_competitors_%" in against.columns
+    assert against.iloc[0]["first_choice_share_vs_competitors_%"] >= against.iloc[-1]["first_choice_share_vs_competitors_%"]
+
+
+def test_ideal_products_match_true_preferences():
+    frame = _coffee_frame()
+    design = _coffee_design(frame)
+    result = estimate_conjoint(frame, design)
+    favorites = ideal_products(result, design, top_n=3)
+    top = favorites.iloc[0]
+    for attribute, level_values in TRUE_COFFEE.items():
+        assert top[attribute] == max(level_values, key=level_values.get)
+    assert favorites["share_%"].iloc[0] > 10
+
+
+def test_adjust_shares_weights_and_renormalizes():
+    shares = pd.DataFrame(
+        {
+            "product": ["A", "B"],
+            "first_choice_share_%": [50.0, 50.0],
+            "share_of_preference_%": [50.0, 50.0],
+            "logit_share_%": [50.0, 50.0],
+            "mean_predicted_rating": [5.0, 5.0],
+        }
+    )
+    adjusted = adjust_shares(shares, {"A": (100.0, 100.0), "B": (50.0, 50.0)})
+    row = adjusted.set_index("product")
+    assert np.isclose(row.loc["A", "first_choice_share_%"], 80.0, atol=0.1)
+    assert np.isclose(row.loc["B", "first_choice_share_%"], 20.0, atol=0.1)
+    with pytest.raises(DataProblem, match="between 0 and 100"):
+        adjust_shares(shares, {"A": (150.0, 100.0)})
+
+
+def test_cannibalization_report_shows_where_share_comes_from():
+    frame = _coffee_frame()
+    design = _coffee_design(frame)
+    result = estimate_conjoint(frame, design)
+    middling = {"brand": "Nordic Roast", "price_per_month": "$19", "beans": "Single origin", "delivery": "Weekly"}
+    products = {"Flagship": STRONG_COFFEE, "Budget line": WEAK_COFFEE, "New mid-tier": middling}
+    report = cannibalization_report(result, products, "New mid-tier", design)
+    assert set(report["product"]) == {"Flagship", "Budget line", "New mid-tier (new)"}
+    incumbents = report[report["product"] != "New mid-tier (new)"]
+    assert (incumbents["change_points"] <= 0).all()
+    new_row = report[report["product"] == "New mid-tier (new)"].iloc[0]
+    assert new_row["share_after_%"] > 0
+    with pytest.raises(DataProblem, match="new entrant"):
+        cannibalization_report(result, products, "Not defined", design)
 
 
 def test_design_report_flags_rare_levels():

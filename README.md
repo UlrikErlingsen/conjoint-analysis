@@ -58,12 +58,12 @@ Then open `http://localhost:8501`.
 
 ## Try it in two minutes
 
-1. Start the app and click **Demo · coffee subscriptions** in the sidebar.
+1. Start the app and click **Demo · coffee subscriptions** in the sidebar (the **car buyers** demo hides two taste segments to discover).
 2. On **1 · Data & design**, confirm the suggested respondent, rating, and attribute columns, then check and save the design.
 3. On **2 · Utilities & importance**, estimate the part-worth utilities and read which attributes drive preference.
 4. On **3 · Simulate & export**, define two candidate subscriptions and compare their preference shares, then download the Excel pack.
 
-Both demos are fictional. `examples/ratings_template.csv` shows the expected data shape.
+All demos are fictional. `examples/ratings_template.csv` shows the expected data shape.
 
 ## Which data works?
 
@@ -85,7 +85,10 @@ ChoiceSignal implements classic **ratings-based (full-profile) conjoint analysis
 - attribute importance as each attribute's share of the total preference range, averaged over respondents;
 - per-respondent fit (R²) and estimability;
 - design health: level exposure, imbalance, and perfectly confounded attributes (rejected);
-- preference-share simulation using first-choice and Bradley–Terry–Luce (share-of-preference) rules.
+- preference-share simulation under three classic choice rules (first choice, share of preference, logit);
+- awareness × availability share adjustment and a cannibalization view for product-line decisions;
+- an exhaustive optimal-product search across every combination of tested levels;
+- a per-respondent part-worth export shaped for preference segmentation (it opens directly in SegmentSignal).
 
 Interactions between attributes, choice-based conjoint (CBC), hierarchical Bayes estimation, and willingness-to-pay conversion are deliberately outside this first release; the docs explain why. See [methods and references](docs/methods.md).
 

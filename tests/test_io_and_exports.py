@@ -14,7 +14,10 @@ def test_demo_files_load_with_expected_shape():
     coffee = load_data(ROOT / "examples" / "demo_coffee_ratings.csv")
     frame = coffee.tables["ratings"]
     assert list(frame.columns) == ["respondent_id", "brand", "price_per_month", "beans", "delivery", "rating"]
-    assert frame["respondent_id"].nunique() == 200
+    assert frame["respondent_id"].nunique() == 300
+    cars = load_data(ROOT / "examples" / "demo_car_ratings.csv").tables["ratings"]
+    assert cars["respondent_id"].nunique() == 350
+    assert list(cars.columns) == ["respondent_id", "brand_origin", "body_type", "engine", "price", "rating"]
     streaming = load_data(ROOT / "examples" / "demo_streaming_ratings.csv").tables["ratings"]
     assert streaming["respondent_id"].nunique() == 150
 

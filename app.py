@@ -27,9 +27,13 @@ sys.path.insert(0, str(ROOT / "src"))
 from choicesignal import __version__
 from choicesignal.conjoint import (
     ConjointDesign,
+    adjust_shares,
     build_design,
+    cannibalization_report,
     design_report,
     estimate_conjoint,
+    ideal_products,
+    optimal_products,
     simulate_shares,
 )
 from choicesignal.errors import DataProblem, friendly_message
@@ -147,7 +151,7 @@ def set_loaded(loaded: LoadedData) -> None:
     st.session_state["tables"] = loaded.tables
     st.session_state["source_name"] = loaded.source_name
     st.session_state["active_table"] = next(iter(loaded.tables))
-    for key in ("study", "result", "products", "shares"):
+    for key in ("study", "result", "products", "shares", "optimal"):
         st.session_state.pop(key, None)
 
 
@@ -234,14 +238,21 @@ with st.sidebar:
         load_demo("demo_coffee_ratings.csv")
         go_to("1 · Data & design")
         st.rerun()
+    if full_width(st.button, "Demo · car buyers"):
+        load_demo("demo_car_ratings.csv")
+        go_to("1 · Data & design")
+        st.rerun()
     if full_width(st.button, "Demo · streaming plans"):
         load_demo("demo_streaming_ratings.csv")
         go_to("1 · Data & design")
         st.rerun()
     with st.expander("What are the demos?"):
         st.caption(
-            "**Coffee subscriptions:** 200 fictional respondents rated 14 subscription profiles each "
+            "**Coffee subscriptions:** 300 fictional respondents rated 14 subscription profiles each "
             "(brand, price, beans, delivery).\n\n"
+            "**Car buyers:** 350 fictional respondents rated 16 car profiles each (brand origin, body, "
+            "engine, price). This one hides two different taste groups — try exporting the part-worths "
+            "into SegmentSignal to find them.\n\n"
             "**Streaming plans:** 150 fictional respondents rated 12 plan profiles each "
             "(price, quality, ads, screens).\n\n"
             "Every record is synthetic. `examples/ratings_template.csv` shows the expected shape."
@@ -249,7 +260,7 @@ with st.sidebar:
     if st.session_state.get("tables") and full_width(st.button, "Clear session data"):
         for key in (
             "tables", "source_name", "active_table", "upload_identity", "_uploader_had_file",
-            "study", "result", "products", "shares",
+            "study", "result", "products", "shares", "optimal",
         ):
             st.session_state.pop(key, None)
         st.session_state["upload_epoch"] = int(st.session_state.get("upload_epoch", 0)) + 1
@@ -266,7 +277,7 @@ with st.sidebar:
         )
         if selected_table != st.session_state.get("active_table"):
             st.session_state["active_table"] = selected_table
-            for key in ("study", "result", "products", "shares"):
+            for key in ("study", "result", "products", "shares", "optimal"):
                 st.session_state.pop(key, None)
         active = st.session_state["tables"][selected_table]
         st.caption(f"{st.session_state.get('source_name')} · {len(active):,} rows × {len(active.columns)} columns")
@@ -359,7 +370,7 @@ def data_page() -> None:
             design = build_design(frame, respondent_column, rating_column, attribute_columns)
             report, warnings = design_report(frame, design)
             st.session_state["study"] = {"frame": frame.copy(), "design": design, "source": st.session_state.get("source_name")}
-            for key in ("result", "products", "shares"):
+            for key in ("result", "products", "shares", "optimal"):
                 st.session_state.pop(key, None)
             st.success(
                 f"Design saved: {frame[respondent_column].nunique():,} respondents, "
@@ -397,6 +408,7 @@ def utilities_page() -> None:
             with st.spinner("Fitting one regression per respondent…"):
                 st.session_state["result"] = estimate_conjoint(frame, design)
             st.session_state.pop("shares", None)
+            st.session_state.pop("optimal", None)
         except Exception as exc:
             show_error(exc)
 
@@ -445,6 +457,19 @@ def utilities_page() -> None:
         "Importance is how much of the total preference range each attribute controls, averaged over respondents. "
         "It depends on the levels you tested: a price attribute spanning a wider price range would look more important."
     )
+
+    if result.method == "individual":
+        with st.expander("Most wanted combinations — each respondent’s personal favorite"):
+            try:
+                favorites = ideal_products(result, design, top_n=3)
+                full_width(st.dataframe, favorites, hide_index=True)
+                st.caption(
+                    "The level each respondent values most on every attribute, counted across respondents. "
+                    "A popular favorite is not automatically the best product to launch — costs, competitors, "
+                    "and feasibility still matter, and the simulator on page 3 tests designs against real alternatives."
+                )
+            except Exception as exc:
+                show_error(exc)
 
     with st.expander("Detailed tables: part-worths, importance, and per-respondent fit"):
         full_width(st.dataframe, partworths.style.format({"partworth": "{:.2f}", "spread_std": "{:.2f}"}), hide_index=True)
@@ -501,20 +526,25 @@ def simulate_page() -> None:
             st.warning("Give every product a different name.")
         elif st.button("Simulate preference shares", type="primary"):
             try:
-                st.session_state["shares"] = simulate_shares(result.individual, products, design)
+                st.session_state["shares"] = simulate_shares(result, products, design)
                 st.session_state["products"] = products
             except Exception as exc:
                 show_error(exc)
 
         shares = st.session_state.get("shares")
+        saved_products = st.session_state.get("products", {})
         if shares is not None:
             melted = shares.melt(
                 id_vars="product",
-                value_vars=["first_choice_share_%", "share_of_preference_%"],
+                value_vars=["first_choice_share_%", "share_of_preference_%", "logit_share_%"],
                 var_name="rule", value_name="share",
             )
             melted["rule"] = melted["rule"].map(
-                {"first_choice_share_%": "First choice", "share_of_preference_%": "Share of preference"}
+                {
+                    "first_choice_share_%": "First choice",
+                    "share_of_preference_%": "Share of preference",
+                    "logit_share_%": "Logit",
+                }
             )
             share_chart = px.bar(
                 melted, x="product", y="share", color="rule", barmode="group",
@@ -524,9 +554,67 @@ def simulate_page() -> None:
             full_width(st.plotly_chart, share_chart)
             full_width(st.dataframe, shares, hide_index=True)
             st.caption(
-                "**First choice:** every respondent picks their single highest-utility product; decisive but winner-takes-all. "
-                "**Share of preference:** softer split in proportion to utilities; read it as a sensitivity check. "
-                "Both are preference shares among these exact products — not market-share forecasts."
+                "**First choice:** every respondent picks their single highest-value product; decisive, fits big "
+                "considered purchases. **Share of preference:** splits each respondent in proportion to product value; "
+                "fits habitual categories where people sample around. **Logit:** an in-between rule whose softness "
+                "depends on the rating scale — treat it as a sensitivity check. All three are preference shares among "
+                "these exact products, not market-share forecasts. If the rules disagree strongly, say so in your "
+                "recommendation."
+            )
+
+            with st.expander("Adjust for awareness and availability"):
+                st.caption(
+                    "A customer cannot choose a product they have never heard of or cannot find. Enter managerial "
+                    "estimates per product; shares are weighted by awareness × availability and rebalanced to 100%."
+                )
+                factor_columns = st.columns(max(len(saved_products), 1))
+                factors: dict[str, tuple[float, float]] = {}
+                for index, name in enumerate(saved_products):
+                    with factor_columns[index]:
+                        st.markdown(f"**{name}**")
+                        awareness = st.number_input("Awareness %", 0.0, 100.0, 100.0, 5.0, key=f"aware_{index}")
+                        availability = st.number_input("Availability %", 0.0, 100.0, 100.0, 5.0, key=f"avail_{index}")
+                        factors[name] = (awareness, availability)
+                if any(value != (100.0, 100.0) for value in factors.values()):
+                    try:
+                        full_width(st.dataframe, adjust_shares(shares, factors), hide_index=True)
+                        st.caption("Adjusted shares are only as good as the awareness and availability estimates behind them.")
+                    except Exception as exc:
+                        show_error(exc)
+
+            if len(saved_products) >= 3:
+                with st.expander("Cannibalization — where would a new product’s share come from?"):
+                    st.caption(
+                        "Pick which of the defined products is the new entrant. The table compares the other products’ "
+                        "first-choice shares without and with it; share taken from your own products is cannibalization."
+                    )
+                    entrant = st.selectbox("The new entrant", list(saved_products), key="cannibal_entrant")
+                    try:
+                        full_width(
+                            st.dataframe,
+                            cannibalization_report(result, saved_products, entrant, design),
+                            hide_index=True,
+                        )
+                    except Exception as exc:
+                        show_error(exc)
+
+        st.subheader("Search for the optimal product")
+        st.caption(
+            "Instead of testing designs one by one, search every combination of the tested levels. With simulated "
+            "products above, candidates are ranked by first-choice share against them; otherwise by predicted rating."
+        )
+        if st.button("Find the best possible designs"):
+            try:
+                competitors = saved_products if st.session_state.get("shares") is not None else None
+                st.session_state["optimal"] = optimal_products(result, design, competitors, top_n=5)
+            except Exception as exc:
+                show_error(exc)
+        optimal = st.session_state.get("optimal")
+        if optimal is not None:
+            full_width(st.dataframe, optimal, hide_index=True)
+            st.caption(
+                "The best designs **among the levels you tested** — untested levels, production costs, feasibility, "
+                "and brand fit are outside the search. A design that wins on preference can still lose on margin."
             )
 
     st.subheader("Export the evidence")
@@ -570,6 +658,9 @@ def simulate_page() -> None:
     shares = st.session_state.get("shares")
     if shares is not None:
         export_tables["Simulated shares"] = shares
+    optimal = st.session_state.get("optimal")
+    if optimal is not None:
+        export_tables["Optimal designs"] = optimal
     downloads = st.columns(3)
     full_width(
         downloads[0].download_button,
@@ -591,6 +682,25 @@ def simulate_page() -> None:
         ),
         "choicesignal_results.json", "application/json",
     )
+    if result.method == "individual" and not result.individual.empty:
+        wide = result.individual.pivot_table(
+            index="respondent", columns=["attribute", "level"], values="partworth"
+        )
+        wide.columns = [f"{attribute} · {level}" for attribute, level in wide.columns]
+        wide = wide.reset_index().merge(
+            result.fit[["respondent", "r_squared"]], on="respondent", how="left"
+        )
+        full_width(
+            st.download_button,
+            "Download part-worths per respondent — ready for segmentation",
+            safe_for_spreadsheet(wide).to_csv(index=False).encode("utf-8"),
+            "choicesignal_partworths_by_respondent.csv", "text/csv",
+        )
+        st.caption(
+            "One row per respondent, one column per feature level. Different customers often want different "
+            "things: upload this file to **SegmentSignal** (our segmentation sibling) to discover preference-based "
+            "segments, then design one product per segment here."
+        )
 
 
 def methods_page() -> None:
@@ -616,9 +726,9 @@ def methods_page() -> None:
         with st.container(border=True):
             st.markdown("#### Preference-share simulation")
             st.write(
-                "First choice assigns each respondent to their highest-utility product (ties split). Share of "
-                "preference applies a Bradley–Terry–Luce (logit) rule to the rating-scale utilities; treat it as a "
-                "sensitivity check because its softness depends on the rating scale."
+                "Three classic choice rules — first choice, utility-proportional share of preference, and logit — "
+                "plus awareness/availability adjustment, a cannibalization view, and an exhaustive search for the "
+                "best design among the tested levels. Rules can disagree; that disagreement is information."
             )
     st.subheader("Important boundaries")
     st.markdown(

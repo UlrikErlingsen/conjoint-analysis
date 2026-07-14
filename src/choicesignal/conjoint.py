@@ -1,7 +1,8 @@
-"""Ratings-based conjoint estimation with effects coding, plus a preference-share simulator."""
+"""Ratings-based conjoint estimation with effects coding, plus preference simulators."""
 
 from __future__ import annotations
 
+import itertools
 from dataclasses import dataclass, field
 
 import numpy as np
@@ -12,6 +13,7 @@ from .errors import DataProblem
 MAX_LEVELS_PER_ATTRIBUTE = 12
 MAX_ATTRIBUTES = 10
 MAX_ROWS = 500_000
+MAX_SEARCH_CELLS = 20_000_000
 
 
 @dataclass
@@ -190,8 +192,10 @@ def estimate_conjoint(frame: pd.DataFrame, design: ConjointDesign, minimum_indiv
         matrix, _ = _effects_matrix(group, design)
         estimable = len(group) >= design.parameter_count and np.linalg.matrix_rank(matrix) == design.parameter_count
         r_squared = np.nan
+        intercept = np.nan
         if estimable:
             coefficients, *_ = np.linalg.lstsq(matrix, group[design.rating_column].to_numpy(dtype=float), rcond=None)
+            intercept = float(coefficients[0])
             person = _partworths_from_coefficients(coefficients[1:], names[1:], design)
             person.insert(0, "respondent", respondent)
             individual_rows.append(person)
@@ -206,6 +210,7 @@ def estimate_conjoint(frame: pd.DataFrame, design: ConjointDesign, minimum_indiv
                 "profiles_rated": len(group),
                 "estimable": bool(estimable),
                 "r_squared": float(r_squared) if np.isfinite(r_squared) else np.nan,
+                "intercept": intercept,
             }
         )
     fit = pd.DataFrame(fit_rows)
@@ -276,36 +281,67 @@ def _importance_from_individual(individual: pd.DataFrame) -> pd.DataFrame:
     return importance.sort_values("importance_%", ascending=False).reset_index(drop=True)
 
 
-def simulate_shares(
-    individual: pd.DataFrame, products: dict[str, dict[str, str]], design: ConjointDesign
-) -> pd.DataFrame:
-    """Preference shares for user-defined products from individual part-worths.
+def _utility_components(result: ConjointResult, design: ConjointDesign):
+    """Per-respondent intercepts and one (respondents × levels) matrix per attribute."""
+    if result.individual.empty:
+        raise DataProblem("This needs individual estimates; the analysis only produced a pooled model.")
+    respondents = result.individual["respondent"].unique()
+    intercepts = (
+        result.fit.set_index("respondent")["intercept"].reindex(respondents).fillna(result.mean_rating).to_numpy()
+    )
+    lookup = result.individual.set_index(["respondent", "attribute", "level"])["partworth"]
+    matrices: dict[str, np.ndarray] = {}
+    for attribute in design.attribute_columns:
+        matrices[attribute] = np.column_stack(
+            [
+                lookup.loc[[(respondent, attribute, level) for respondent in respondents]].to_numpy()
+                for level in design.levels[attribute]
+            ]
+        )
+    return respondents, intercepts, matrices
 
-    First-choice: each respondent 'chooses' their highest-utility product (ties
-    split equally). Share-of-preference: a Bradley–Terry–Luce (logit) rule on
-    the rating-scale utilities, reported as a sensitivity check.
-    """
-    if individual.empty:
-        raise DataProblem("The simulator needs individual estimates; this analysis only produced a pooled model.")
-    if len(products) < 2:
-        raise DataProblem("Define at least two products to compare.")
-    for product_name, profile in products.items():
+
+def _product_utilities(
+    products: dict[str, dict[str, str]],
+    design: ConjointDesign,
+    intercepts: np.ndarray,
+    matrices: dict[str, np.ndarray],
+) -> np.ndarray:
+    utilities = np.repeat(intercepts[:, None], len(products), axis=1)
+    for product_index, (product_name, profile) in enumerate(products.items()):
         for attribute in design.attribute_columns:
             if profile.get(attribute) not in design.levels[attribute]:
                 raise DataProblem(f"“{product_name}” needs a valid level for “{attribute}”.")
+            level_index = design.levels[attribute].index(profile[attribute])
+            utilities[:, product_index] += matrices[attribute][:, level_index]
+    return utilities
 
-    lookup = individual.set_index(["respondent", "attribute", "level"])["partworth"]
-    respondents = individual["respondent"].unique()
-    utilities = np.zeros((len(respondents), len(products)))
-    for product_index, profile in enumerate(products.values()):
-        for attribute, level in profile.items():
-            utilities[:, product_index] += lookup.loc[
-                [(respondent, attribute, level) for respondent in respondents]
-            ].to_numpy()
+
+def simulate_shares(
+    result: ConjointResult, products: dict[str, dict[str, str]], design: ConjointDesign
+) -> pd.DataFrame:
+    """Preference shares for user-defined products under three classic choice rules.
+
+    First choice: each respondent 'chooses' their highest-utility product (ties
+    split equally). Share of preference: utility-proportional split (negative
+    utilities count as zero appeal). Logit: a Bradley–Terry–Luce rule on the
+    rating-scale utilities — its softness depends on the rating scale, so read
+    it as a sensitivity check.
+    """
+    if len(products) < 2:
+        raise DataProblem("Define at least two products to compare.")
+    respondents, intercepts, matrices = _utility_components(result, design)
+    utilities = _product_utilities(products, design, intercepts, matrices)
 
     best = utilities.max(axis=1, keepdims=True)
     winners = np.isclose(utilities, best)
     first_choice = 100 * (winners / winners.sum(axis=1, keepdims=True)).mean(axis=0)
+
+    positive = np.clip(utilities, 0, None)
+    row_totals = positive.sum(axis=1, keepdims=True)
+    equal_split = np.full_like(positive, 1 / positive.shape[1])
+    proportional = np.where(row_totals > 0, positive / np.where(row_totals == 0, 1, row_totals), equal_split)
+    share_of_preference = 100 * proportional.mean(axis=0)
 
     exponentials = np.exp(utilities - best)
     logit = 100 * (exponentials / exponentials.sum(axis=1, keepdims=True)).mean(axis=0)
@@ -314,7 +350,139 @@ def simulate_shares(
         {
             "product": list(products.keys()),
             "first_choice_share_%": np.round(first_choice, 1),
-            "share_of_preference_%": np.round(logit, 1),
-            "mean_utility": np.round(utilities.mean(axis=0), 2),
+            "share_of_preference_%": np.round(share_of_preference, 1),
+            "logit_share_%": np.round(logit, 1),
+            "mean_predicted_rating": np.round(utilities.mean(axis=0), 2),
         }
     )
+
+
+def adjust_shares(shares: pd.DataFrame, factors: dict[str, tuple[float, float]]) -> pd.DataFrame:
+    """Weight preference shares by awareness × availability and renormalize.
+
+    ``factors`` maps product name to (awareness, availability) in percent.
+    A customer cannot prefer a product they never see: this classic adjustment
+    multiplies each share by both factors before renormalizing to 100%.
+    """
+    adjusted = shares.copy()
+    weights = np.array(
+        [
+            (factors.get(product, (100.0, 100.0))[0] / 100) * (factors.get(product, (100.0, 100.0))[1] / 100)
+            for product in adjusted["product"]
+        ]
+    )
+    if (weights < 0).any() or (weights > 1).any():
+        raise DataProblem("Awareness and availability must be between 0 and 100 percent.")
+    for column in ("first_choice_share_%", "share_of_preference_%", "logit_share_%"):
+        raw = adjusted[column].to_numpy(dtype=float) * weights
+        total = raw.sum()
+        adjusted[column] = np.round(100 * raw / total, 1) if total > 0 else np.nan
+    adjusted["awareness_%"] = [factors.get(product, (100.0, 100.0))[0] for product in adjusted["product"]]
+    adjusted["availability_%"] = [factors.get(product, (100.0, 100.0))[1] for product in adjusted["product"]]
+    return adjusted.drop(columns=["mean_predicted_rating"], errors="ignore")
+
+
+def cannibalization_report(
+    result: ConjointResult,
+    products: dict[str, dict[str, str]],
+    new_product: str,
+    design: ConjointDesign,
+    rule: str = "first_choice_share_%",
+) -> pd.DataFrame:
+    """Where a new product's share comes from: incumbent shares with vs without it."""
+    if new_product not in products:
+        raise DataProblem("Choose which of the defined products is the new entrant.")
+    incumbents = {name: profile for name, profile in products.items() if name != new_product}
+    if len(incumbents) < 2:
+        raise DataProblem("Cannibalization needs at least two incumbent products besides the new entrant.")
+    before = simulate_shares(result, incumbents, design).set_index("product")[rule]
+    after_frame = simulate_shares(result, products, design).set_index("product")[rule]
+    rows = []
+    for name in incumbents:
+        rows.append(
+            {
+                "product": name,
+                "share_before_%": float(before[name]),
+                "share_after_%": float(after_frame[name]),
+                "change_points": round(float(after_frame[name] - before[name]), 1),
+                "relative_change_%": round(100 * (after_frame[name] - before[name]) / before[name], 1)
+                if before[name] > 0
+                else np.nan,
+            }
+        )
+    rows.append(
+        {
+            "product": f"{new_product} (new)",
+            "share_before_%": 0.0,
+            "share_after_%": float(after_frame[new_product]),
+            "change_points": round(float(after_frame[new_product]), 1),
+            "relative_change_%": np.nan,
+        }
+    )
+    return pd.DataFrame(rows)
+
+
+def optimal_products(
+    result: ConjointResult,
+    design: ConjointDesign,
+    competitors: dict[str, dict[str, str]] | None = None,
+    top_n: int = 5,
+) -> pd.DataFrame:
+    """Search every possible attribute combination for the best product design.
+
+    With competitors, candidates are ranked by first-choice share against that
+    set; without, by mean predicted rating. The search is exhaustive over the
+    full factorial of tested levels.
+    """
+    respondents, intercepts, matrices = _utility_components(result, design)
+    level_counts = [len(design.levels[attribute]) for attribute in design.attribute_columns]
+    total_candidates = int(np.prod(level_counts))
+    if total_candidates * len(respondents) > MAX_SEARCH_CELLS:
+        raise DataProblem(
+            f"The full search would evaluate {total_candidates:,} designs × {len(respondents):,} respondents, "
+            "which is beyond this release's limit. Reduce the number of attributes or levels."
+        )
+
+    utilities = intercepts[:, None]
+    for attribute in design.attribute_columns:
+        utilities = (utilities[:, :, None] + matrices[attribute][:, None, :]).reshape(len(respondents), -1)
+
+    if competitors:
+        competitor_utilities = _product_utilities(competitors, design, intercepts, matrices)
+        competitor_best = competitor_utilities.max(axis=1, keepdims=True)
+        wins = (utilities > competitor_best).mean(axis=0)
+        ties = 0.5 * np.isclose(utilities, competitor_best).mean(axis=0)
+        scores = 100 * (wins + ties)
+        score_column = "first_choice_share_vs_competitors_%"
+    else:
+        scores = utilities.mean(axis=0)
+        score_column = "mean_predicted_rating"
+
+    order = np.argsort(scores)[::-1][: max(1, top_n)]
+    combos = list(itertools.product(*[design.levels[attribute] for attribute in design.attribute_columns]))
+    rows = []
+    for rank, index in enumerate(order, start=1):
+        row: dict[str, object] = {"rank": rank}
+        row.update(dict(zip(design.attribute_columns, combos[index])))
+        row[score_column] = round(float(scores[index]), 1 if competitors else 2)
+        row["mean_predicted_rating"] = round(float(utilities[:, index].mean()), 2)
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
+def ideal_products(result: ConjointResult, design: ConjointDesign, top_n: int = 3) -> pd.DataFrame:
+    """The most common per-respondent favorite combination of levels."""
+    respondents, _, matrices = _utility_components(result, design)
+    picks = []
+    for attribute in design.attribute_columns:
+        best_indices = matrices[attribute].argmax(axis=1)
+        picks.append([design.levels[attribute][index] for index in best_indices])
+    combos = pd.Series(list(zip(*picks)))
+    counts = combos.value_counts().head(max(1, top_n))
+    rows = []
+    for combo, count in counts.items():
+        row = dict(zip(design.attribute_columns, combo))
+        row["respondents"] = int(count)
+        row["share_%"] = round(100 * count / len(respondents), 1)
+        rows.append(row)
+    return pd.DataFrame(rows)

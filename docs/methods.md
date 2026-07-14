@@ -32,12 +32,29 @@ Before estimation the app reports how often each level was shown, warns when a l
 
 ## Preference-share simulation
 
-Products are defined as one level per attribute. For each estimable respondent, a product's utility is the sum of the matching part-worths (the intercept cancels in comparisons).
+Products are defined as one level per attribute. For each estimable respondent, a product's utility is that respondent's intercept plus the sum of the matching part-worths, so utilities live on the rating scale (a product's mean utility reads as its mean predicted rating). Three classic choice rules are reported (Green & Krieger, 1988):
 
-- **First choice:** each respondent chooses their highest-utility product; exact ties are split equally. Decisive but winner-takes-all.
-- **Share of preference:** a Bradley–Terry–Luce (logit) rule, \(\Pr(j) = e^{u_j} / \sum_k e^{u_k}\), averaged over respondents. Because the utilities carry the rating scale, the softness of this rule is scale-dependent — read it as a sensitivity check on the first-choice result, not as a calibrated probability.
+- **First choice (maximum utility):** each respondent chooses their highest-utility product; exact ties are split equally. Decisive and winner-takes-all — most appropriate for considered, high-involvement purchases.
+- **Share of preference:** each respondent splits their choice in proportion to product utilities (negative utilities count as zero appeal; a respondent with no positive utilities splits equally). Softer — most appropriate for habitual, low-involvement categories where customers sample around.
+- **Logit:** a Bradley–Terry–Luce rule, \(\Pr(j) = e^{u_j} / \sum_k e^{u_k}\), averaged over respondents. Its softness depends on the rating scale, so read it as a sensitivity check, not a calibrated probability.
 
-Both are **preference shares among the exact products entered**, from stated preferences. They are not market-share forecasts: awareness, distribution, budgets, inertia, and competitors outside the study all intervene.
+When the rules disagree strongly, the conclusion is rule-sensitive and should be reported as such. All three are **preference shares among the exact products entered**, from stated preferences — not market-share forecasts.
+
+### Awareness and availability adjustment
+
+A respondent cannot choose a product they have never heard of or cannot find. Given managerial estimates of awareness and availability per product, adjusted shares weight each preference share by awareness × availability and renormalize to 100%. The adjustment is transparent and exactly as good as the estimates behind it.
+
+### Cannibalization
+
+When one of the simulated products is marked as a new entrant, the app compares the remaining products' first-choice shares without and with the entrant. Share the entrant takes from the same firm's other products is cannibalization; whether the incremental gain justifies it is a business judgment, not a model output.
+
+### Optimal product search
+
+The app can enumerate the full factorial of tested levels and rank every possible design — by first-choice share against a user-defined competitive set, or by mean predicted rating when no competitors are defined (Green & Krieger, 1985). The search is exact, not heuristic, and is bounded so that designs × respondents stays within a responsiveness limit. It optimizes stated preference only: costs, feasibility, brand fit, and untested levels are outside the search.
+
+### Ideal products
+
+For each estimable respondent, the favorite level of every attribute defines that person's ideal combination; the app counts how often each combination occurs. This is a description of demand heterogeneity, not a launch recommendation. Exporting the per-respondent part-worth matrix (one row per respondent, one column per level) supports proper preference segmentation in a clustering tool.
 
 ## Boundaries
 
@@ -52,5 +69,8 @@ Both are **preference shares among the exact products entered**, from stated pre
 - Green, P. E., & Rao, V. R. (1971). Conjoint measurement for quantifying judgmental data. *Journal of Marketing Research*, 8(3), 355–363.
 - Green, P. E., & Srinivasan, V. (1978). Conjoint analysis in consumer research: Issues and outlook. *Journal of Consumer Research*, 5(2), 103–123.
 - Green, P. E., & Srinivasan, V. (1990). Conjoint analysis in marketing: New developments with implications for research and practice. *Journal of Marketing*, 54(4), 3–19.
+- Green, P. E., & Krieger, A. M. (1985). Models and heuristics for product line selection. *Marketing Science*, 4(1), 1–19.
+- Green, P. E., & Krieger, A. M. (1988). Choice rules and sensitivity analysis in conjoint simulators. *Journal of the Academy of Marketing Science*, 16(1), 114–127.
+- Lilien, G. L., Rangaswamy, A., & De Bruyn, A. (2017). *Principles of Marketing Engineering and Analytics* (3rd ed.). DecisionPro.
 - Orme, B. K. (2020). *Getting Started with Conjoint Analysis* (4th ed.). Research Publishers.
 - Rao, V. R. (2014). *Applied Conjoint Analysis*. Springer.
