@@ -104,6 +104,7 @@ ChoiceSignal is part of a small family of open, local-first marketing-analytics 
 
 - **[WorthSignal](https://github.com/UlrikErlingsen/customer-value-analytics)** — customer value: RFM targeting, CLV, retention, and marketing ROI.
 - **[SegmentSignal](https://github.com/UlrikErlingsen/customer-segmentation)** — multi-variable B2C customer segmentation with stability checks.
+- **[AdoptSignal](https://github.com/UlrikErlingsen/adoption-forecasting)** — new-product adoption forecasting with the Bass diffusion model: published analogies, scenario stress-tests, and fitting to real history.
 
 ChoiceSignal answers a third question: not who your customers are or what they are worth, but **what they want**.
 

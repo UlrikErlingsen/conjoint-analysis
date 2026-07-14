@@ -559,7 +559,8 @@ def simulate_page() -> None:
                 "fits habitual categories where people sample around. **Logit:** an in-between rule whose softness "
                 "depends on the rating scale — treat it as a sensitivity check. All three are preference shares among "
                 "these exact products, not market-share forecasts. If the rules disagree strongly, say so in your "
-                "recommendation."
+                "recommendation. **Tip:** a preference share × a defensible target population is one disciplined way "
+                "to set the market potential in **AdoptSignal**, our adoption-forecasting sibling."
             )
 
             with st.expander("Adjust for awareness and availability"):
