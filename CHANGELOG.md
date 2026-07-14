@@ -2,6 +2,11 @@
 
 All notable changes to ChoiceSignal are documented here.
 
+## 1.0.0 - 2026-07-14
+
+- First stable release. No functional changes since 0.2.0; the version now
+  signals that the workflow, methods, exports, and file formats are stable.
+
 ## 0.2.0 - 2026-07-14
 
 - Simulator now reports three classic choice rules: first choice, utility-proportional share of preference, and logit.

@@ -323,9 +323,10 @@ def welcome_page() -> None:
     with st.expander("Where this tool fits"):
         st.write(
             "ChoiceSignal covers ratings-based (full-profile) conjoint: respondents rate complete product profiles, "
-            "and regression turns the ratings into feature values. WorthSignal covers customer value and retention; "
-            "SegmentSignal covers customer segmentation. Choice-based conjoint with hierarchical Bayes estimation "
-            "is a different, more complex method and is outside this first release."
+            "and regression turns the ratings into feature values. Its siblings answer the other questions: "
+            "WorthSignal covers customer value and retention, SegmentSignal covers segmentation, AdoptSignal "
+            "forecasts adoption timing, and PositionSignal maps brand perception. Choice-based conjoint with "
+            "hierarchical Bayes estimation is a different, more complex method and is outside this release."
         )
 
 
