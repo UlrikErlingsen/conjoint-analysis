@@ -202,3 +202,58 @@ def test_design_report_flags_rare_levels():
     report, warnings = design_report(frame, design)
     assert set(report.columns) == {"attribute", "level", "times_shown"}
     assert any("fewer than 5" in warning for warning in warnings)
+
+
+def test_share_of_preference_is_invariant_to_rating_scale_shift():
+    frame = _coffee_frame()
+    design = _coffee_design(frame)
+    shifted = frame.copy()
+    shifted["rating"] = shifted["rating"] + 100
+    products = {"Premium cheap": STRONG_COFFEE, "Weak expensive": WEAK_COFFEE}
+    original = simulate_shares(estimate_conjoint(frame, design), products, design)
+    moved = simulate_shares(estimate_conjoint(shifted, design), products, design)
+    for column in ("first_choice_share_%", "share_of_preference_%", "logit_share_%"):
+        assert np.allclose(original[column], moved[column], atol=0.2), column
+
+
+def test_pooled_fixed_effects_ignore_rating_style_differences():
+    rng = np.random.default_rng(31)
+    # Two rater styles (base 3 vs base 8) with IDENTICAL preferences, and
+    # unbalanced profile subsets so a single-intercept pooled model would leak
+    # style into the attribute effects.
+    rows = []
+    for index in range(60):
+        respondent = f"R{index:03d}"
+        base = 3.0 if index % 2 == 0 else 8.0
+        # generous raters mostly see brand A, strict raters mostly see brand B
+        levels = ["A", "A", "B"] if base > 5 else ["B", "B", "A"]
+        for level in levels:
+            rating = base + (0.5 if level == "A" else -0.5) + rng.normal(0, 0.1)
+            rows.append({"respondent_id": respondent, "brand": level, "rating": rating})
+    frame = pd.DataFrame(rows)
+    design = build_design(frame, "respondent_id", "rating", ["brand"])
+    result = estimate_conjoint(frame, design)
+    partworth_a = float(
+        result.pooled_partworths.set_index("level").loc["A", "partworth"]
+    )
+    # True effect is +0.5 for A; a naive pooled intercept would report ~-2 here
+    # because generous raters saw A more often.
+    assert np.isclose(partworth_a, 0.5, atol=0.1)
+
+
+def test_saturated_individual_models_are_not_estimable():
+    frame = _coffee_frame()
+    design = _coffee_design(frame)
+    exactly_p = frame.groupby("respondent_id").head(design.parameter_count).reset_index(drop=True)
+    result = estimate_conjoint(exactly_p, design)
+    assert not result.fit["estimable"].any()
+    assert result.method == "pooled"
+
+
+def test_rows_with_missing_attribute_levels_are_excluded_with_warning():
+    frame = _coffee_frame().copy()
+    frame.loc[frame.index[:25], "brand"] = np.nan
+    design = _coffee_design(_coffee_frame())
+    result = estimate_conjoint(frame, design)
+    assert any("missing or unrecognized attribute levels" in warning for warning in result.warnings)
+    assert result.method == "individual"

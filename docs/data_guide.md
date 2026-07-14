@@ -18,7 +18,7 @@ One row per rated profile, in long format:
 
 ## How many ratings does each respondent need?
 
-The model has \(1 + \sum (\text{levels} - 1)\) parameters. Individual preferences can only be estimated for respondents who rated **at least that many profiles** (and whose profiles actually vary every attribute). For a study with 4 attributes of 3/3/2/3 levels, that is 9 parameters — so 12–16 rated profiles per respondent is a comfortable design. Respondents below the threshold automatically fall back into a pooled model, with a warning.
+The model has \(1 + \sum (\text{levels} - 1)\) parameters. Individual preferences can only be estimated for respondents who rated **strictly more profiles than that** (and whose profiles actually vary every attribute) — with exactly as many ratings as parameters the model would fit noise perfectly. For a study with 4 attributes of 3/3/2/3 levels, that is \(1 + 2 + 2 + 1 + 2 = 8\) parameters — so at least 9, and comfortably 12–16, rated profiles per respondent. Respondents below the threshold automatically fall back into a pooled model, with a warning.
 
 ## Design tips
 

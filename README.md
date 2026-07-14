@@ -75,7 +75,7 @@ ChoiceSignal reads `.csv`, `.xlsx`, `.xls`, `.xlsm`, and `.json` up to 200 MB lo
 | R0001         | Brand B | $15   | 2 years  | 4      |
 | R0002         | Brand A | $15   | 2 years  | 8      |
 
-One row per rated profile: a respondent ID, one column per attribute (2–12 levels each, up to 10 attributes), and a numeric rating where higher means better. Respondents should each rate several profiles — at least as many as the model has parameters for individual estimation. See [the data guide](docs/data_guide.md).
+One row per rated profile: a respondent ID, one column per attribute (2–12 levels each, up to 10 attributes), and a numeric rating where higher means better. Respondents should each rate several profiles — more than the model has parameters for individual estimation. See [the data guide](docs/data_guide.md).
 
 ## Methods and accuracy
 
@@ -87,7 +87,7 @@ ChoiceSignal implements classic **ratings-based (full-profile) conjoint analysis
 - design health: level exposure, imbalance, and perfectly confounded attributes (rejected);
 - preference-share simulation under three classic choice rules (first choice, share of preference, logit);
 - awareness × availability share adjustment and a cannibalization view for product-line decisions;
-- an exhaustive optimal-product search across every combination of tested levels;
+- an exhaustive stated-preference design search across every combination of tested levels (deliberately not called 'optimal': costs and feasibility stay outside);
 - a per-respondent part-worth export shaped for preference segmentation (it opens directly in SegmentSignal).
 
 Interactions between attributes, choice-based conjoint (CBC), hierarchical Bayes estimation, and willingness-to-pay conversion are deliberately outside this first release; the docs explain why. See [methods and references](docs/methods.md).

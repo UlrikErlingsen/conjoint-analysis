@@ -151,7 +151,7 @@ def set_loaded(loaded: LoadedData) -> None:
     st.session_state["tables"] = loaded.tables
     st.session_state["source_name"] = loaded.source_name
     st.session_state["active_table"] = next(iter(loaded.tables))
-    for key in ("study", "result", "products", "shares", "optimal"):
+    for key in ("study", "result", "products", "shares", "optimal", "adjusted_shares"):
         st.session_state.pop(key, None)
 
 
@@ -260,7 +260,7 @@ with st.sidebar:
     if st.session_state.get("tables") and full_width(st.button, "Clear session data"):
         for key in (
             "tables", "source_name", "active_table", "upload_identity", "_uploader_had_file",
-            "study", "result", "products", "shares", "optimal",
+            "study", "result", "products", "shares", "optimal", "adjusted_shares",
         ):
             st.session_state.pop(key, None)
         st.session_state["upload_epoch"] = int(st.session_state.get("upload_epoch", 0)) + 1
@@ -277,7 +277,7 @@ with st.sidebar:
         )
         if selected_table != st.session_state.get("active_table"):
             st.session_state["active_table"] = selected_table
-            for key in ("study", "result", "products", "shares", "optimal"):
+            for key in ("study", "result", "products", "shares", "optimal", "adjusted_shares"):
                 st.session_state.pop(key, None)
         active = st.session_state["tables"][selected_table]
         st.caption(f"{st.session_state.get('source_name')} · {len(active):,} rows × {len(active.columns)} columns")
@@ -371,7 +371,7 @@ def data_page() -> None:
             design = build_design(frame, respondent_column, rating_column, attribute_columns)
             report, warnings = design_report(frame, design)
             st.session_state["study"] = {"frame": frame.copy(), "design": design, "source": st.session_state.get("source_name")}
-            for key in ("result", "products", "shares", "optimal"):
+            for key in ("result", "products", "shares", "optimal", "adjusted_shares"):
                 st.session_state.pop(key, None)
             st.success(
                 f"Design saved: {frame[respondent_column].nunique():,} respondents, "
@@ -426,7 +426,10 @@ def utilities_page() -> None:
             f"(median fit R² = {median_fit:.2f}). Averages below; the spread column shows disagreement."
         )
     else:
-        st.info(f"Pooled model across all ratings (R² = {result.pooled_r_squared:.2f}).")
+        st.info(
+            f"Pooled model with respondent fixed effects (within-respondent R² = {result.pooled_r_squared:.2f}); "
+            "rating-style differences between respondents are absorbed and cannot pose as attribute effects."
+        )
 
     st.subheader("Part-worth utilities — the value of each feature level")
     st.caption(
@@ -556,12 +559,12 @@ def simulate_page() -> None:
             full_width(st.dataframe, shares, hide_index=True)
             st.caption(
                 "**First choice:** every respondent picks their single highest-value product; decisive, fits big "
-                "considered purchases. **Share of preference:** splits each respondent in proportion to product value; "
-                "fits habitual categories where people sample around. **Logit:** an in-between rule whose softness "
-                "depends on the rating scale — treat it as a sensitivity check. All three are preference shares among "
-                "these exact products, not market-share forecasts. If the rules disagree strongly, say so in your "
-                "recommendation. **Tip:** a preference share × a defensible target population is one disciplined way "
-                "to set the market potential in **AdoptSignal**, our adoption-forecasting sibling."
+                "considered purchases. **Share of preference:** splits each respondent in proportion to how far each "
+                "product's predicted rating sits above the study's lowest observed rating (anchored so that shifting "
+                "the whole rating scale cannot change the shares); fits habitual categories where people sample "
+                "around. **Logit:** an in-between rule whose softness depends on the rating-scale units — treat it as "
+                "a sensitivity check. All three are preference shares among these exact products, not market-share "
+                "forecasts. If the rules disagree strongly, say so in your recommendation."
             )
 
             with st.expander("Adjust for awareness and availability"):
@@ -579,10 +582,14 @@ def simulate_page() -> None:
                         factors[name] = (awareness, availability)
                 if any(value != (100.0, 100.0) for value in factors.values()):
                     try:
-                        full_width(st.dataframe, adjust_shares(shares, factors), hide_index=True)
-                        st.caption("Adjusted shares are only as good as the awareness and availability estimates behind them.")
+                        adjusted = adjust_shares(shares, factors)
+                        st.session_state["adjusted_shares"] = adjusted
+                        full_width(st.dataframe, adjusted, hide_index=True)
+                        st.caption("Adjusted shares are only as good as the awareness and availability estimates behind them. They are included in the exports below.")
                     except Exception as exc:
                         show_error(exc)
+                else:
+                    st.session_state.pop("adjusted_shares", None)
 
             if len(saved_products) >= 3:
                 with st.expander("Cannibalization — where would a new product’s share come from?"):
@@ -600,12 +607,13 @@ def simulate_page() -> None:
                     except Exception as exc:
                         show_error(exc)
 
-        st.subheader("Search for the optimal product")
+        st.subheader("Search for the highest stated-preference design")
         st.caption(
             "Instead of testing designs one by one, search every combination of the tested levels. With simulated "
-            "products above, candidates are ranked by first-choice share against them; otherwise by predicted rating."
+            "products above, candidates are ranked by first-choice share against them; otherwise by predicted "
+            "rating. This ranks stated preference only — costs, margins, and feasibility are not in the search."
         )
-        if st.button("Find the best possible designs"):
+        if st.button("Find the top stated-preference designs"):
             try:
                 competitors = saved_products if st.session_state.get("shares") is not None else None
                 st.session_state["optimal"] = optimal_products(result, design, competitors, top_n=5)
@@ -615,8 +623,9 @@ def simulate_page() -> None:
         if optimal is not None:
             full_width(st.dataframe, optimal, hide_index=True)
             st.caption(
-                "The best designs **among the levels you tested** — untested levels, production costs, feasibility, "
-                "and brand fit are outside the search. A design that wins on preference can still lose on margin."
+                "The highest **stated-preference** designs among the levels you tested — untested levels, production "
+                "costs, feasibility, and brand fit are outside the search. A design that wins on preference can "
+                "still lose on margin."
             )
 
     st.subheader("Export the evidence")
@@ -629,7 +638,7 @@ def simulate_page() -> None:
     metadata = {
         "product": "ChoiceSignal", "version": __version__, "source": study.get("source"),
         "method": "ratings-based conjoint, effects-coded OLS, "
-                  + ("per-respondent with pooled reference" if result.method == "individual" else "pooled only"),
+                  + ("per-respondent with fixed-effects pooled reference" if result.method == "individual" else "respondent-fixed-effects pooled only"),
         "respondents": int(frame[design.respondent_column].nunique()),
         "ratings": len(frame),
         "attributes": {attribute: design.levels[attribute] for attribute in design.attribute_columns},
@@ -660,9 +669,12 @@ def simulate_page() -> None:
     shares = st.session_state.get("shares")
     if shares is not None:
         export_tables["Simulated shares"] = shares
+    adjusted = st.session_state.get("adjusted_shares")
+    if adjusted is not None:
+        export_tables["Adjusted shares"] = adjusted
     optimal = st.session_state.get("optimal")
     if optimal is not None:
-        export_tables["Optimal designs"] = optimal
+        export_tables["Top preference designs"] = optimal
     downloads = st.columns(3)
     full_width(
         downloads[0].download_button,

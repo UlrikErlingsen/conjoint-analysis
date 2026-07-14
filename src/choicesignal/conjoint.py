@@ -42,6 +42,7 @@ class ConjointResult:
     pooled_r_squared: float
     mean_rating: float
     method: str
+    rating_floor: float = 0.0
     warnings: list[str] = field(default_factory=list)
 
 
@@ -157,11 +158,12 @@ def design_report(frame: pd.DataFrame, design: ConjointDesign) -> tuple[pd.DataF
             "implicitly by the model."
         )
     profiles_per_respondent = frame.groupby(design.respondent_column).size()
-    if (profiles_per_respondent < design.parameter_count).any():
-        share = float((profiles_per_respondent < design.parameter_count).mean())
+    minimum_needed = design.parameter_count + 1
+    if (profiles_per_respondent < minimum_needed).any():
+        share = float((profiles_per_respondent < minimum_needed).mean())
         warnings.append(
-            f"{share:.0%} of respondents rated fewer profiles than the model needs "
-            f"({design.parameter_count}), so their individual preferences cannot be estimated."
+            f"{share:.0%} of respondents rated fewer than {minimum_needed} profiles (the model's "
+            f"{design.parameter_count} parameters plus one), so their individual preferences cannot be estimated."
         )
     return report, warnings
 
@@ -175,22 +177,49 @@ def estimate_conjoint(frame: pd.DataFrame, design: ConjointDesign, minimum_indiv
     warnings: list[str] = []
     if dropped:
         warnings.append(f"{dropped:,} rows without a numeric rating were excluded.")
+    unknown_level = pd.Series(False, index=working.index)
+    for attribute in design.attribute_columns:
+        observed = working[attribute].astype(str).str.strip()
+        unknown_level |= ~observed.isin(design.levels[attribute])
+    excluded_levels = int(unknown_level.sum())
+    if excluded_levels:
+        working = working[~unknown_level]
+        warnings.append(
+            f"{excluded_levels:,} rows with missing or unrecognized attribute levels were excluded — "
+            "treating them as an 'average' level would bias the part-worths."
+        )
     if len(working) < design.parameter_count + 2:
         raise DataProblem("There are not enough rated profiles to estimate this design.")
 
+    # Pooled reference model with respondent fixed effects (within transformation):
+    # demeaning ratings and design columns per respondent means differences in
+    # rating style (a generous vs strict scale use) cannot masquerade as
+    # attribute effects when respondents saw different profile subsets.
     pooled_matrix, names = _effects_matrix(working, design)
     ratings = working[design.rating_column].to_numpy(dtype=float)
-    pooled_coefficients, *_ = np.linalg.lstsq(pooled_matrix, ratings, rcond=None)
-    pooled_predictions = pooled_matrix @ pooled_coefficients
-    total_variance = float(((ratings - ratings.mean()) ** 2).sum())
-    pooled_r_squared = 1 - float(((ratings - pooled_predictions) ** 2).sum()) / total_variance if total_variance > 0 else float("nan")
-    pooled_partworths = _partworths_from_coefficients(pooled_coefficients[1:], names[1:], design)
+    respondents_index = working[design.respondent_column]
+    attribute_frame = pd.DataFrame(pooled_matrix[:, 1:], index=working.index)
+    attribute_within = (attribute_frame - attribute_frame.groupby(respondents_index).transform("mean")).to_numpy()
+    rating_series = pd.Series(ratings, index=working.index)
+    ratings_within = (rating_series - rating_series.groupby(respondents_index).transform("mean")).to_numpy()
+    pooled_coefficients, *_ = np.linalg.lstsq(attribute_within, ratings_within, rcond=None)
+    within_predictions = attribute_within @ pooled_coefficients
+    within_variance = float((ratings_within**2).sum())
+    pooled_r_squared = (
+        1 - float(((ratings_within - within_predictions) ** 2).sum()) / within_variance
+        if within_variance > 0
+        else float("nan")
+    )
+    pooled_partworths = _partworths_from_coefficients(pooled_coefficients, names[1:], design)
 
     individual_rows: list[pd.DataFrame] = []
     fit_rows: list[dict[str, object]] = []
     for respondent, group in working.groupby(design.respondent_column, sort=False):
         matrix, _ = _effects_matrix(group, design)
-        estimable = len(group) >= design.parameter_count and np.linalg.matrix_rank(matrix) == design.parameter_count
+        # Strictly more ratings than parameters: a saturated model has zero
+        # residual degrees of freedom, fits noise exactly (R² = 1), and yields
+        # unstable utilities.
+        estimable = len(group) >= design.parameter_count + 1 and np.linalg.matrix_rank(matrix) == design.parameter_count
         r_squared = np.nan
         intercept = np.nan
         if estimable:
@@ -254,6 +283,7 @@ def estimate_conjoint(frame: pd.DataFrame, design: ConjointDesign, minimum_indiv
         pooled_r_squared=pooled_r_squared,
         mean_rating=float(ratings.mean()),
         method=method,
+        rating_floor=float(ratings.min()),
         warnings=warnings,
     )
 
@@ -323,10 +353,13 @@ def simulate_shares(
     """Preference shares for user-defined products under three classic choice rules.
 
     First choice: each respondent 'chooses' their highest-utility product (ties
-    split equally). Share of preference: utility-proportional split (negative
-    utilities count as zero appeal). Logit: a Bradley–Terry–Luce rule on the
-    rating-scale utilities — its softness depends on the rating scale, so read
-    it as a sensitivity check.
+    split equally). Share of preference: split in proportion to how far each
+    product's predicted rating sits above the study's lowest observed rating —
+    anchoring at the observed floor makes the rule invariant to shifting the
+    whole rating scale (an arbitrary-origin problem the naive utility-
+    proportional rule suffers from). Logit: a Bradley–Terry–Luce rule whose
+    softness depends on the rating-scale units, so read it as a sensitivity
+    check.
     """
     if len(products) < 2:
         raise DataProblem("Define at least two products to compare.")
@@ -337,7 +370,7 @@ def simulate_shares(
     winners = np.isclose(utilities, best)
     first_choice = 100 * (winners / winners.sum(axis=1, keepdims=True)).mean(axis=0)
 
-    positive = np.clip(utilities, 0, None)
+    positive = np.clip(utilities - result.rating_floor, 0, None)
     row_totals = positive.sum(axis=1, keepdims=True)
     equal_split = np.full_like(positive, 1 / positive.shape[1])
     proportional = np.where(row_totals > 0, positive / np.where(row_totals == 0, 1, row_totals), equal_split)
@@ -428,11 +461,12 @@ def optimal_products(
     competitors: dict[str, dict[str, str]] | None = None,
     top_n: int = 5,
 ) -> pd.DataFrame:
-    """Search every possible attribute combination for the best product design.
+    """Search every attribute combination for the highest stated-preference design.
 
     With competitors, candidates are ranked by first-choice share against that
     set; without, by mean predicted rating. The search is exhaustive over the
-    full factorial of tested levels.
+    full factorial of tested levels — it optimizes stated preference only;
+    costs, margins, and feasibility are outside the search.
     """
     respondents, intercepts, matrices = _utility_components(result, design)
     level_counts = [len(design.levels[attribute]) for attribute in design.attribute_columns]

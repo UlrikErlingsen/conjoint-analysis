@@ -16,7 +16,7 @@ where \(\ell(a)\) is the profile's level of attribute \(a\) and \(w\) are part-w
 
 ### Estimation
 
-A separate ordinary-least-squares regression is fitted per respondent (`numpy.linalg.lstsq`). A respondent is *estimable* when they rated at least as many profiles as the model has parameters \(p = 1 + \sum_a (L_a - 1)\) **and** their own design matrix has full column rank. Aggregate part-worths are the mean over estimable respondents, and the reported spread is the standard deviation across respondents — a direct heterogeneity signal. A pooled regression over all ratings is always fitted as a reference; when fewer than 30% of respondents are estimable, the app reports pooled results only and says so.
+A separate ordinary-least-squares regression is fitted per respondent (`numpy.linalg.lstsq`). A respondent is *estimable* when they rated **strictly more** profiles than the model has parameters \(p = 1 + \sum_a (L_a - 1)\) — a saturated model has zero residual degrees of freedom, fits noise exactly (\(R^2 = 1\)), and yields unstable utilities — **and** their own design matrix has full column rank. Aggregate part-worths are the mean over estimable respondents, and the reported spread is the standard deviation across respondents — a direct heterogeneity signal. A pooled regression with **respondent fixed effects** (within transformation: ratings and design columns are demeaned per respondent) is always fitted as a reference, so differences in rating style between respondents cannot masquerade as attribute effects when respondents saw different profile subsets; its reported fit is the within-respondent \(R^2\). When fewer than 30% of respondents are estimable, the app reports these pooled results only and says so.
 
 ### Attribute importance
 
@@ -25,6 +25,10 @@ For each estimable respondent, an attribute's range is \(\max_\ell w_{a,\ell} - 
 ### Fit
 
 Per-respondent \(R^2\) is reported (and is NaN when a respondent's ratings have no variance). Low individual \(R^2\) means inconsistent ratings or preferences that violate the additive model; such respondents' utilities deserve less weight.
+
+## Missing values
+
+Rows whose rating is not numeric, or whose attribute value is missing or not one of the design's levels, are excluded with a visible count. Effects coding would otherwise silently treat such rows as an 'average' level and bias the part-worths.
 
 ## Design health checks
 
@@ -35,7 +39,7 @@ Before estimation the app reports how often each level was shown, warns when a l
 Products are defined as one level per attribute. For each estimable respondent, a product's utility is that respondent's intercept plus the sum of the matching part-worths, so utilities live on the rating scale (a product's mean utility reads as its mean predicted rating). Three classic choice rules are reported (Green & Krieger, 1988):
 
 - **First choice (maximum utility):** each respondent chooses their highest-utility product; exact ties are split equally. Decisive and winner-takes-all — most appropriate for considered, high-involvement purchases.
-- **Share of preference:** each respondent splits their choice in proportion to product utilities (negative utilities count as zero appeal; a respondent with no positive utilities splits equally). Softer — most appropriate for habitual, low-involvement categories where customers sample around.
+- **Share of preference:** each respondent splits their choice in proportion to how far each product's predicted rating sits above the study's **lowest observed rating** (products at or below the floor get zero weight; a respondent with no positive weights splits equally). Anchoring at the observed floor makes the rule invariant to shifting the whole rating scale — the naive utility-proportional rule depends on the scale's arbitrary origin. Softer — most appropriate for habitual, low-involvement categories where customers sample around.
 - **Logit:** a Bradley–Terry–Luce rule, \(\Pr(j) = e^{u_j} / \sum_k e^{u_k}\), averaged over respondents. Its softness depends on the rating scale, so read it as a sensitivity check, not a calibrated probability.
 
 When the rules disagree strongly, the conclusion is rule-sensitive and should be reported as such. All three are **preference shares among the exact products entered**, from stated preferences — not market-share forecasts.
@@ -48,9 +52,9 @@ A respondent cannot choose a product they have never heard of or cannot find. Gi
 
 When one of the simulated products is marked as a new entrant, the app compares the remaining products' first-choice shares without and with the entrant. Share the entrant takes from the same firm's other products is cannibalization; whether the incremental gain justifies it is a business judgment, not a model output.
 
-### Optimal product search
+### Highest stated-preference design search
 
-The app can enumerate the full factorial of tested levels and rank every possible design — by first-choice share against a user-defined competitive set, or by mean predicted rating when no competitors are defined (Green & Krieger, 1985). The search is exact, not heuristic, and is bounded so that designs × respondents stays within a responsiveness limit. It optimizes stated preference only: costs, feasibility, brand fit, and untested levels are outside the search.
+The app can enumerate the full factorial of tested levels and rank every possible design — by first-choice share against a user-defined competitive set, or by mean predicted rating when no competitors are defined (Green & Krieger, 1985). The search is exact, not heuristic, and is bounded so that designs × respondents stays within a responsiveness limit. It is deliberately **not** called an optimal product: it ranks stated preference only, and costs, margins, feasibility, brand fit, and untested levels are outside the search.
 
 ### Ideal products
 
