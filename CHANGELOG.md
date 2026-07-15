@@ -2,6 +2,20 @@
 
 All notable changes to ChoiceSignal are documented here.
 
+## 1.2.0 - 2026-07-15
+
+New: single-concept purchase-intent testing (page 4 · Concept test):
+
+- The classic five-point definitely/probably/might/probably-not/definitely-not scale, read from standard labels or the numbers 1–5 (reversed numeric convention supported); unrecognized answers and duplicate respondents are excluded with visible counts.
+- Top-box and top-two-box shares with Wilson 95% score intervals.
+- A weighted stated-trial estimate with user-editable discount weights (illustrative defaults 0.80/0.30/0.10, clearly labeled as assumptions to calibrate per category), always carrying the unadjusted top-two-box ceiling.
+- Reasons for rejection among respondents below the top two boxes, multi-mention aware (`;` or `|` separators).
+- Optional descriptive segment comparison with per-segment Wilson intervals and small-segment warnings — no significance theater.
+- A trial-intention JSON export (`signal.trial-intention.v1`) designed as the trial input of an awareness × trial × availability × repeat volume plan, carrying every assumption with the number.
+- New fictional demo (`examples/demo_concept_test.csv`, 260 respondents) and template (`examples/concept_template.csv`).
+
+Full conjoint remains the multi-concept method, and willingness-to-pay conversions remain deliberately excluded.
+
 ## 1.1.0 - 2026-07-14
 
 Statistical corrections following an external methods audit:

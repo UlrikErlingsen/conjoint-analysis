@@ -60,6 +60,34 @@ The app can enumerate the full factorial of tested levels and rank every possibl
 
 For each estimable respondent, the favorite level of every attribute defines that person's ideal combination; the app counts how often each combination occurs. This is a description of demand heterogeneity, not a launch recommendation. Exporting the per-respondent part-worth matrix (one row per respondent, one column per level) supports proper preference segmentation in a clustering tool.
 
+## Single-concept purchase-intent test
+
+Page 4 answers the other classic pre-launch question: not *which attributes to trade off*, but *would people buy this one described concept?* One row per respondent; the response is the classic five-point purchase-intent scale — *definitely would buy, probably would buy, might or might not buy, probably would not buy, definitely would not buy* — accepted as the standard labels or the numbers 1–5 (5 = definitely; a reversed numeric convention can be declared). Unrecognized responses are excluded with a visible count, and duplicate respondents keep only their first answer, with a warning.
+
+### Shares and uncertainty
+
+The **top-box** share is the fraction answering *definitely would buy*; the **top-two-box** share adds *probably*. Each share \(p = s/n\) is reported with a **Wilson (1927) score interval**:
+
+\[
+\frac{p + \frac{z^2}{2n} \pm z \sqrt{\frac{p(1-p)}{n} + \frac{z^2}{4n^2}}}{1 + \frac{z^2}{n}}, \qquad z = 1.96
+\]
+
+chosen over the naive Wald interval because it stays inside \([0, 1]\) and behaves sensibly at small samples and extreme shares.
+
+### From stated intent to an assumed trial rate
+
+Stated intentions systematically overstate purchase (Kalwani & Silk 1982; Jamieson & Bass 1989; Morwitz, Steckel & Gupta 2007). The app therefore never presents raw intent as a trial forecast. Instead it computes a **weighted trial estimate** \(\sum_b w_b \, p_b\) over the five boxes, with user-editable weights defaulting to 0.80 / 0.30 / 0.10 / 0 / 0 — an illustrative starting point in the range practitioners use, **not** a validated constant. The correct weights are category-specific and should be calibrated against past launches. The unadjusted top-two-box share is always carried alongside as the optimistic ceiling, and the export records the weights so the assumption cannot silently detach from the number. The estimate is designed as the **trial** input of an awareness × trial × availability × repeat volume plan (Urban & Hauser 1993); it says nothing about the other factors.
+
+### Rejection reasons and segments
+
+Among **rejecters** — respondents below the top two boxes — an optional reason column is tallied (several reasons per cell may be separated by `;` or `|`; percentages are per rejecter and can sum past 100%). An optional segment column yields per-segment top-box and top-two-box shares with Wilson intervals. The comparison is deliberately descriptive: where intervals overlap heavily the data cannot separate the segments, and no significance test is dressed over that.
+
+### Boundaries of the concept test
+
+- One concept, no trade-offs: it cannot say *why* in attribute terms — that is conjoint's job.
+- Intent was asked about a *described* concept; the realized product, price, and packaging shift responses.
+- The weighted trial estimate inherits its weights' quality; it is an assumption made explicit, not a measurement.
+
 ## Boundaries
 
 - The model is additive; attribute interactions (for example, brand-specific price sensitivity) are not estimated.
@@ -72,9 +100,14 @@ For each estimable respondent, the favorite level of every attribute defines tha
 
 - Green, P. E., & Rao, V. R. (1971). Conjoint measurement for quantifying judgmental data. *Journal of Marketing Research*, 8(3), 355–363.
 - Green, P. E., & Srinivasan, V. (1978). Conjoint analysis in consumer research: Issues and outlook. *Journal of Consumer Research*, 5(2), 103–123.
+- Jamieson, L. F., & Bass, F. M. (1989). Adjusting stated intention measures to predict trial purchase of new products. *Journal of Marketing Research*, 26(3), 336–345.
+- Kalwani, M. U., & Silk, A. J. (1982). On the reliability and predictive validity of purchase intention measures. *Marketing Science*, 1(3), 243–286.
+- Morwitz, V. G., Steckel, J. H., & Gupta, A. (2007). When do purchase intentions predict sales? *International Journal of Forecasting*, 23(3), 347–364.
 - Green, P. E., & Srinivasan, V. (1990). Conjoint analysis in marketing: New developments with implications for research and practice. *Journal of Marketing*, 54(4), 3–19.
 - Green, P. E., & Krieger, A. M. (1985). Models and heuristics for product line selection. *Marketing Science*, 4(1), 1–19.
 - Green, P. E., & Krieger, A. M. (1988). Choice rules and sensitivity analysis in conjoint simulators. *Journal of the Academy of Marketing Science*, 16(1), 114–127.
 - Lilien, G. L., Rangaswamy, A., & De Bruyn, A. (2017). *Principles of Marketing Engineering and Analytics* (3rd ed.). DecisionPro.
 - Orme, B. K. (2020). *Getting Started with Conjoint Analysis* (4th ed.). Research Publishers.
 - Rao, V. R. (2014). *Applied Conjoint Analysis*. Springer.
+- Urban, G. L., & Hauser, J. R. (1993). *Design and Marketing of New Products* (2nd ed.). Prentice Hall.
+- Wilson, E. B. (1927). Probable inference, the law of succession, and statistical inference. *Journal of the American Statistical Association*, 22(158), 209–212.

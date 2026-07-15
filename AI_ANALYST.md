@@ -80,6 +80,16 @@ When the three rules disagree strongly, say the conclusion is rule-sensitive. Al
 
 **Step 7 — Scenario simulation.** Let the user define candidate products and a competitive set, then rerun Step 6. If the user supplies awareness and availability estimates per product, multiply each preference share by awareness × availability and renormalize to 100% — and note the adjustment is exactly as good as those estimates. If one product is a new entrant, also compare the other products' first-choice shares without and with the entrant: share taken from the same firm's other products is cannibalization, and whether the trade is worth it is a business judgment, not a model output.
 
+### The second workflow: single-concept purchase-intent test
+
+ChoiceSignal also covers a simpler, complementary question: not *which attributes to trade off* but *would people buy this one described concept?* Use this workflow when the user has **one row per respondent** with a purchase-intent answer about a single concept. It never replaces conjoint for feature decisions.
+
+1. **Data.** One row per respondent: an ID, an intent answer on the classic five-point scale (*Definitely would buy / Probably would buy / Might or might not buy / Probably would not buy / Definitely would not buy*, or the numbers 1–5 with 5 = definitely — confirm the direction), an optional rejection-reason column, an optional segment column. Exclude unrecognized answers with a visible count; keep only each respondent's first answer and report duplicates.
+2. **Shares.** Report the full five-box distribution, the **top-box** share (definitely) and **top-two-box** share (definitely + probably), each with a **Wilson (1927) score interval** at 95% — not a Wald interval, which misbehaves at small n and extreme shares.
+3. **Trial estimate.** Stated intent overstates real buying (Kalwani & Silk 1982; Jamieson & Bass 1989; Morwitz, Steckel & Gupta 2007). Compute a weighted trial estimate Σ (weight × box share); as illustrative defaults use 0.80 / 0.30 / 0.10 / 0 / 0 for the five boxes and say plainly that the right weights are category-specific and should be calibrated to past launches. Always carry the raw top-two-box share alongside as the optimistic ceiling. Present the estimate as the **trial** input of an awareness × trial × availability × repeat volume plan (Urban & Hauser 1993) — never as a sales forecast.
+4. **Rejection reasons.** Among respondents below the top two boxes, tally the reasons (cells may hold several separated by `;` or `|`); percentages are per rejecter and can sum past 100%. Distinguish fixable objections (price, packaging) from polite refusals.
+5. **Segments (optional).** Report per-segment top-box and top-two-box shares with Wilson intervals. Keep it descriptive: where intervals overlap heavily, say the data cannot separate the segments; flag any segment under about 30 respondents as too small to read precisely.
+
 ### Diagnostics and honesty checks
 
 - **Saturation:** never fit a respondent with ratings ≤ parameters; an R² of 1 from a saturated model is a red flag, not a good fit.
@@ -108,8 +118,13 @@ Lead with a plain-language summary a non-statistician can act on: which attribut
 - Green, P. E., & Rao, V. R. (1971). Conjoint measurement for quantifying judgmental data. *Journal of Marketing Research*, 8(3), 355–363.
 - Green, P. E., & Srinivasan, V. (1978). Conjoint analysis in consumer research: Issues and outlook. *Journal of Consumer Research*, 5(2), 103–123.
 - Green, P. E., & Srinivasan, V. (1990). Conjoint analysis in marketing: New developments with implications for research and practice. *Journal of Marketing*, 54(4), 3–19.
+- Jamieson, L. F., & Bass, F. M. (1989). Adjusting stated intention measures to predict trial purchase of new products. *Journal of Marketing Research*, 26(3), 336–345.
+- Kalwani, M. U., & Silk, A. J. (1982). On the reliability and predictive validity of purchase intention measures. *Marketing Science*, 1(3), 243–286.
+- Morwitz, V. G., Steckel, J. H., & Gupta, A. (2007). When do purchase intentions predict sales? *International Journal of Forecasting*, 23(3), 347–364.
 - Green, P. E., & Krieger, A. M. (1985). Models and heuristics for product line selection. *Marketing Science*, 4(1), 1–19.
 - Green, P. E., & Krieger, A. M. (1988). Choice rules and sensitivity analysis in conjoint simulators. *Journal of the Academy of Marketing Science*, 16(1), 114–127.
 - Lilien, G. L., Rangaswamy, A., & De Bruyn, A. (2017). *Principles of Marketing Engineering and Analytics* (3rd ed.). DecisionPro.
 - Orme, B. K. (2020). *Getting Started with Conjoint Analysis* (4th ed.). Research Publishers.
 - Rao, V. R. (2014). *Applied Conjoint Analysis*. Springer.
+- Urban, G. L., & Hauser, J. R. (1993). *Design and Marketing of New Products* (2nd ed.). Prentice Hall.
+- Wilson, E. B. (1927). Probable inference, the law of succession, and statistical inference. *Journal of the American Statistical Association*, 22(158), 209–212.

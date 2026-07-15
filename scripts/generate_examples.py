@@ -126,6 +126,65 @@ def streaming_demo() -> pd.DataFrame:
     )
 
 
+def concept_demo() -> pd.DataFrame:
+    """Purchase-intent answers from 260 fictional respondents about one cold-brew subscription concept."""
+    rng = np.random.default_rng(23)
+    labels = [
+        "Definitely would buy",
+        "Probably would buy",
+        "Might or might not buy",
+        "Probably would not buy",
+        "Definitely would not buy",
+    ]
+    # (segment, share of sample, probabilities for the five boxes best-to-worst)
+    segments = [
+        ("Coffee enthusiasts", 0.30, [0.26, 0.34, 0.22, 0.12, 0.06]),
+        ("Busy professionals", 0.45, [0.12, 0.28, 0.30, 0.20, 0.10]),
+        ("Occasional drinkers", 0.25, [0.04, 0.12, 0.26, 0.32, 0.26]),
+    ]
+    reasons = [
+        "Too expensive for what it is",
+        "Happy with my current coffee routine",
+        "Worried it will not taste fresh",
+        "Too much packaging waste",
+        "Do not drink cold coffee",
+    ]
+    segment_names = [name for name, _, _ in segments]
+    segment_weights = np.array([weight for _, weight, _ in segments])
+    box_probabilities = {name: probabilities for name, _, probabilities in segments}
+    rows = []
+    for index in range(260):
+        segment = segment_names[rng.choice(len(segments), p=segment_weights / segment_weights.sum())]
+        intent = rng.choice(5, p=box_probabilities[segment])  # 0 = best box
+        reason = ""
+        if intent >= 2 and rng.random() < 0.8:  # below the top two boxes, most give a reason
+            reason = reasons[rng.choice(len(reasons))]
+            if rng.random() < 0.25:
+                second = reasons[rng.choice(len(reasons))]
+                if second != reason:
+                    reason = f"{reason}; {second}"
+        rows.append(
+            {
+                "respondent_id": f"C{index + 1:04d}",
+                "segment": segment,
+                "purchase_intent": labels[intent],
+                "rejection_reason": reason,
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def concept_template() -> pd.DataFrame:
+    return pd.DataFrame(
+        {
+            "respondent_id": ["R0001", "R0002", "R0003"],
+            "segment": ["Segment A", "Segment B", "Segment A"],
+            "purchase_intent": ["Definitely would buy", "Might or might not buy", "Probably would not buy"],
+            "rejection_reason": ["", "Too expensive", "Too expensive; No need for it"],
+        }
+    )
+
+
 def template() -> pd.DataFrame:
     return pd.DataFrame(
         {
@@ -143,5 +202,7 @@ if __name__ == "__main__":
     coffee_demo().to_csv(EXAMPLES / "demo_coffee_ratings.csv", index=False)
     cars_demo().to_csv(EXAMPLES / "demo_car_ratings.csv", index=False)
     streaming_demo().to_csv(EXAMPLES / "demo_streaming_ratings.csv", index=False)
+    concept_demo().to_csv(EXAMPLES / "demo_concept_test.csv", index=False)
     template().to_csv(EXAMPLES / "ratings_template.csv", index=False)
+    concept_template().to_csv(EXAMPLES / "concept_template.csv", index=False)
     print("Wrote example files to", EXAMPLES)

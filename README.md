@@ -20,6 +20,7 @@
 ## Why ChoiceSignal
 
 - **Made for marketers:** plain-language pages, fictional demo studies, design health checks before estimation, and portable exports.
+- **Two pre-launch questions in one app:** full conjoint for *which features to build*, plus a single-concept purchase-intent test (top-box / top-two-box with honest trial assumptions) for *would people buy this one idea*.
 - **Per-respondent estimation:** each respondent gets their own part-worth utilities, so differences between people survive into the results and power the simulator.
 - **Honest by design:** confounded designs are rejected, thin levels are flagged, respondents who rated too few profiles fall back to a pooled model with a visible warning, and R² is reported per respondent.
 - **Local-first:** no account, telemetry, external AI calls, or built-in data storage.
@@ -62,7 +63,7 @@ Don't want to install anything? [AI_ANALYST.md](AI_ANALYST.md) is a single copy-
 
 ## Try it in two minutes
 
-1. Start the app and click **Demo · coffee subscriptions** in the sidebar (the **car buyers** demo hides two taste segments to discover).
+1. Start the app and click **Demo · coffee subscriptions** in the sidebar (the **car buyers** demo hides two taste segments to discover, and **Demo · concept test** shows the single-concept purchase-intent workflow on page 4).
 2. On **1 · Data & design**, confirm the suggested respondent, rating, and attribute columns, then check and save the design.
 3. On **2 · Utilities & importance**, estimate the part-worth utilities and read which attributes drive preference.
 4. On **3 · Simulate & export**, define two candidate subscriptions and compare their preference shares, then download the Excel pack.
@@ -81,6 +82,8 @@ ChoiceSignal reads `.csv`, `.xlsx`, `.xls`, `.xlsm`, and `.json` up to 200 MB lo
 
 One row per rated profile: a respondent ID, one column per attribute (2–12 levels each, up to 10 attributes), and a numeric rating where higher means better. Respondents should each rate several profiles — more than the model has parameters for individual estimation. See [the data guide](docs/data_guide.md).
 
+The **single-concept test** (page 4) instead expects one row per respondent: an ID, a five-point purchase-intent answer, and optional rejection-reason and segment columns — see `examples/concept_template.csv` and the data guide.
+
 ## Methods and accuracy
 
 ChoiceSignal implements classic **ratings-based (full-profile) conjoint analysis**: attribute levels are effects-coded and a separate ordinary-least-squares regression is fitted per respondent, with a pooled model as reference and fallback. The app reports:
@@ -92,7 +95,8 @@ ChoiceSignal implements classic **ratings-based (full-profile) conjoint analysis
 - preference-share simulation under three classic choice rules (first choice, share of preference, logit);
 - awareness × availability share adjustment and a cannibalization view for product-line decisions;
 - an exhaustive stated-preference design search across every combination of tested levels (deliberately not called 'optimal': costs and feasibility stay outside);
-- a per-respondent part-worth export shaped for preference segmentation (it opens directly in SegmentSignal).
+- a per-respondent part-worth export shaped for preference segmentation (it opens directly in SegmentSignal);
+- a single-concept purchase-intent test: five-point scale, top-box and top-two-box shares with Wilson 95% intervals, rejection reasons, an optional segment comparison, and a trial-intention export with user-editable, clearly-labeled discount weights (stated intent overstates real buying).
 
 Interactions between attributes, choice-based conjoint (CBC), hierarchical Bayes estimation, and willingness-to-pay conversion are deliberately outside this first release; the docs explain why. See [methods and references](docs/methods.md).
 

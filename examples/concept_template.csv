@@ -1,0 +1,4 @@
+respondent_id,segment,purchase_intent,rejection_reason
+R0001,Segment A,Definitely would buy,
+R0002,Segment B,Might or might not buy,Too expensive
+R0003,Segment A,Probably would not buy,Too expensive; No need for it
