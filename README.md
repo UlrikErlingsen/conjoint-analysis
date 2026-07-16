@@ -117,6 +117,9 @@ ChoiceSignal is part of a small family of open, local-first marketing-analytics 
 - **[AllocSignal](https://github.com/UlrikErlingsen/marketing-mix-allocation)** — marketing response and budget allocation: saturating response curves, constrained optimization, and a panel-evidence workspace.
 - **[DriverSignal](https://github.com/UlrikErlingsen/survey-driver-analysis)** — survey driver analysis: scale reliability, robust standardized drivers, and correlated-predictor importance for satisfaction and NPS.
 - **[GateSignal](https://github.com/UlrikErlingsen/launch-decision-gate)** — the decision gate for the next bounded investment: criteria, evidence, scenario NPV, and risk triage. Its volume bridge imports this app's trial-intention export (`signal.trial-intention.v1`) directly.
+- **[ExperimentSignal](https://github.com/UlrikErlingsen/experiment-analysis)** — randomized experiment analysis: design audit, covariate-adjusted HC3 intervals, Holm multiplicity control, and a practical-effect decision bound declared before the result.
+- **[MeasureSignal](https://github.com/UlrikErlingsen/measurement-validation)** — measurement diagnostics: factorability, parallel analysis, common-factor EFA, alpha and omega, and a frozen scoring recipe for holdout confirmation.
+- **[TextSignal](https://github.com/UlrikErlingsen/open-text-analysis)** — open-text evidence: corpus audit, lexical contrast, perturbation-stable NMF patterns, and a human codebook hand-off.
 
 ChoiceSignal answers a third question: not who your customers are or what they are worth, but **what they want**.
 
