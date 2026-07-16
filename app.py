@@ -1,3 +1,5 @@
+# ruff: noqa: E402
+
 from __future__ import annotations
 
 import os
@@ -994,6 +996,7 @@ else:
     methods_page()
 
 st.markdown(
-    f"<div class='cs-footer'>ChoiceSignal v{__version__} <span>•</span> Built for transparent conjoint analysis <span>•</span> Your uploaded file is not persisted by the app</div>",
+    f"<div class='cs-footer'>ChoiceSignal v{__version__} <span>◆</span> Stated preference, not market share "
+    "<span>◆</span> Part of the Signal suite <span>◆</span> AGPL-3.0-or-later</div>",
     unsafe_allow_html=True,
 )
