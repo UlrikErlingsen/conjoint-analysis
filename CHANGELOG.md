@@ -2,6 +2,13 @@
 
 All notable changes to ChoiceSignal are documented here.
 
+## 1.2.1 - 2026-07-16
+
+### Security
+
+- Excel and CSV exports now neutralize formula-like column headers (including the per-respondent part-worth export whose headers come from attribute and level names) and de-duplicate scrubbed sheet names.
+- The Docker image keeps application code root-owned and read-only, and defusedxml hardens workbook XML parsing.
+
 ## 1.2.0 - 2026-07-15
 
 New: single-concept purchase-intent testing (page 4 · Concept test):

@@ -9,7 +9,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
-RUN useradd --create-home --uid 10001 choicesignal && chown -R choicesignal:choicesignal /app
+# App code stays root-owned and read-only; the runtime user only writes to its own home.
+RUN useradd --create-home --uid 10001 choicesignal
 USER choicesignal
 
 EXPOSE 8501
