@@ -120,12 +120,14 @@ ChoiceSignal is part of a small family of open, local-first marketing-analytics 
 - **[ExperimentSignal](https://github.com/UlrikErlingsen/experiment-analysis)** — randomized experiment analysis: design audit, covariate-adjusted HC3 intervals, Holm multiplicity control, and a practical-effect decision bound declared before the result.
 - **[MeasureSignal](https://github.com/UlrikErlingsen/measurement-validation)** — measurement diagnostics: factorability, parallel analysis, common-factor EFA, alpha and omega, and a frozen scoring recipe for holdout confirmation.
 - **[TextSignal](https://github.com/UlrikErlingsen/open-text-analysis)** — open-text evidence: corpus audit, lexical contrast, perturbation-stable NMF patterns, and a human codebook hand-off.
-- **Pricing-evidence prototype (private pending rename)** — the pricing decision itself: candidate vs reference price from experiment, history, or willingness-to-pay evidence. ChoiceSignal's price attribute measures *preference sensitivity across tested levels*; when the question becomes “what should this product cost?”, use the dedicated pricing workbench rather than over-reading part-worths—willingness-to-pay conversion stays deliberately out of this app.
+- **[TagSignal](https://github.com/UlrikErlingsen/pricing-analysis)** — the pricing decision itself: candidate vs reference price from experiment, history, or willingness-to-pay evidence. ChoiceSignal's price attribute measures *preference sensitivity across tested levels*; when the question becomes “what should this product cost?”, use TagSignal rather than over-reading part-worths—willingness-to-pay conversion stays deliberately out of this app.
 - **[RecommendSignal](https://github.com/UlrikErlingsen/recommender-evaluation)** — temporal offline policy comparison when the decision is which products or content to recommend, not which product profile people state they prefer.
+- **[TraceSignal](https://github.com/UlrikErlingsen/journey-path-analysis)** — descriptive customer-journey evidence from event logs: transitions, path support, drop-off, and Markov removal sensitivity, with no causal channel credit.
+- **[TrackSignal](https://github.com/UlrikErlingsen/brand-tracking)** — brand-tracking wave comparison: separate measures with intervals, multiple-comparison control, and declared practical thresholds.
 
 ChoiceSignal answers a third question: not who your customers are or what they are worth, but **what they want**.
 
-See the maintained suite overview at [ulrikerlingsen.com](https://ulrikerlingsen.com). Product labels that have not passed their own publication screen remain outside the public catalog.
+See the maintained suite overview at [ulrikerlingsen.com](https://ulrikerlingsen.com).
 
 ## Privacy and responsible use
 
