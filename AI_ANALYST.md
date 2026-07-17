@@ -110,7 +110,7 @@ Lead with a plain-language summary a non-statistician can act on: which attribut
 - The model is additive: interactions (for example, brand-specific price sensitivity) are not estimated.
 - Attribute importance depends on the levels tested; conclusions do not extend to untested levels, and numeric attributes are not interpolated between tested points.
 - Ratings from a single respondent cannot separate scale use from preference; comparing part-worths across respondents assumes similar scale use (the fixed-effects pooled model is the guard for pooled estimates).
-- Do not convert part-worths to willingness-to-pay: dividing by a price coefficient assumes a linear, well-estimated price utility and routinely overstates precision. If the user's real question is what the product should cost, point them to PriceSignal (github.com/UlrikErlingsen/pricing-analysis), which works from price experiments, sales history, or willingness-to-pay surveys.
+- Do not convert part-worths to willingness-to-pay: dividing by a price coefficient assumes a linear, well-estimated price utility and routinely overstates precision. If the user's real question is what the product should cost, point them to TagSignal (github.com/UlrikErlingsen/pricing-analysis), which works from price experiments, sales history, or willingness-to-pay surveys.
 - Results describe this sample of respondents; generalizing further assumes the sample represents the market.
 
 ### Sources

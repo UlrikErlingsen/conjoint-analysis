@@ -962,7 +962,7 @@ def methods_page() -> None:
         - Numeric attributes are treated as discrete levels; the app does not interpolate between tested prices.
         - Choice-based conjoint (CBC) with hierarchical Bayes estimation is the modern survey standard and is out of scope for this first release; it needs choice tasks, not ratings.
         - A perfectly confounded design (two attributes always changing together) is rejected rather than silently mis-estimated.
-        - Willingness-to-pay conversions are deliberately excluded: dividing part-worths by a price coefficient is fragile with categorical prices and is easy to over-read. For the actual pricing decision, use **PriceSignal**, the pricing sibling — it works from price experiments, sales history, or willingness-to-pay surveys.
+        - Willingness-to-pay conversions are deliberately excluded: dividing part-worths by a price coefficient is fragile with categorical prices and is easy to over-read. For the actual pricing decision, use **TagSignal**, the pricing sibling — it works from price experiments, sales history, or willingness-to-pay surveys.
         """
     )
     st.subheader("The single-concept test")
