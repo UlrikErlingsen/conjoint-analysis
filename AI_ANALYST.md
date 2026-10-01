@@ -1,6 +1,6 @@
-# ChoiceSignal AI Analyst — run this analysis with any AI, no install needed
+# Choice Signal AI Analyst — run this analysis with any AI, no install needed
 
-> Part of [ChoiceSignal](https://github.com/UlrikErlingsen/conjoint-analysis), a free open-source app that runs this same analysis with a point-and-click interface on your computer. This file is the no-install alternative: give it to an AI assistant and it becomes the analyst.
+> Part of [Choice Signal](https://github.com/UlrikErlingsen/conjoint-analysis), a free open-source app that runs this same analysis with a point-and-click interface on your computer. This file is the no-install alternative: give it to an AI assistant and it becomes the analyst.
 
 ## How to use this file (2 minutes)
 
@@ -82,7 +82,7 @@ When the three rules disagree strongly, say the conclusion is rule-sensitive. Al
 
 ### The second workflow: single-concept purchase-intent test
 
-ChoiceSignal also covers a simpler, complementary question: not *which attributes to trade off* but *would people buy this one described concept?* Use this workflow when the user has **one row per respondent** with a purchase-intent answer about a single concept. It never replaces conjoint for feature decisions.
+Choice Signal also covers a simpler, complementary question: not *which attributes to trade off* but *would people buy this one described concept?* Use this workflow when the user has **one row per respondent** with a purchase-intent answer about a single concept. It never replaces conjoint for feature decisions.
 
 1. **Data.** One row per respondent: an ID, an intent answer on the classic five-point scale (*Definitely would buy / Probably would buy / Might or might not buy / Probably would not buy / Definitely would not buy*, or the numbers 1–5 with 5 = definitely — confirm the direction), an optional rejection-reason column, an optional segment column. Exclude unrecognized answers with a visible count; keep only each respondent's first answer and report duplicates.
 2. **Shares.** Report the full five-box distribution, the **top-box** share (definitely) and **top-two-box** share (definitely + probably), each with a **Wilson (1927) score interval** at 95% — not a Wald interval, which misbehaves at small n and extreme shares.
@@ -110,7 +110,7 @@ Lead with a plain-language summary a non-statistician can act on: which attribut
 - The model is additive: interactions (for example, brand-specific price sensitivity) are not estimated.
 - Attribute importance depends on the levels tested; conclusions do not extend to untested levels, and numeric attributes are not interpolated between tested points.
 - Ratings from a single respondent cannot separate scale use from preference; comparing part-worths across respondents assumes similar scale use (the fixed-effects pooled model is the guard for pooled estimates).
-- Do not convert part-worths to willingness-to-pay: dividing by a price coefficient assumes a linear, well-estimated price utility and routinely overstates precision. If the user's real question is what the product should cost, point them to TagSignal (github.com/UlrikErlingsen/pricing-analysis), which works from price experiments, sales history, or willingness-to-pay surveys.
+- Do not convert part-worths to willingness-to-pay: dividing by a price coefficient assumes a linear, well-estimated price utility and routinely overstates precision. If the user's real question is what the product should cost, point them to Tag Signal (github.com/UlrikErlingsen/pricing-analysis), which works from price experiments, sales history, or willingness-to-pay surveys.
 - Results describe this sample of respondents; generalizing further assumes the sample represents the market.
 
 ### Sources

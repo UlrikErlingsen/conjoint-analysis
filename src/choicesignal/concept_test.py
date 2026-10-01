@@ -280,7 +280,7 @@ def trial_intention_export(
     version: str,
     source: str | None = None,
 ) -> dict:
-    """A portable summary designed as the trial input of an ATR volume model (for example in GateSignal)."""
+    """A portable summary designed as the trial input of an ATR volume model (for example in Gate Signal)."""
     boxes = intent_table(data)
     payload = {
         "schema": EXPORT_SCHEMA,

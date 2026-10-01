@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to ChoiceSignal are documented here.
+All notable changes to Choice Signal are documented here.
 
 ## 1.2.1 - 2026-07-16
 

@@ -1,6 +1,6 @@
 # Data guide
 
-## The shape ChoiceSignal expects
+## The shape Choice Signal expects
 
 One row per rated profile, in long format:
 
@@ -39,10 +39,10 @@ One row per respondent, answering about a single described concept:
 
 - **Purchase intent** — the five standard labels (*Definitely would buy*, *Probably would buy*, *Might or might not buy*, *Probably would not buy*, *Definitely would not buy*) or the numbers 1–5 with 5 = definitely would buy. A reversed numeric convention (1 = definitely would buy) can be declared with a checkbox. Anything else is excluded with a visible count.
 - **Rejection reason** *(optional)* — free text from respondents below the top two boxes. Several reasons in one cell can be separated with `;` or `|`.
-- **Segment** *(optional)* — any grouping label; segments exported from SegmentSignal work directly.
+- **Segment** *(optional)* — any grouping label; segments exported from Segment Signal work directly.
 
 `examples/concept_template.csv` is a copyable starting point, and `examples/demo_concept_test.csv` is a complete fictional study.
 
 ## Limits
 
-Files up to 200 MB locally (JSON up to 50 MB), 1 million rows per table, 10 million cells, 500,000 rating rows per analysis. These are responsiveness bounds, not statistical recommendations — most conjoint studies are thousands of rows, not millions.
+Files up to 200 MB locally through the launchers or Docker (a plain `python -m streamlit run app.py` uses the 50 MB default in `.streamlit/config.toml`; add `--server.maxUploadSize=200` to raise it), JSON up to 50 MB, 1 million rows per table, 10 million cells, 500,000 rating rows per analysis. These are responsiveness bounds, not statistical recommendations — most conjoint studies are thousands of rows, not millions.

@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "conjoint-analysis"
 version = "1.2.1"
-description = "ChoiceSignal: open, local-first conjoint (preference) analysis for marketers"
+description = "Choice Signal: open, local-first conjoint (preference) analysis for marketers"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "AGPL-3.0-or-later" }

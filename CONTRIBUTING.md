@@ -1,6 +1,6 @@
 # Contributing
 
-Contributions that make ChoiceSignal clearer, safer, more accurate, or easier for marketers are welcome.
+Contributions that make Choice Signal clearer, safer, more accurate, or easier for marketers are welcome.
 
 ## Development setup
 

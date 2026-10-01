@@ -64,3 +64,48 @@ def test_runtime_scaffolding_is_private_and_health_checked() -> None:
     assert "--browser.gatherUsageStats=false" in launcher
     assert "--browser.gatherUsageStats=false" in windows_launcher
     assert "CHOICESIGNAL_PORT" in launcher
+
+
+def test_readme_matches_suite_information_architecture() -> None:
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    # Signal README template order: readers find the same section in the same place in every repo.
+    sections = [
+        "## Read this first",
+        "## Scope",
+        "## Try the demo in three minutes",
+        "## Data contract",
+        "## Analysis contract",
+        "## Methods",
+        "## Exports",
+        "## Run locally",
+        "## Privacy",
+        "## No install? Give this file to an AI",
+        "## Development",
+        "## Where this fits in Signal",
+        "## References",
+        "## Originality and license",
+    ]
+    positions = [readme.find(f"\n{heading}\n") for heading in sections]
+    assert all(position >= 0 for position in positions), dict(zip(sections, positions, strict=True))
+    assert positions == sorted(positions)
+    assert readme.startswith('<p align="center">\n  <img src="assets/choicesignal-banner.png"')
+    assert "choicesignal-banner.svg" not in readme
+    assert "Signal-Research-a06f1f" in readme  # family badge in the Research 600 colour
+    assert "github.com/UlrikErlingsen/conjoint-analysis/actions" in readme  # tests badge
+    assert "**Choice Signal**" in readme
+    assert '<img src="assets/choicesignal-mark-64.png"' in readme  # suite footer
+    assert "Treat these results as decision support, not predicted market shares." in readme
+    assert "Creator Signal" not in readme
+    assert "ChoiceSignal" not in readme
+    for path in ("assets/choicesignal-banner.png", "assets/choicesignal-mark-64.png", "assets/choicesignal-social.png"):
+        assert (ROOT / path).exists()
+    assert not (ROOT / "assets" / "choicesignal-banner.svg").exists()
+
+
+def test_issue_templates_use_the_display_name_and_keep_data_safety() -> None:
+    templates = ROOT / ".github" / "ISSUE_TEMPLATE"
+    bug = (templates / "bug_report.yml").read_text(encoding="utf-8")
+    assert "Choice Signal" in bug
+    assert "Never attach real respondent or customer data" in bug
+    assert "conjoint-analysis/blob/main/SECURITY.md" in (templates / "config.yml").read_text(encoding="utf-8")
+    assert (templates / "feature_request.yml").exists()

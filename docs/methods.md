@@ -1,6 +1,6 @@
 # Methods and validation
 
-ChoiceSignal implements classic ratings-based (full-profile) conjoint analysis. This document describes the model, the diagnostics, and the boundaries.
+Choice Signal implements classic ratings-based (full-profile) conjoint analysis. This document describes the model, the diagnostics, and the boundaries.
 
 ## The model
 
