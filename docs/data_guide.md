@@ -45,4 +45,4 @@ One row per respondent, answering about a single described concept:
 
 ## Limits
 
-Files up to 200 MB locally through the launchers or Docker (a plain `python -m streamlit run app.py` uses the 50 MB default in `.streamlit/config.toml`; add `--server.maxUploadSize=200` to raise it), JSON up to 50 MB, 1 million rows per table, 10 million cells, 500,000 rating rows per analysis. These are responsiveness bounds, not statistical recommendations — most conjoint studies are thousands of rows, not millions.
+Files up to 200 MB locally (JSON up to 50 MB), 1 million rows per table, 10 million cells, 500,000 rating rows per analysis. These are responsiveness bounds, not statistical recommendations — most conjoint studies are thousands of rows, not millions.

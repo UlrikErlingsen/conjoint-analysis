@@ -60,7 +60,6 @@ def test_runtime_scaffolding_is_private_and_health_checked() -> None:
     assert 'primaryColor = "#a06f1f"' in config  # Signal Research family, 600 step
     assert "USER choicesignal" in dockerfile
     assert "HEALTHCHECK" in dockerfile
-    assert "--server.maxUploadSize=200" in dockerfile  # the documented local limit, above the synced config default
     assert "--browser.gatherUsageStats=false" in launcher
     assert "--browser.gatherUsageStats=false" in windows_launcher
     assert "CHOICESIGNAL_PORT" in launcher

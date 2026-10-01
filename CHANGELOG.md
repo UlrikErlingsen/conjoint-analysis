@@ -10,7 +10,7 @@ Signal brand refresh and Signal Hub entry point. The estimation, simulation, con
 
 - Display name written **Choice Signal** (with a space) in the app, README, docs, AI analyst file, launchers and metadata. Package, dist, file and environment-variable names stay `choicesignal` / `conjoint-analysis` / `CHOICESIGNAL_*`; the trial-intention JSON (`signal.trial-intention.v1`) is unchanged.
 - The app uses the shared `signal_theme` module (Organic Signal design, Research family colour `#a06f1f`, Figtree): sidebar lockup, masthead, hero, step cards, notes, footer, the per-app Plotly template on every chart and the mark as favicon replace the pasted styles.
-- New banner, social preview and marks in `assets/`; the old banner SVG is removed. `.streamlit/config.toml` uses the family colours. Its default upload limit is 50 MB; the launchers and the Docker image keep the documented 200 MB.
+- New banner, social preview and marks in `assets/`; the old banner SVG is removed. `.streamlit/config.toml` uses the family colours.
 - README follows the Signal template; bug-report and feature-request issue templates added.
 
 ### Signal Hub contract

@@ -64,7 +64,7 @@ One row per rated profile: a respondent ID, one column per attribute (2–12 lev
 
 The **single-concept test** (page 4) instead expects one row per respondent: an ID, a five-point purchase-intent answer, and optional rejection-reason and segment columns — see `examples/concept_template.csv`. Unrecognized answers and duplicate respondents are excluded with visible counts.
 
-The 200 MB limit applies through the launchers and Docker. A plain `python -m streamlit run app.py` uses the 50 MB default in `.streamlit/config.toml`; add `--server.maxUploadSize=200` to raise it. See the [data guide](docs/data_guide.md).
+See the [data guide](docs/data_guide.md).
 
 ## Analysis contract
 
