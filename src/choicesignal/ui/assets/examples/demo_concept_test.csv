@@ -1,0 +1,261 @@
+respondent_id,segment,purchase_intent,rejection_reason
+C0001,Busy professionals,Might or might not buy,Too much packaging waste
+C0002,Occasional drinkers,Might or might not buy,Too expensive for what it is
+C0003,Busy professionals,Might or might not buy,Worried it will not taste fresh
+C0004,Busy professionals,Probably would buy,
+C0005,Busy professionals,Might or might not buy,Too expensive for what it is
+C0006,Coffee enthusiasts,Might or might not buy,Do not drink cold coffee
+C0007,Coffee enthusiasts,Probably would not buy,Do not drink cold coffee
+C0008,Occasional drinkers,Definitely would not buy,
+C0009,Busy professionals,Probably would not buy,Too expensive for what it is; Happy with my current coffee routine
+C0010,Busy professionals,Probably would not buy,Worried it will not taste fresh; Too much packaging waste
+C0011,Occasional drinkers,Probably would not buy,
+C0012,Busy professionals,Probably would not buy,Do not drink cold coffee
+C0013,Busy professionals,Probably would buy,
+C0014,Occasional drinkers,Might or might not buy,Too expensive for what it is; Do not drink cold coffee
+C0015,Busy professionals,Probably would buy,
+C0016,Busy professionals,Definitely would not buy,Worried it will not taste fresh
+C0017,Occasional drinkers,Probably would not buy,Happy with my current coffee routine
+C0018,Busy professionals,Probably would buy,
+C0019,Occasional drinkers,Might or might not buy,Too expensive for what it is
+C0020,Busy professionals,Might or might not buy,Too expensive for what it is
+C0021,Busy professionals,Probably would not buy,
+C0022,Busy professionals,Might or might not buy,Too much packaging waste
+C0023,Coffee enthusiasts,Definitely would not buy,Too expensive for what it is; Too much packaging waste
+C0024,Coffee enthusiasts,Probably would not buy,Too expensive for what it is
+C0025,Coffee enthusiasts,Probably would not buy,
+C0026,Occasional drinkers,Probably would not buy,Too expensive for what it is; Too much packaging waste
+C0027,Busy professionals,Might or might not buy,
+C0028,Busy professionals,Probably would buy,
+C0029,Busy professionals,Definitely would not buy,Too expensive for what it is
+C0030,Coffee enthusiasts,Might or might not buy,Too expensive for what it is; Too much packaging waste
+C0031,Busy professionals,Might or might not buy,
+C0032,Busy professionals,Definitely would not buy,Too expensive for what it is
+C0033,Occasional drinkers,Definitely would not buy,
+C0034,Coffee enthusiasts,Probably would not buy,Too expensive for what it is
+C0035,Coffee enthusiasts,Probably would buy,
+C0036,Coffee enthusiasts,Definitely would buy,
+C0037,Busy professionals,Probably would buy,
+C0038,Busy professionals,Might or might not buy,Happy with my current coffee routine
+C0039,Occasional drinkers,Probably would not buy,
+C0040,Coffee enthusiasts,Definitely would buy,
+C0041,Busy professionals,Definitely would buy,
+C0042,Busy professionals,Might or might not buy,
+C0043,Coffee enthusiasts,Probably would buy,
+C0044,Occasional drinkers,Might or might not buy,Do not drink cold coffee; Too much packaging waste
+C0045,Busy professionals,Definitely would buy,
+C0046,Busy professionals,Probably would not buy,Too expensive for what it is
+C0047,Occasional drinkers,Might or might not buy,Worried it will not taste fresh
+C0048,Busy professionals,Probably would buy,
+C0049,Busy professionals,Might or might not buy,
+C0050,Coffee enthusiasts,Probably would not buy,Too much packaging waste
+C0051,Busy professionals,Definitely would buy,
+C0052,Occasional drinkers,Probably would not buy,Do not drink cold coffee
+C0053,Busy professionals,Definitely would not buy,Too much packaging waste
+C0054,Busy professionals,Might or might not buy,Worried it will not taste fresh
+C0055,Busy professionals,Might or might not buy,Too much packaging waste
+C0056,Occasional drinkers,Might or might not buy,Too expensive for what it is
+C0057,Occasional drinkers,Probably would buy,
+C0058,Occasional drinkers,Might or might not buy,Do not drink cold coffee
+C0059,Busy professionals,Definitely would buy,
+C0060,Busy professionals,Probably would buy,
+C0061,Occasional drinkers,Might or might not buy,Do not drink cold coffee
+C0062,Occasional drinkers,Might or might not buy,
+C0063,Busy professionals,Definitely would not buy,Happy with my current coffee routine; Worried it will not taste fresh
+C0064,Busy professionals,Probably would not buy,Worried it will not taste fresh
+C0065,Busy professionals,Definitely would buy,
+C0066,Busy professionals,Probably would buy,
+C0067,Busy professionals,Definitely would buy,
+C0068,Coffee enthusiasts,Probably would buy,
+C0069,Busy professionals,Definitely would not buy,
+C0070,Coffee enthusiasts,Probably would buy,
+C0071,Occasional drinkers,Definitely would not buy,Too much packaging waste
+C0072,Occasional drinkers,Probably would not buy,Too much packaging waste
+C0073,Coffee enthusiasts,Probably would buy,
+C0074,Busy professionals,Definitely would buy,
+C0075,Busy professionals,Probably would buy,
+C0076,Busy professionals,Probably would buy,
+C0077,Busy professionals,Probably would not buy,Worried it will not taste fresh
+C0078,Occasional drinkers,Probably would not buy,Do not drink cold coffee
+C0079,Occasional drinkers,Definitely would not buy,
+C0080,Busy professionals,Probably would buy,
+C0081,Coffee enthusiasts,Definitely would buy,
+C0082,Busy professionals,Probably would not buy,Too expensive for what it is
+C0083,Coffee enthusiasts,Definitely would buy,
+C0084,Busy professionals,Definitely would buy,
+C0085,Busy professionals,Might or might not buy,Worried it will not taste fresh
+C0086,Busy professionals,Might or might not buy,Happy with my current coffee routine
+C0087,Coffee enthusiasts,Definitely would buy,
+C0088,Busy professionals,Probably would buy,
+C0089,Occasional drinkers,Definitely would not buy,Happy with my current coffee routine
+C0090,Busy professionals,Might or might not buy,Do not drink cold coffee
+C0091,Occasional drinkers,Might or might not buy,
+C0092,Busy professionals,Might or might not buy,Do not drink cold coffee
+C0093,Occasional drinkers,Definitely would not buy,Worried it will not taste fresh
+C0094,Busy professionals,Definitely would not buy,Happy with my current coffee routine
+C0095,Occasional drinkers,Might or might not buy,Too much packaging waste
+C0096,Busy professionals,Definitely would buy,
+C0097,Busy professionals,Definitely would not buy,Happy with my current coffee routine
+C0098,Coffee enthusiasts,Definitely would not buy,Too expensive for what it is
+C0099,Occasional drinkers,Definitely would not buy,Worried it will not taste fresh
+C0100,Busy professionals,Probably would buy,
+C0101,Coffee enthusiasts,Probably would buy,
+C0102,Busy professionals,Probably would buy,
+C0103,Busy professionals,Definitely would buy,
+C0104,Coffee enthusiasts,Probably would buy,
+C0105,Busy professionals,Might or might not buy,Too much packaging waste
+C0106,Occasional drinkers,Probably would not buy,
+C0107,Busy professionals,Might or might not buy,Do not drink cold coffee
+C0108,Busy professionals,Probably would not buy,
+C0109,Busy professionals,Probably would buy,
+C0110,Occasional drinkers,Probably would not buy,Too much packaging waste; Do not drink cold coffee
+C0111,Coffee enthusiasts,Probably would not buy,Happy with my current coffee routine
+C0112,Coffee enthusiasts,Probably would buy,
+C0113,Busy professionals,Definitely would buy,
+C0114,Busy professionals,Might or might not buy,
+C0115,Busy professionals,Definitely would not buy,Happy with my current coffee routine
+C0116,Busy professionals,Might or might not buy,
+C0117,Busy professionals,Probably would not buy,Too expensive for what it is
+C0118,Coffee enthusiasts,Probably would buy,
+C0119,Busy professionals,Probably would not buy,Happy with my current coffee routine; Too expensive for what it is
+C0120,Occasional drinkers,Probably would not buy,Too expensive for what it is
+C0121,Busy professionals,Definitely would buy,
+C0122,Coffee enthusiasts,Definitely would not buy,Too expensive for what it is
+C0123,Occasional drinkers,Probably would not buy,Do not drink cold coffee
+C0124,Occasional drinkers,Might or might not buy,Worried it will not taste fresh
+C0125,Coffee enthusiasts,Definitely would buy,
+C0126,Busy professionals,Might or might not buy,Too expensive for what it is
+C0127,Coffee enthusiasts,Probably would buy,
+C0128,Coffee enthusiasts,Might or might not buy,Happy with my current coffee routine
+C0129,Busy professionals,Probably would not buy,Happy with my current coffee routine
+C0130,Busy professionals,Probably would buy,
+C0131,Busy professionals,Probably would buy,
+C0132,Busy professionals,Might or might not buy,
+C0133,Busy professionals,Probably would not buy,Worried it will not taste fresh
+C0134,Coffee enthusiasts,Probably would buy,
+C0135,Coffee enthusiasts,Might or might not buy,
+C0136,Occasional drinkers,Definitely would not buy,Happy with my current coffee routine; Too expensive for what it is
+C0137,Occasional drinkers,Definitely would not buy,
+C0138,Busy professionals,Probably would buy,
+C0139,Coffee enthusiasts,Probably would buy,
+C0140,Coffee enthusiasts,Probably would buy,
+C0141,Coffee enthusiasts,Definitely would buy,
+C0142,Coffee enthusiasts,Probably would buy,
+C0143,Coffee enthusiasts,Probably would buy,
+C0144,Occasional drinkers,Might or might not buy,
+C0145,Busy professionals,Probably would buy,
+C0146,Busy professionals,Probably would not buy,Do not drink cold coffee
+C0147,Coffee enthusiasts,Might or might not buy,Worried it will not taste fresh; Do not drink cold coffee
+C0148,Occasional drinkers,Definitely would not buy,Happy with my current coffee routine
+C0149,Coffee enthusiasts,Probably would buy,
+C0150,Busy professionals,Probably would buy,
+C0151,Busy professionals,Definitely would not buy,Worried it will not taste fresh
+C0152,Busy professionals,Probably would not buy,Happy with my current coffee routine
+C0153,Coffee enthusiasts,Probably would buy,
+C0154,Occasional drinkers,Might or might not buy,Worried it will not taste fresh
+C0155,Coffee enthusiasts,Definitely would buy,
+C0156,Busy professionals,Might or might not buy,Too much packaging waste; Do not drink cold coffee
+C0157,Occasional drinkers,Definitely would not buy,Too expensive for what it is; Do not drink cold coffee
+C0158,Busy professionals,Might or might not buy,Too much packaging waste; Happy with my current coffee routine
+C0159,Busy professionals,Probably would not buy,Happy with my current coffee routine
+C0160,Coffee enthusiasts,Probably would buy,
+C0161,Occasional drinkers,Probably would buy,
+C0162,Occasional drinkers,Probably would not buy,Worried it will not taste fresh
+C0163,Occasional drinkers,Definitely would not buy,Happy with my current coffee routine; Worried it will not taste fresh
+C0164,Occasional drinkers,Might or might not buy,Too expensive for what it is
+C0165,Coffee enthusiasts,Probably would buy,
+C0166,Busy professionals,Definitely would buy,
+C0167,Occasional drinkers,Might or might not buy,Too much packaging waste
+C0168,Busy professionals,Might or might not buy,Worried it will not taste fresh
+C0169,Occasional drinkers,Definitely would not buy,Too expensive for what it is
+C0170,Busy professionals,Probably would buy,
+C0171,Coffee enthusiasts,Definitely would buy,
+C0172,Occasional drinkers,Probably would buy,
+C0173,Busy professionals,Probably would not buy,Worried it will not taste fresh
+C0174,Coffee enthusiasts,Probably would buy,
+C0175,Busy professionals,Might or might not buy,Worried it will not taste fresh
+C0176,Busy professionals,Probably would not buy,Worried it will not taste fresh
+C0177,Busy professionals,Definitely would buy,
+C0178,Busy professionals,Might or might not buy,
+C0179,Busy professionals,Probably would buy,
+C0180,Occasional drinkers,Might or might not buy,Too much packaging waste
+C0181,Busy professionals,Might or might not buy,Happy with my current coffee routine
+C0182,Occasional drinkers,Probably would not buy,Happy with my current coffee routine
+C0183,Occasional drinkers,Probably would not buy,
+C0184,Coffee enthusiasts,Might or might not buy,Happy with my current coffee routine
+C0185,Busy professionals,Might or might not buy,Happy with my current coffee routine
+C0186,Coffee enthusiasts,Definitely would buy,
+C0187,Coffee enthusiasts,Might or might not buy,Worried it will not taste fresh; Too much packaging waste
+C0188,Busy professionals,Might or might not buy,
+C0189,Busy professionals,Might or might not buy,Too much packaging waste
+C0190,Occasional drinkers,Definitely would not buy,Happy with my current coffee routine; Do not drink cold coffee
+C0191,Busy professionals,Probably would not buy,Worried it will not taste fresh
+C0192,Occasional drinkers,Definitely would not buy,Too expensive for what it is
+C0193,Busy professionals,Definitely would buy,
+C0194,Occasional drinkers,Might or might not buy,Worried it will not taste fresh; Too expensive for what it is
+C0195,Busy professionals,Probably would buy,
+C0196,Occasional drinkers,Might or might not buy,Too expensive for what it is; Worried it will not taste fresh
+C0197,Busy professionals,Probably would buy,
+C0198,Occasional drinkers,Might or might not buy,Happy with my current coffee routine
+C0199,Coffee enthusiasts,Probably would buy,
+C0200,Busy professionals,Might or might not buy,
+C0201,Coffee enthusiasts,Might or might not buy,
+C0202,Coffee enthusiasts,Definitely would buy,
+C0203,Busy professionals,Definitely would not buy,Do not drink cold coffee
+C0204,Busy professionals,Might or might not buy,
+C0205,Busy professionals,Probably would buy,
+C0206,Busy professionals,Definitely would buy,
+C0207,Coffee enthusiasts,Probably would buy,
+C0208,Busy professionals,Definitely would buy,
+C0209,Busy professionals,Might or might not buy,Happy with my current coffee routine
+C0210,Busy professionals,Definitely would buy,
+C0211,Occasional drinkers,Definitely would not buy,Too expensive for what it is
+C0212,Busy professionals,Definitely would not buy,Worried it will not taste fresh
+C0213,Occasional drinkers,Definitely would not buy,Too expensive for what it is
+C0214,Coffee enthusiasts,Probably would not buy,
+C0215,Occasional drinkers,Probably would not buy,Too expensive for what it is
+C0216,Busy professionals,Definitely would not buy,Too much packaging waste; Worried it will not taste fresh
+C0217,Busy professionals,Probably would buy,
+C0218,Busy professionals,Probably would buy,
+C0219,Coffee enthusiasts,Definitely would buy,
+C0220,Coffee enthusiasts,Definitely would buy,
+C0221,Busy professionals,Probably would not buy,Too much packaging waste
+C0222,Coffee enthusiasts,Probably would not buy,Do not drink cold coffee
+C0223,Busy professionals,Might or might not buy,Too expensive for what it is
+C0224,Coffee enthusiasts,Definitely would buy,
+C0225,Busy professionals,Might or might not buy,Worried it will not taste fresh
+C0226,Occasional drinkers,Definitely would not buy,Too expensive for what it is
+C0227,Busy professionals,Definitely would not buy,Happy with my current coffee routine
+C0228,Coffee enthusiasts,Probably would buy,
+C0229,Coffee enthusiasts,Probably would buy,
+C0230,Coffee enthusiasts,Might or might not buy,Happy with my current coffee routine; Too expensive for what it is
+C0231,Coffee enthusiasts,Probably would buy,
+C0232,Occasional drinkers,Might or might not buy,
+C0233,Busy professionals,Might or might not buy,Happy with my current coffee routine
+C0234,Busy professionals,Probably would buy,
+C0235,Occasional drinkers,Definitely would not buy,Too expensive for what it is
+C0236,Busy professionals,Probably would buy,
+C0237,Coffee enthusiasts,Definitely would buy,
+C0238,Coffee enthusiasts,Probably would buy,
+C0239,Busy professionals,Probably would buy,
+C0240,Busy professionals,Probably would not buy,Too expensive for what it is
+C0241,Busy professionals,Probably would not buy,Do not drink cold coffee
+C0242,Busy professionals,Probably would buy,
+C0243,Busy professionals,Probably would buy,
+C0244,Coffee enthusiasts,Probably would buy,
+C0245,Occasional drinkers,Might or might not buy,Do not drink cold coffee
+C0246,Coffee enthusiasts,Probably would not buy,
+C0247,Occasional drinkers,Probably would not buy,Too much packaging waste
+C0248,Coffee enthusiasts,Might or might not buy,Worried it will not taste fresh; Too expensive for what it is
+C0249,Busy professionals,Probably would buy,
+C0250,Occasional drinkers,Probably would buy,
+C0251,Coffee enthusiasts,Might or might not buy,Too expensive for what it is
+C0252,Occasional drinkers,Probably would not buy,Worried it will not taste fresh
+C0253,Coffee enthusiasts,Might or might not buy,
+C0254,Coffee enthusiasts,Might or might not buy,Happy with my current coffee routine
+C0255,Coffee enthusiasts,Definitely would not buy,Worried it will not taste fresh
+C0256,Busy professionals,Probably would buy,
+C0257,Busy professionals,Might or might not buy,Do not drink cold coffee; Too much packaging waste
+C0258,Coffee enthusiasts,Definitely would buy,
+C0259,Busy professionals,Probably would buy,
+C0260,Coffee enthusiasts,Probably would buy,

@@ -3,12 +3,16 @@
 from __future__ import annotations
 
 from pathlib import Path
+import shutil
 
 import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 EXAMPLES = ROOT / "examples"
+# The app loads its demos from package data (so they work from a wheel, e.g. in Signal Hub); keep identical copies.
+BUNDLED = ROOT / "src" / "choicesignal" / "ui" / "assets" / "examples"
+DEMO_FILES = ("demo_coffee_ratings.csv", "demo_car_ratings.csv", "demo_streaming_ratings.csv", "demo_concept_test.csv")
 
 
 def _make_ratings(
@@ -205,4 +209,7 @@ if __name__ == "__main__":
     concept_demo().to_csv(EXAMPLES / "demo_concept_test.csv", index=False)
     template().to_csv(EXAMPLES / "ratings_template.csv", index=False)
     concept_template().to_csv(EXAMPLES / "concept_template.csv", index=False)
-    print("Wrote example files to", EXAMPLES)
+    BUNDLED.mkdir(parents=True, exist_ok=True)
+    for name in DEMO_FILES:
+        shutil.copyfile(EXAMPLES / name, BUNDLED / name)
+    print("Wrote example files to", EXAMPLES, "and copied the demos to", BUNDLED)
