@@ -103,6 +103,24 @@ def test_bundled_demo_studies_match_the_examples() -> None:
         assert (UI / "assets" / "examples" / name).read_bytes() == (ROOT / "examples" / name).read_bytes(), name
 
 
+def test_ui_reads_data_only_from_inside_the_package() -> None:
+    # Signal Hub installs the app from its release zip as a normal package: repo-root folders such as examples/,
+    # docs/ or assets/ do not exist there. Every file the UI reads must live under src/choicesignal/ and be
+    # declared as package data.
+    from choicesignal.ui import app as ui_app, signal_theme
+
+    source = (UI / "app.py").read_text(encoding="utf-8")
+    assert "parents[" not in source and ".parent.parent" not in source
+    assert PACKAGE in ui_app.DEMOS.parents
+    used = re.findall(r'load_demo\("([^"]+)"\)', source)
+    assert sorted(used) == sorted(DEMOS)
+    for name in used:
+        assert (ui_app.DEMOS / name).is_file(), name
+    assert PACKAGE in signal_theme.ASSETS.parents
+    pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+    assert '"choicesignal.ui" = ["assets/marks/*", "assets/examples/*.csv"]' in pyproject
+
+
 def test_render_runs_from_a_script_without_set_page_config() -> None:
     app = AppTest.from_string(RENDER_SCRIPT, default_timeout=120)
     app.run()
