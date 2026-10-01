@@ -2,6 +2,25 @@
 
 All notable changes to Choice Signal are documented here.
 
+## 1.3.0 - 2026-10-02
+
+Signal brand refresh and Signal Hub entry point. The estimation, simulation, concept test, data contract and exports are unchanged.
+
+### Brand
+
+- Display name written **Choice Signal** (with a space) in the app, README, docs, AI analyst file, launchers and metadata. Package, dist, file and environment-variable names stay `choicesignal` / `conjoint-analysis` / `CHOICESIGNAL_*`; the trial-intention JSON (`signal.trial-intention.v1`) is unchanged.
+- The app uses the shared `signal_theme` module (Organic Signal design, Research family colour `#a06f1f`, Figtree): sidebar lockup, masthead, hero, step cards, notes, footer, the per-app Plotly template on every chart and the mark as favicon replace the pasted styles.
+- New banner, social preview and marks in `assets/`; the old banner SVG is removed. `.streamlit/config.toml` uses the family colours. Its default upload limit is 50 MB; the launchers and the Docker image keep the documented 200 MB.
+- README follows the Signal template; bug-report and feature-request issue templates added.
+
+### Signal Hub contract
+
+- `choicesignal.ui` exposes `APP_INFO` and `render()`, so Signal Hub can embed the app; `app.py` is now a thin standalone entry point.
+- All session-state and widget keys are namespaced `choice:` (including the page selector).
+- The fictional demo studies ship as package data, so the demo buttons also work when the app is installed from a wheel.
+- `streamlit` and `plotly` moved to a `ui` extra (also in `test`); the analysis core installs without them. `requirements.txt` still lists everything.
+- New tests: no Streamlit/Plotly import outside `choicesignal.ui`, the UI reads data only from inside the package, `render()` runs from a script without a page config, and every widget key is namespaced. Ruff runs in CI.
+
 ## 1.2.1 - 2026-07-16
 
 ### Security
