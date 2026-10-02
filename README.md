@@ -43,7 +43,7 @@ Everything runs locally with open-source Python packages. There is no account, t
 
 ## Try the demo in three minutes
 
-1. Start the app and click **Demo · coffee subscriptions** in the sidebar (the **car buyers** demo hides two taste segments to discover, and **Demo · concept test** shows the single-concept purchase-intent workflow on page 4).
+1. Start the app: the fictional **coffee subscriptions** demo study is already loaded, so there is nothing to upload. The sidebar demo buttons switch studies or restore the coffee demo (the **car buyers** demo hides two taste segments to discover, and **Demo · concept test** shows the single-concept purchase-intent workflow on page 4); uploading your own file replaces the demo.
 2. On **1 · Data & design**, confirm the suggested respondent, rating, and attribute columns, then check and save the design.
 3. On **2 · Utilities & importance**, estimate the part-worth utilities and read which attributes drive preference.
 4. On **3 · Simulate & export**, define two candidate subscriptions and compare their preference shares, then download the Excel pack.

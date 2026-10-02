@@ -12,11 +12,13 @@ Signal brand refresh and Signal Hub entry point. The estimation, simulation, con
 - The app uses the shared `signal_theme` module (Organic Signal design, Research family colour `#a06f1f`, Figtree): sidebar lockup, masthead, hero, step cards, notes, footer, the per-app Plotly template on every chart and the mark as favicon replace the pasted styles.
 - New banner, social preview and marks in `assets/`; the old banner SVG is removed. `.streamlit/config.toml` uses the family colours.
 - README follows the Signal template; bug-report and feature-request issue templates added.
+- Embedded Figtree font, no Google Fonts request: the synced theme carries the font itself (`signal_font.py`) and the colorway uses the per-family contrast order.
 
 ### Signal Hub contract
 
 - `choicesignal.ui` exposes `APP_INFO` and `render()`, so Signal Hub can embed the app; `app.py` is now a thin standalone entry point.
 - All session-state and widget keys are namespaced `choice:` (including the page selector).
+- Opens with the fictional demo preloaded: the coffee-subscription study loads on first run, so the workflow starts on demo data without an upload. The demo buttons switch or restore studies, an upload replaces the demo, and **Clear session data** leaves the session empty.
 - The fictional demo studies ship as package data, so the demo buttons also work when the app is installed from a wheel.
 - `streamlit` and `plotly` moved to a `ui` extra (also in `test`); the analysis core installs without them. `requirements.txt` still lists everything.
 - New tests: no Streamlit/Plotly import outside `choicesignal.ui`, the UI reads data only from inside the package, `render()` runs from a script without a page config, and every widget key is namespaced. Ruff runs in CI.

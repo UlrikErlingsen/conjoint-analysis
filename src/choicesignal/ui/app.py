@@ -58,6 +58,8 @@ def k(name: str) -> str:
 # The fictional demo studies ship inside the package (copies of examples/), so the demo buttons also work when
 # the app is installed from a wheel, as in Signal Hub.
 DEMOS = Path(__file__).resolve().parent / "assets" / "examples"
+# Preloaded on first run: the coffee-subscription study exercises the full conjoint workflow (pages 1–3).
+DEFAULT_DEMO = "demo_coffee_ratings.csv"
 
 PAGES = [
     "Welcome",
@@ -114,17 +116,24 @@ def _ensure_state() -> None:
         ("nav_target", PAGES[0]),
     ):
         st.session_state.setdefault(k(name), default)
+    # Open with the most representative fictional demo study, once per session, so the tool shows real content
+    # straight away. Uploads and the demo buttons replace it; "Clear session data" leaves the session empty.
+    if not st.session_state.get(k("demo_preloaded")):
+        st.session_state[k("demo_preloaded")] = True
+        if not st.session_state[k("tables")]:
+            load_demo(DEFAULT_DEMO)
 
 
 def set_loaded(loaded: LoadedData) -> None:
     st.session_state[k("tables")] = loaded.tables
     st.session_state[k("source_name")] = loaded.source_name
     st.session_state[k("active_table")] = next(iter(loaded.tables))
-    _drop(*ANALYSIS_KEYS, *STUDY_WIDGETS, "table_select")
+    _drop(*ANALYSIS_KEYS, *STUDY_WIDGETS, "table_select", "active_demo")
 
 
 def load_demo(filename: str) -> None:
     set_loaded(load_data(DEMOS / filename))
+    st.session_state[k("active_demo")] = filename
 
 
 def current_frame() -> pd.DataFrame | None:
@@ -210,7 +219,7 @@ def _sidebar() -> str:
                 "`examples/concept_template.csv` show the expected shapes."
             )
         if st.session_state.get(k("tables")) and full_width(st.button, "Clear session data", key=k("clear_data")):
-            _drop("tables", "source_name", "active_table", "upload_identity", "_uploader_had_file", *ANALYSIS_KEYS)
+            _drop("tables", "source_name", "active_table", "active_demo", "upload_identity", "_uploader_had_file", *ANALYSIS_KEYS)
             _drop(*STUDY_WIDGETS, "table_select")
             st.session_state[k("upload_epoch")] = epoch + 1
             go_to("Welcome")
@@ -252,6 +261,13 @@ def welcome_page() -> None:
         ),
         pills=["No account", "No telemetry", "Per-respondent estimates", "Honest design warnings"],
     )
+    if st.session_state.get(k("active_demo")) == DEFAULT_DEMO:
+        sig.note(
+            "info",
+            "**The fictional coffee-subscription demo is already loaded** — 300 synthetic respondents rating 14 "
+            "subscription profiles each. Open **1 · Data & design** to walk through it, switch demos in the "
+            "sidebar, or upload your own ratings to replace it. No record represents a real person or company.",
+        )
     sig.note("warn", CAUTION)
     sig.cards(
         [
