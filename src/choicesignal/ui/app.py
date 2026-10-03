@@ -7,7 +7,6 @@ functions. ``render()`` never calls ``st.set_page_config`` or ``st.navigation``.
 
 from __future__ import annotations
 
-import hashlib
 import inspect
 import json
 import os
@@ -43,7 +42,14 @@ from choicesignal.conjoint import (
     simulate_shares,
 )
 from choicesignal.errors import DataProblem, friendly_message
-from choicesignal.io import LoadedData, load_data, results_to_excel, results_to_json, safe_for_spreadsheet
+from choicesignal.io import (
+    LoadedData,
+    dataset_fingerprint,
+    load_data,
+    results_to_excel,
+    results_to_json,
+    safe_for_spreadsheet,
+)
 from choicesignal.ui import signal_theme as sig
 
 
@@ -81,7 +87,15 @@ CAUTION = (
     "habits, and competitors outside the study."
 )
 
-ANALYSIS_KEYS = ("study", "result", "products", "shares", "optimal", "adjusted_shares", "concept")
+ANALYSIS_KEYS = ("study", "result", "products", "shares", "optimal", "adjusted_shares", "concept", "memo")
+# Excel holds at most 1,048,576 rows per sheet; writing millions of cells also takes minutes. Larger tables get a
+# note sheet in the Excel pack, while the JSON and CSV downloads hold every row.
+EXCEL_SHEET_ROWS = 1_048_575
+EXCEL_SHEET_CELLS = 2_000_000
+# Above this many respondents the export files are built only when their button is clicked.
+LAZY_EXPORT_RESPONDENTS = 20_000
+# On-screen tables show at most this many rows; calculations and exports always use every row.
+SCREEN_TABLE_ROWS = 1_000
 # Column-mapping widgets re-guess their defaults whenever a different table becomes active.
 STUDY_WIDGETS = ("study_respondent", "study_rating", "study_attributes")
 
@@ -102,6 +116,30 @@ def show_error(exc: Exception) -> None:
     if not isinstance(exc, DataProblem) and os.getenv("CHOICESIGNAL_DEBUG") == "1":
         with st.expander("Technical details"):
             st.code("".join(traceback.format_exception(exc)))
+
+
+def memo(name: str, key: object, compute):
+    """Reuse a slow result across reruns while its inputs are unchanged (cleared with the analysis keys)."""
+    store = st.session_state.setdefault(k("memo"), {})
+    cached = store.get(name)
+    if cached is not None and cached[0] == key:
+        return cached[1]
+    value = compute()
+    store[name] = (key, value)
+    return value
+
+
+def _sheet_or_note(frame: pd.DataFrame, download: str) -> pd.DataFrame:
+    if len(frame) > EXCEL_SHEET_ROWS or frame.size > EXCEL_SHEET_CELLS:
+        return pd.DataFrame(
+            {
+                "note": [
+                    f"This table has {len(frame):,} rows, too many for a workbook sheet. The JSON download and the "
+                    f"{download} contain every row."
+                ]
+            }
+        )
+    return frame
 
 
 def _drop(*names: str) -> None:
@@ -178,7 +216,8 @@ def _sidebar() -> str:
             if st.session_state.get(k("upload_identity")) != upload_identity:
                 try:
                     raw = uploaded.getvalue()
-                    set_loaded(load_data(raw, name=uploaded.name))
+                    with st.spinner(f"Reading {uploaded.name} ({len(raw) / 1024 / 1024:,.0f} MB)…"):
+                        set_loaded(load_data(raw, name=uploaded.name))
                     st.session_state[k("upload_identity")] = upload_identity
                     st.session_state[k("_uploader_had_file")] = False
                     st.session_state[k("upload_epoch")] = epoch + 1
@@ -279,7 +318,7 @@ def welcome_page() -> None:
     metric_columns = st.columns(4)
     metric_columns[0].metric("Input formats", "5", "CSV · Excel · JSON")
     metric_columns[1].metric("Estimation", "OLS", "per respondent + pooled")
-    metric_columns[2].metric("Attributes", "up to 10", "12 levels each")
+    metric_columns[2].metric("Attributes", "no limit", "2+ levels each")
     metric_columns[3].metric("Data stored", "None", "by the app")
     with st.expander("Where this tool fits"):
         st.write(
@@ -305,11 +344,12 @@ def data_page() -> None:
     if frame is None:
         return
 
+    frame_key = id(frame)
     top = st.columns(4)
     top[0].metric("Rows (ratings)", f"{len(frame):,}")
     top[1].metric("Columns", len(frame.columns))
-    top[2].metric("Missing cells", f"{int(frame.isna().sum().sum()):,}")
-    top[3].metric("Duplicate rows", f"{int(frame.duplicated().sum()):,}")
+    top[2].metric("Missing cells", f"{memo('missing_cells', frame_key, lambda: int(frame.isna().sum().sum())):,}")
+    top[3].metric("Duplicate rows", f"{memo('duplicate_rows', frame_key, lambda: int(frame.duplicated().sum())):,}")
     full_width(st.dataframe, frame.head(12), hide_index=True)
 
     columns = [str(column) for column in frame.columns]
@@ -328,24 +368,29 @@ def data_page() -> None:
         key=k("study_rating"),
     )
     attribute_options = [column for column in columns if column not in (respondent_column, rating_column)]
+    level_counts = memo(
+        "level_counts", frame_key, lambda: {column: int(frame[column].astype(str).nunique()) for column in columns}
+    )
     attribute_defaults = [
         column for column in attribute_options
-        if frame[column].astype(str).nunique() <= 12 and not pd.api.types.is_float_dtype(frame[column])
+        if level_counts[column] <= 12 and not pd.api.types.is_float_dtype(frame[column])
     ]
     attribute_columns = st.multiselect(
         "Attribute columns — the product features that were varied",
         attribute_options,
         default=attribute_defaults,
-        help="Each attribute needs 2–12 levels. Numeric measurements (like exact prices) should be grouped into a few levels.",
+        help="Each attribute needs at least 2 levels. Numeric measurements (like exact prices) should be grouped into a few levels.",
         key=k("study_attributes"),
     )
 
     if st.button("Check the design and save the setup", type="primary", key=k("save_design")):
         try:
-            design = build_design(frame, respondent_column, rating_column, attribute_columns)
-            report, warnings = design_report(frame, design)
+            with st.spinner(f"Checking the design across {len(frame):,} ratings…"):
+                design = build_design(frame, respondent_column, rating_column, attribute_columns)
+                report, warnings = design_report(frame, design)
+            # The loaded table is never modified in place, so the study keeps a reference rather than a copy.
             st.session_state[k("study")] = {
-                "frame": frame.copy(), "design": design, "source": st.session_state.get(k("source_name")),
+                "frame": frame, "design": design, "source": st.session_state.get(k("source_name")),
             }
             _drop("result", "products", "shares", "optimal", "adjusted_shares")
             st.success(
@@ -373,17 +418,20 @@ def utilities_page() -> None:
         st.info("Save a study design on page 1 first.")
         return
     frame, design = study["frame"], study["design"]
+    respondent_count = memo(
+        "respondents", (id(frame), design.respondent_column), lambda: int(frame[design.respondent_column].nunique())
+    )
     context = st.columns(4)
-    context[0].metric("Respondents", f"{frame[design.respondent_column].nunique():,}")
+    context[0].metric("Respondents", f"{respondent_count:,}")
     context[1].metric("Ratings", f"{len(frame):,}")
     context[2].metric("Attributes", len(design.attribute_columns))
     context[3].metric("Model parameters", design.parameter_count)
 
     if st.button("Estimate part-worth utilities", type="primary", key=k("estimate")):
         try:
-            with st.spinner("Fitting one regression per respondent…"):
+            with st.spinner(f"Fitting one regression per respondent ({respondent_count:,} respondents)…"):
                 st.session_state[k("result")] = estimate_conjoint(frame, design)
-            _drop("shares", "optimal")
+            _drop("shares", "optimal", "memo")
         except Exception as exc:
             show_error(exc)
 
@@ -454,8 +502,13 @@ def utilities_page() -> None:
     with st.expander("Detailed tables: part-worths, importance, and per-respondent fit"):
         full_width(st.dataframe, partworths.style.format({"partworth": "{:.2f}", "spread_std": "{:.2f}"}), hide_index=True)
         full_width(st.dataframe, importance.style.format({"importance_%": "{:.1f}", "spread_std": "{:.1f}"}), hide_index=True)
-        fit = result.fit.copy()
+        fit = result.fit.head(SCREEN_TABLE_ROWS).copy()
         full_width(st.dataframe, fit.style.format({"r_squared": "{:.2f}"}), hide_index=True)
+        if len(result.fit) > SCREEN_TABLE_ROWS:
+            st.caption(
+                f"Showing the first {SCREEN_TABLE_ROWS:,} of {len(result.fit):,} respondents. The exports on page 3 "
+                "contain every respondent."
+            )
         st.caption(
             "Respondents with low R² rated inconsistently (or their preferences do not follow the additive model); "
             "their utilities deserve less weight."
@@ -606,16 +659,18 @@ def simulate_page() -> None:
 
     st.subheader("Export the evidence")
     frame = study["frame"]
-    fingerprint = hashlib.sha256(
-        pd.util.hash_pandas_object(
-            frame[[design.respondent_column, *design.attribute_columns]].astype(str), index=True
-        ).values.tobytes()
-    ).hexdigest()
+    fingerprint_columns = [design.respondent_column, *design.attribute_columns]
+    fingerprint = memo(
+        "fingerprint", (id(frame), tuple(fingerprint_columns)), lambda: dataset_fingerprint(frame, fingerprint_columns)
+    )
+    respondent_count = memo(
+        "respondents", (id(frame), design.respondent_column), lambda: int(frame[design.respondent_column].nunique())
+    )
     metadata = {
         "product": "Choice Signal", "version": __version__, "source": study.get("source"),
         "method": "ratings-based conjoint, effects-coded OLS, "
                   + ("per-respondent with fixed-effects pooled reference" if result.method == "individual" else "respondent-fixed-effects pooled only"),
-        "respondents": int(frame[design.respondent_column].nunique()),
+        "respondents": respondent_count,
         "ratings": len(frame),
         "attributes": {attribute: design.levels[attribute] for attribute in design.attribute_columns},
         "pooled_r_squared": round(result.pooled_r_squared, 4),
@@ -642,6 +697,10 @@ def simulate_page() -> None:
         "Respondent fit": result.fit,
         "Pooled partworths": result.pooled_partworths,
     }
+    workbook_notes = {
+        "Individual partworths": "part-worths-per-respondent CSV",
+        "Respondent fit": "part-worths-per-respondent CSV (its r_squared column)",
+    }
     shares = st.session_state.get(k("shares"))
     if shares is not None:
         export_tables["Simulated shares"] = shares
@@ -651,10 +710,30 @@ def simulate_page() -> None:
     optimal = st.session_state.get(k("optimal"))
     if optimal is not None:
         export_tables["Top preference designs"] = optimal
+    def build_excel() -> bytes:
+        return results_to_excel(
+            {
+                name: _sheet_or_note(table, workbook_notes[name]) if name in workbook_notes else table
+                for name, table in export_tables.items()
+            }
+        )
+
+    def build_json() -> bytes:
+        return results_to_json(
+            {name.lower().replace(" ", "_"): table for name, table in export_tables.items() if name != "Analysis manifest"},
+            metadata,
+        )
+
+    large = len(result.fit) > LAZY_EXPORT_RESPONDENTS
+    if large:
+        st.caption(
+            f"With {len(result.fit):,} respondents each file below is prepared when you click it. Tables too long "
+            "for a workbook sheet carry a note in the Excel pack; the JSON and CSV downloads hold every row."
+        )
     downloads = st.columns(3)
     full_width(
         downloads[0].download_button,
-        "Download full Excel pack", results_to_excel(export_tables), "choicesignal_results.xlsx",
+        "Download full Excel pack", build_excel if large else build_excel(), "choicesignal_results.xlsx",
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         key=k("download_excel"),
     )
@@ -668,25 +747,25 @@ def simulate_page() -> None:
     full_width(
         downloads[2].download_button,
         "Download JSON + audit trail",
-        results_to_json(
-            {name.lower().replace(" ", "_"): table for name, table in export_tables.items() if name != "Analysis manifest"},
-            metadata,
-        ),
+        build_json if large else build_json(),
         "choicesignal_results.json", "application/json",
         key=k("download_json"),
     )
     if result.method == "individual" and not result.individual.empty:
-        wide = result.individual.pivot_table(
-            index="respondent", columns=["attribute", "level"], values="partworth"
-        )
-        wide.columns = [f"{attribute} · {level}" for attribute, level in wide.columns]
-        wide = wide.reset_index().merge(
-            result.fit[["respondent", "r_squared"]], on="respondent", how="left"
-        )
+        def build_wide_csv() -> bytes:
+            wide = result.individual.pivot_table(
+                index="respondent", columns=["attribute", "level"], values="partworth"
+            )
+            wide.columns = [f"{attribute} · {level}" for attribute, level in wide.columns]
+            wide = wide.reset_index().merge(
+                result.fit[["respondent", "r_squared"]], on="respondent", how="left"
+            )
+            return safe_for_spreadsheet(wide).to_csv(index=False).encode("utf-8")
+
         full_width(
             st.download_button,
             "Download part-worths per respondent — ready for segmentation",
-            safe_for_spreadsheet(wide).to_csv(index=False).encode("utf-8"),
+            build_wide_csv if large else build_wide_csv(),
             "choicesignal_partworths_by_respondent.csv", "text/csv",
             key=k("download_by_respondent"),
         )

@@ -73,7 +73,7 @@ PY
 fi
 
 URL="http://127.0.0.1:${PORT}"
-MAX_UPLOAD_MB="${CHOICESIGNAL_MAX_UPLOAD_MB:-200}"
+MAX_UPLOAD_MB="${CHOICESIGNAL_MAX_UPLOAD_MB:-10000}"
 
 echo "Starting Choice Signal at ${URL}..."
 python -m streamlit run app.py \

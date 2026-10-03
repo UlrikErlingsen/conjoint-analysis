@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "conjoint-analysis"
-version = "1.3.0"
+version = "1.4.0"
 description = "Choice Signal: open, local-first conjoint (preference) analysis for marketers"
 readme = "README.md"
 requires-python = ">=3.10"

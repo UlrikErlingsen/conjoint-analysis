@@ -2,6 +2,22 @@
 
 All notable changes to Choice Signal are documented here.
 
+## 1.4.0 - 2026-10-03
+
+### Larger datasets
+
+- Larger datasets: run locally (standalone, a local Signal Hub or an internal deployment), Choice Signal no longer sets any limit on file size, rows, cells, respondents, attributes or levels; memory is the limit. The former 200 MB upload, 50 MB JSON, 400 MB expanded-Excel, 1-million-row, 10-million-cell, 500,000-rating-row, 10-attribute and 12-level limits, and the 20-million-utility design-search cap, now apply only in the public demo (`SIGNAL_PUBLIC=1`), where messages say they are demo limits. All demo caps live in the new `choicesignal.limits` module. More than 12 levels now draws a grouping warning locally.
+- Streamlit's upload cap is 10,000 MB: `.streamlit/config.toml`, `CHOICESIGNAL_MAX_UPLOAD_MB` (default 10000) now in `run_app.bat` as well as `run_app.command`, and `STREAMLIT_SERVER_MAX_UPLOAD_SIZE=10000` in the Docker image.
+- Running out of memory while loading or estimating is reported as a plain "not enough memory on this computer" message.
+- Per-respondent estimation runs in blocks of respondents with the same number of profiles (rank checks and fit statistics on whole blocks, the same least-squares call per respondent), and importance, the simulator's utility lookup and the design search are vectorized; results are identical to 1.3.0. The exhaustive design search scores designs in blocks and is refused only above 5 billion designs × respondents, because the number of combinations grows with every added level.
+- Faster, leaner reading: CSV uses pandas' C parser in 250,000-row chunks with the delimiter detected from the header (comma, semicolon, tab or pipe); loaded tables and the saved study are no longer copied; level cleaning strips each distinct value once; data-page checks and the dataset fingerprint run once per table instead of on every rerun.
+- Exports keep the full data: the JSON download always holds every row (large tables embedded compactly), the per-respondent CSV holds every respondent, and a table too long for a workbook sheet carries a note in the Excel pack. With more than 20,000 respondents the files are built when their button is clicked, and the on-screen fit table shows its first 1,000 rows with a note.
+- Measured on a 24-thread desktop: 5 million rating rows (312,500 respondents × 16 profiles, 253 MB) load in about 4 seconds and are estimated respondent by respondent in about 16 seconds, with a peak of about 2.1 GB.
+
+### Suite
+
+- Suite: Rival, Reach, Learn and Blueprint Signal added to the suite table.
+
 ## 1.3.0 - 2026-10-02
 
 Signal brand refresh and Signal Hub entry point. The estimation, simulation, concept test, data contract and exports are unchanged.

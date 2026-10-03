@@ -54,7 +54,7 @@ When one of the simulated products is marked as a new entrant, the app compares 
 
 ### Highest stated-preference design search
 
-The app can enumerate the full factorial of tested levels and rank every possible design — by first-choice share against a user-defined competitive set, or by mean predicted rating when no competitors are defined (Green & Krieger, 1985). The search is exact, not heuristic, and is bounded so that designs × respondents stays within a responsiveness limit. It is deliberately **not** called an optimal product: it ranks stated preference only, and costs, margins, feasibility, brand fit, and untested levels are outside the search.
+The app can enumerate the full factorial of tested levels and rank every possible design — by first-choice share against a user-defined competitive set, or by mean predicted rating when no competitors are defined (Green & Krieger, 1985). The search is exact, not heuristic; utilities are scored in blocks so memory stays bounded, and a search beyond 5 billion designs × respondents is refused because the number of combinations grows with every added level (the public demo stops at 20 million). It is deliberately **not** called an optimal product: it ranks stated preference only, and costs, margins, feasibility, brand fit, and untested levels are outside the search.
 
 ### Ideal products
 

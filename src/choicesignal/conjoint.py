@@ -2,18 +2,31 @@
 
 from __future__ import annotations
 
-import itertools
 from dataclasses import dataclass, field
 
 import numpy as np
 import pandas as pd
 
 from .errors import DataProblem
+from .limits import active, demo_limit
 
-MAX_LEVELS_PER_ATTRIBUTE = 12
-MAX_ATTRIBUTES = 10
-MAX_ROWS = 500_000
-MAX_SEARCH_CELLS = 20_000_000
+# Above this many levels an attribute is probably an ungrouped measurement; run locally the app warns, the
+# public demo refuses (limits.py).
+ADVISED_LEVELS_PER_ATTRIBUTE = 12
+# The optimal-design search is exhaustive: designs × respondents grows combinatorially with attributes and levels.
+# Utilities are scored in blocks of this many cells, and a search beyond EXHAUSTIVE_SEARCH_CELLS is refused
+# because it would run for hours, not because of memory.
+SEARCH_BLOCK_CELLS = 20_000_000
+EXHAUSTIVE_SEARCH_CELLS = 5_000_000_000
+# Respondents are estimated together in blocks of about this many design-matrix cells.
+ESTIMATION_BLOCK_CELLS = 4_000_000
+
+
+def _clean_levels(series: pd.Series) -> np.ndarray:
+    """``series.astype(str).str.strip()`` as an array, stripping each distinct value once."""
+    codes, uniques = pd.factorize(series.astype(str), sort=False)
+    stripped = np.asarray(pd.Index(uniques).str.strip(), dtype=object)
+    return stripped[codes]
 
 
 @dataclass
@@ -53,8 +66,9 @@ def build_design(
     attribute_columns: list[str],
 ) -> ConjointDesign:
     """Validate the study columns and freeze the attribute-level structure."""
-    if len(frame) > MAX_ROWS:
-        raise DataProblem(f"This release supports up to {MAX_ROWS:,} rating rows.")
+    limits = active()
+    if limits.rating_rows is not None and len(frame) > limits.rating_rows:
+        raise DataProblem(demo_limit(f"The demo analyzes up to {limits.rating_rows:,} rating rows."))
     for column in [respondent_column, rating_column, *attribute_columns]:
         if column not in frame.columns:
             raise DataProblem(f"The column “{column}” is not in the file.")
@@ -62,8 +76,8 @@ def build_design(
         raise DataProblem("Respondent, rating, and attribute columns must all be different columns.")
     if not attribute_columns:
         raise DataProblem("Choose at least one attribute column.")
-    if len(attribute_columns) > MAX_ATTRIBUTES:
-        raise DataProblem(f"This release supports up to {MAX_ATTRIBUTES} attributes.")
+    if limits.attributes is not None and len(attribute_columns) > limits.attributes:
+        raise DataProblem(demo_limit(f"The demo supports up to {limits.attributes} attributes."))
 
     ratings = pd.to_numeric(frame[rating_column], errors="coerce")
     if ratings.notna().sum() < 10:
@@ -75,15 +89,16 @@ def build_design(
 
     levels: dict[str, list[str]] = {}
     for column in attribute_columns:
-        observed = frame[column].astype(str).str.strip()
-        unique = sorted(observed.dropna().unique().tolist())
+        unique = sorted(pd.unique(_clean_levels(frame[column])).tolist())
         unique = [level for level in unique if level not in ("", "nan")]
         if len(unique) < 2:
             raise DataProblem(f"The attribute “{column}” needs at least 2 different levels.")
-        if len(unique) > MAX_LEVELS_PER_ATTRIBUTE:
+        if limits.levels_per_attribute is not None and len(unique) > limits.levels_per_attribute:
             raise DataProblem(
-                f"The attribute “{column}” has {len(unique)} levels; this release supports up to "
-                f"{MAX_LEVELS_PER_ATTRIBUTE}. Numeric measurements should be grouped into a few levels first."
+                demo_limit(
+                    f"The attribute “{column}” has {len(unique)} levels; the demo supports up to "
+                    f"{limits.levels_per_attribute}. Numeric measurements should be grouped into a few levels first."
+                )
             )
         levels[column] = unique
     return ConjointDesign(
@@ -99,7 +114,7 @@ def _effects_matrix(frame: pd.DataFrame, design: ConjointDesign) -> tuple[np.nda
     columns: list[np.ndarray] = [np.ones(len(frame))]
     names: list[tuple[str, str]] = [("_intercept", "_intercept")]
     for attribute in design.attribute_columns:
-        observed = frame[attribute].astype(str).str.strip().to_numpy()
+        observed = _clean_levels(frame[attribute])
         levels = design.levels[attribute]
         reference = levels[-1]
         for level in levels[:-1]:
@@ -127,11 +142,19 @@ def design_report(frame: pd.DataFrame, design: ConjointDesign) -> tuple[pd.DataF
     warnings: list[str] = []
     rows = []
     for attribute in design.attribute_columns:
-        observed = frame[attribute].astype(str).str.strip()
-        counts = observed.value_counts()
+        counts = pd.Series(_clean_levels(frame[attribute])).value_counts()
         for level in design.levels[attribute]:
             rows.append({"attribute": attribute, "level": level, "times_shown": int(counts.get(level, 0))})
     report = pd.DataFrame(rows)
+    many_levels = [
+        attribute for attribute in design.attribute_columns if len(design.levels[attribute]) > ADVISED_LEVELS_PER_ATTRIBUTE
+    ]
+    if many_levels:
+        warnings.append(
+            f"These attributes have more than {ADVISED_LEVELS_PER_ATTRIBUTE} levels: {', '.join(many_levels)}. "
+            "If they are measurements such as exact prices, group them into a few levels first; every level adds a "
+            "parameter each respondent must rate enough profiles to estimate."
+        )
     smallest = report["times_shown"].min()
     if smallest < 5:
         warnings.append(
@@ -179,7 +202,7 @@ def estimate_conjoint(frame: pd.DataFrame, design: ConjointDesign, minimum_indiv
         warnings.append(f"{dropped:,} rows without a numeric rating were excluded.")
     unknown_level = pd.Series(False, index=working.index)
     for attribute in design.attribute_columns:
-        observed = working[attribute].astype(str).str.strip()
+        observed = pd.Series(_clean_levels(working[attribute]), index=working.index)
         unknown_level |= ~observed.isin(design.levels[attribute])
     excluded_levels = int(unknown_level.sum())
     if excluded_levels:
@@ -212,41 +235,8 @@ def estimate_conjoint(frame: pd.DataFrame, design: ConjointDesign, minimum_indiv
     )
     pooled_partworths = _partworths_from_coefficients(pooled_coefficients, names[1:], design)
 
-    individual_rows: list[pd.DataFrame] = []
-    fit_rows: list[dict[str, object]] = []
-    for respondent, group in working.groupby(design.respondent_column, sort=False):
-        matrix, _ = _effects_matrix(group, design)
-        # Strictly more ratings than parameters: a saturated model has zero
-        # residual degrees of freedom, fits noise exactly (R² = 1), and yields
-        # unstable utilities.
-        estimable = len(group) >= design.parameter_count + 1 and np.linalg.matrix_rank(matrix) == design.parameter_count
-        r_squared = np.nan
-        intercept = np.nan
-        if estimable:
-            coefficients, *_ = np.linalg.lstsq(matrix, group[design.rating_column].to_numpy(dtype=float), rcond=None)
-            intercept = float(coefficients[0])
-            person = _partworths_from_coefficients(coefficients[1:], names[1:], design)
-            person.insert(0, "respondent", respondent)
-            individual_rows.append(person)
-            observed = group[design.rating_column].to_numpy(dtype=float)
-            predictions = matrix @ coefficients
-            person_variance = float(((observed - observed.mean()) ** 2).sum())
-            if person_variance > 0:
-                r_squared = 1 - float(((observed - predictions) ** 2).sum()) / person_variance
-        fit_rows.append(
-            {
-                "respondent": respondent,
-                "profiles_rated": len(group),
-                "estimable": bool(estimable),
-                "r_squared": float(r_squared) if np.isfinite(r_squared) else np.nan,
-                "intercept": intercept,
-            }
-        )
-    fit = pd.DataFrame(fit_rows)
-
-    individual = pd.concat(individual_rows, ignore_index=True) if individual_rows else pd.DataFrame(
-        columns=["respondent", "attribute", "level", "partworth"]
-    )
+    individual, fit = _individual_models(working, design, pooled_matrix, ratings, names)
+    individual_rows = not individual.empty
     estimable_share = float(fit["estimable"].mean()) if len(fit) else 0.0
 
     if individual_rows and estimable_share >= minimum_individual_share:
@@ -288,6 +278,95 @@ def estimate_conjoint(frame: pd.DataFrame, design: ConjointDesign, minimum_indiv
     )
 
 
+def _individual_models(
+    working: pd.DataFrame,
+    design: ConjointDesign,
+    matrix: np.ndarray,
+    ratings: np.ndarray,
+    names: list[tuple[str, str]],
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """One effects-coded regression per respondent, solved for many respondents at once.
+
+    Respondents who rated the same number of profiles are stacked into one array (rank checks and fit statistics
+    run on whole blocks); each respondent's coefficients come from the same least-squares call as before.
+    Respondents keep their first-appearance order.
+    """
+    parameters = design.parameter_count
+    codes, respondents = pd.factorize(working[design.respondent_column], sort=False)
+    order = np.argsort(codes, kind="stable")
+    counts = np.bincount(codes, minlength=len(respondents))
+    starts = np.concatenate(([0], np.cumsum(counts)[:-1]))
+    estimable = np.zeros(len(respondents), dtype=bool)
+    r_squared = np.full(len(respondents), np.nan)
+    intercept = np.full(len(respondents), np.nan)
+    coefficients = np.full((len(respondents), parameters), np.nan)
+    sorted_matrix = matrix[order]
+    sorted_ratings = ratings[order]
+    for size in np.unique(counts):
+        members = np.flatnonzero(counts == size)
+        # Strictly more ratings than parameters: a saturated model has zero residual degrees of freedom, fits
+        # noise exactly (R² = 1), and yields unstable utilities.
+        if size < parameters + 1:
+            continue
+        block = max(1, ESTIMATION_BLOCK_CELLS // (int(size) * parameters))
+        for begin in range(0, len(members), block):
+            chunk = members[begin : begin + block]
+            rows = starts[chunk][:, None] + np.arange(size)[None, :]
+            stacked = sorted_matrix[rows]  # respondents × profiles × parameters
+            observed = sorted_ratings[rows]
+            full_rank = np.linalg.matrix_rank(stacked) == parameters
+            if not full_rank.any():
+                continue
+            chunk, stacked, observed = chunk[full_rank], stacked[full_rank], observed[full_rank]
+            # The same LAPACK least-squares call as fitting one respondent at a time, so estimates are unchanged.
+            solution = np.vstack(
+                [np.linalg.lstsq(stacked[index], observed[index], rcond=None)[0] for index in range(len(chunk))]
+            )
+            predictions = np.vstack([stacked[index] @ solution[index] for index in range(len(chunk))])
+            variance = ((observed - observed.mean(axis=1, keepdims=True)) ** 2).sum(axis=1)
+            residual = ((observed - predictions) ** 2).sum(axis=1)
+            with np.errstate(divide="ignore", invalid="ignore"):
+                r_squared[chunk] = np.where(variance > 0, 1 - residual / variance, np.nan)
+            estimable[chunk] = True
+            coefficients[chunk] = solution
+            intercept[chunk] = solution[:, 0]
+    fit = pd.DataFrame(
+        {
+            "respondent": np.asarray(respondents),
+            "profiles_rated": counts.astype(int),
+            "estimable": estimable,
+            "r_squared": np.where(np.isfinite(r_squared), r_squared, np.nan),
+            "intercept": intercept,
+        }
+    )
+    fitted = np.flatnonzero(estimable)
+    if not len(fitted):
+        return pd.DataFrame(columns=["respondent", "attribute", "level", "partworth"]), fit
+    # Part-worths per respondent, attribute by attribute: the coded levels, then the reference level as minus
+    # their sum, exactly as _partworths_from_coefficients lays them out.
+    attribute_names = names[1:]
+    blocks: list[np.ndarray] = []
+    labels: list[tuple[str, str]] = []
+    for attribute in design.attribute_columns:
+        indices = [index for index, (name, _) in enumerate(attribute_names) if name == attribute]
+        betas = coefficients[fitted][:, [index + 1 for index in indices]]
+        blocks.append(betas)
+        blocks.append(-betas.sum(axis=1, keepdims=True))
+        labels.extend(attribute_names[index] for index in indices)
+        labels.append((attribute, design.levels[attribute][-1]))
+    values = np.hstack(blocks)
+    level_count = len(labels)
+    individual = pd.DataFrame(
+        {
+            "respondent": np.repeat(np.asarray(respondents)[fitted], level_count),
+            "attribute": np.tile(np.asarray([label[0] for label in labels], dtype=object), len(fitted)),
+            "level": np.tile(np.asarray([label[1] for label in labels], dtype=object), len(fitted)),
+            "partworth": values.ravel().astype(float),
+        }
+    )
+    return individual, fit
+
+
 def _importance_from_partworths(partworths: pd.DataFrame) -> pd.DataFrame:
     ranges = partworths.groupby("attribute", sort=False)["partworth"].agg(lambda s: s.max() - s.min())
     total = float(ranges.sum())
@@ -298,15 +377,14 @@ def _importance_from_partworths(partworths: pd.DataFrame) -> pd.DataFrame:
 
 
 def _importance_from_individual(individual: pd.DataFrame) -> pd.DataFrame:
-    per_person = []
-    for respondent, person in individual.groupby("respondent", sort=False):
-        ranges = person.groupby("attribute", sort=False)["partworth"].agg(lambda s: s.max() - s.min())
-        total = float(ranges.sum())
-        if total > 0:
-            per_person.append(100 * ranges / total)
-    stacked = pd.concat(per_person, axis=1)
+    grouped = individual.groupby(["respondent", "attribute"], sort=False)["partworth"]
+    ranges = (grouped.max() - grouped.min()).unstack("attribute")
+    attributes = list(dict.fromkeys(individual["attribute"]))
+    ranges = ranges[attributes]
+    totals = ranges.sum(axis=1)
+    shares = 100 * ranges[totals > 0].div(totals[totals > 0], axis=0)
     importance = pd.DataFrame(
-        {"attribute": stacked.index, "importance_%": stacked.mean(axis=1).values, "spread_std": stacked.std(axis=1).values}
+        {"attribute": attributes, "importance_%": shares.mean(axis=0).values, "spread_std": shares.std(axis=0).values}
     )
     return importance.sort_values("importance_%", ascending=False).reset_index(drop=True)
 
@@ -319,6 +397,24 @@ def _utility_components(result: ConjointResult, design: ConjointDesign):
     intercepts = (
         result.fit.set_index("respondent")["intercept"].reindex(respondents).fillna(result.mean_rating).to_numpy()
     )
+    level_count = sum(len(design.levels[attribute]) for attribute in design.attribute_columns)
+    values = result.individual["partworth"].to_numpy(dtype=float)
+    expected_labels = [(attribute, level) for attribute in design.attribute_columns for level in design.levels[attribute]]
+    if (
+        len(values) == level_count * len(respondents)
+        and np.array_equal(result.individual["respondent"].to_numpy()[::level_count], respondents)
+        and list(zip(result.individual["attribute"].iloc[:level_count], result.individual["level"].iloc[:level_count]))
+        == expected_labels
+    ):
+        # The usual layout (one block of every level per respondent): reshape instead of millions of lookups.
+        wide = values.reshape(len(respondents), level_count)
+        matrices = {}
+        start = 0
+        for attribute in design.attribute_columns:
+            width = len(design.levels[attribute])
+            matrices[attribute] = wide[:, start : start + width]
+            start += width
+        return respondents, intercepts, matrices
     lookup = result.individual.set_index(["respondent", "attribute", "level"])["partworth"]
     matrices: dict[str, np.ndarray] = {}
     for attribute in design.attribute_columns:
@@ -471,35 +567,57 @@ def optimal_products(
     respondents, intercepts, matrices = _utility_components(result, design)
     level_counts = [len(design.levels[attribute]) for attribute in design.attribute_columns]
     total_candidates = int(np.prod(level_counts))
-    if total_candidates * len(respondents) > MAX_SEARCH_CELLS:
+    cells = total_candidates * len(respondents)
+    demo_cap = active().search_cells
+    if demo_cap is not None and cells > demo_cap:
         raise DataProblem(
-            f"The full search would evaluate {total_candidates:,} designs × {len(respondents):,} respondents, "
-            "which is beyond this release's limit. Reduce the number of attributes or levels."
+            demo_limit(
+                f"The full search would evaluate {total_candidates:,} designs × {len(respondents):,} respondents; "
+                f"the demo stops at {demo_cap:,}. Reduce the number of attributes or levels."
+            )
+        )
+    if cells > EXHAUSTIVE_SEARCH_CELLS:
+        raise DataProblem(
+            f"The full search would evaluate {total_candidates:,} designs × {len(respondents):,} respondents "
+            f"({cells:,} utilities). An exhaustive search grows with every added level and would run for hours; "
+            "fix some attributes at their likely level, or test fewer levels."
         )
 
-    utilities = intercepts[:, None]
-    for attribute in design.attribute_columns:
-        utilities = (utilities[:, :, None] + matrices[attribute][:, None, :]).reshape(len(respondents), -1)
-
+    competitor_best = None
     if competitors:
         competitor_utilities = _product_utilities(competitors, design, intercepts, matrices)
         competitor_best = competitor_utilities.max(axis=1, keepdims=True)
-        wins = (utilities > competitor_best).mean(axis=0)
-        ties = 0.5 * np.isclose(utilities, competitor_best).mean(axis=0)
-        scores = 100 * (wins + ties)
-        score_column = "first_choice_share_vs_competitors_%"
-    else:
-        scores = utilities.mean(axis=0)
-        score_column = "mean_predicted_rating"
+    # Designs are numbered like itertools.product over the levels (the last attribute changes fastest) and scored
+    # in blocks of designs, so memory stays bounded however large the search is.
+    strides = np.cumprod([1, *level_counts[::-1]])[::-1][1:]
+    block = max(1, SEARCH_BLOCK_CELLS // max(len(respondents), 1))
+    scores = np.empty(total_candidates)
+    mean_ratings = np.empty(total_candidates)
+    for begin in range(0, total_candidates, block):
+        candidates = np.arange(begin, min(begin + block, total_candidates))
+        utilities = np.repeat(intercepts[:, None], len(candidates), axis=1)
+        for attribute, count, stride in zip(design.attribute_columns, level_counts, strides):
+            utilities = utilities + matrices[attribute][:, (candidates // stride) % count]
+        if competitor_best is not None:
+            wins = (utilities > competitor_best).mean(axis=0)
+            ties = 0.5 * np.isclose(utilities, competitor_best).mean(axis=0)
+            scores[candidates] = 100 * (wins + ties)
+        mean_ratings[candidates] = utilities.mean(axis=0)
+    if competitor_best is None:
+        scores = mean_ratings
+    score_column = "first_choice_share_vs_competitors_%" if competitors else "mean_predicted_rating"
 
     order = np.argsort(scores)[::-1][: max(1, top_n)]
-    combos = list(itertools.product(*[design.levels[attribute] for attribute in design.attribute_columns]))
     rows = []
     for rank, index in enumerate(order, start=1):
+        combo = [
+            design.levels[attribute][(int(index) // int(stride)) % count]
+            for attribute, count, stride in zip(design.attribute_columns, level_counts, strides)
+        ]
         row: dict[str, object] = {"rank": rank}
-        row.update(dict(zip(design.attribute_columns, combos[index])))
+        row.update(dict(zip(design.attribute_columns, combo)))
         row[score_column] = round(float(scores[index]), 1 if competitors else 2)
-        row["mean_predicted_rating"] = round(float(utilities[:, index].mean()), 2)
+        row["mean_predicted_rating"] = round(float(mean_ratings[index]), 2)
         rows.append(row)
     return pd.DataFrame(rows)
 

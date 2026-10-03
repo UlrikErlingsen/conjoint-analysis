@@ -11,7 +11,7 @@ One row per rated profile, in long format:
 | R0002         | Brand A | $15   | 2 years  | 8      |
 
 - **Respondent ID** — any text or number that identifies who gave the rating. Use pseudonymous IDs, never names or emails.
-- **Attribute columns** — one column per product feature that was varied. Each needs 2–12 distinct levels, up to 10 attributes. Express numeric features as a few tested levels (`$10`, `$15`, `$20`), not as free numbers.
+- **Attribute columns** — one column per product feature that was varied. Each needs at least 2 distinct levels; more than 12 draws a warning, because it usually means an ungrouped measurement. Express numeric features as a few tested levels (`$10`, `$15`, `$20`), not as free numbers.
 - **Rating** — a number where higher means better (1–10 works well). Other scales are fine as long as they are consistent.
 
 `examples/ratings_template.csv` is a copyable starting point; the two demo files show complete fictional studies.
@@ -45,4 +45,4 @@ One row per respondent, answering about a single described concept:
 
 ## Limits
 
-Files up to 200 MB locally (JSON up to 50 MB), 1 million rows per table, 10 million cells, 500,000 rating rows per analysis. These are responsiveness bounds, not statistical recommendations — most conjoint studies are thousands of rows, not millions.
+Run locally there is no file-size, row, cell, respondent, attribute or level limit; the computer's memory is the limit, and running out of memory gives a plain message. The public online demo (`SIGNAL_PUBLIC=1`) caps files at 200 MB (JSON 50 MB), 1 million rows and 10 million cells, and analyses at 500,000 rating rows, 10 attributes and 12 levels per attribute.

@@ -29,10 +29,10 @@ Everything runs locally with open-source Python packages. There is no account, t
 
 ## Scope
 
-**Version 1.3 supports two pre-launch questions in one app:** full conjoint for *which features to build*, plus a single-concept purchase-intent test for *would people buy this one idea*.
+**Version 1.4 supports two pre-launch questions in one app:** full conjoint for *which features to build*, plus a single-concept purchase-intent test for *would people buy this one idea*.
 
 - ratings-based (full-profile) conjoint from `.csv`, `.xlsx`, `.xls`, `.xlsm`, and `.json` files in long format;
-- 2–12 levels per attribute and up to 10 attributes;
+- at least 2 levels per attribute and any number of attributes (more than 12 levels draws a grouping warning);
 - per-respondent estimation, so differences between people survive into the results and power the simulator, with a respondent-fixed-effects pooled model as reference and fallback;
 - design health checks before estimation;
 - preference-share simulation, awareness × availability adjustment, a cannibalization view, and an exhaustive stated-preference design search;
@@ -52,7 +52,7 @@ All demos are fictional: every record is synthetic and represents no real respon
 
 ## Data contract
 
-Choice Signal reads `.csv`, `.xlsx`, `.xls`, `.xlsm`, and `.json` up to 200 MB locally (JSON up to 50 MB). The study must be in long format:
+Choice Signal reads `.csv`, `.xlsx`, `.xls`, `.xlsm`, and `.json`. The study must be in long format:
 
 | respondent_id | brand   | price | warranty | rating |
 | ------------- | ------- | ----- | -------- | ------ |
@@ -60,11 +60,19 @@ Choice Signal reads `.csv`, `.xlsx`, `.xls`, `.xlsm`, and `.json` up to 200 MB l
 | R0001         | Brand B | $15   | 2 years  | 4      |
 | R0002         | Brand A | $15   | 2 years  | 8      |
 
-One row per rated profile: a respondent ID, one column per attribute (2–12 levels each, up to 10 attributes), and a numeric rating where higher means better. Respondents should each rate several profiles — more than the model has parameters for individual estimation. Rows with missing or unrecognized attribute levels are excluded with a visible count.
+One row per rated profile: a respondent ID, one column per attribute (at least 2 levels each; more than 12 usually means a measurement that should be grouped), and a numeric rating where higher means better. Respondents should each rate several profiles — more than the model has parameters for individual estimation. Rows with missing or unrecognized attribute levels are excluded with a visible count.
 
 The **single-concept test** (page 4) instead expects one row per respondent: an ID, a five-point purchase-intent answer, and optional rejection-reason and segment columns — see `examples/concept_template.csv`. Unrecognized answers and duplicate respondents are excluded with visible counts.
 
 See the [data guide](docs/data_guide.md).
+
+### Data limits
+
+**Run locally there is no built-in limit** on file size, rows, cells, respondents, attributes or levels: your computer's memory is the limit. Streamlit's upload cap defaults to 10,000 MB (`CHOICESIGNAL_MAX_UPLOAD_MB` in the launchers, `STREAMLIT_SERVER_MAX_UPLOAD_SIZE` in Docker). If a file or step needs more memory than the computer has, the app says so plainly instead of crashing. Every respondent is estimated; respondents with the same number of rated profiles are processed in blocks, with the same least-squares solution as one at a time. The one bound kept is the exhaustive design search on page 3, which evaluates every combination of levels for every respondent and stops above 5 billion utilities, because the number of combinations grows with every added level. On screen, the per-respondent fit table shows its first 1,000 rows with a note; the JSON and CSV downloads hold every respondent, and a table too long for a workbook sheet carries a note in the Excel pack. With more than 20,000 respondents the export files are built when their button is clicked.
+
+On a 24-thread desktop with 32 GB of memory, 5 million rating rows (312,500 respondents × 16 profiles, 253 MB CSV) loaded in about 4 seconds, passed the design check in about 7 seconds and were estimated respondent by respondent in about 16 seconds, with a peak of about 2.1 GB of memory.
+
+**The public online demo** (`SIGNAL_PUBLIC=1`) keeps hard caps to protect a shared server: 200 MB per upload (50 MB for JSON), 400 MB of expanded Excel content, 1 million rows and 10 million cells per file, 500,000 rating rows, 10 attributes, 12 levels per attribute and 20 million utilities in the design search. Its messages say they are demo limits; the downloaded app has none. All demo caps live in `src/choicesignal/limits.py`.
 
 ## Analysis contract
 
@@ -120,7 +128,7 @@ python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-Choice Signal prefers local port 8501 and falls back to another free port on macOS. The macOS launcher accepts `CHOICESIGNAL_PORT`, `CHOICESIGNAL_MAX_UPLOAD_MB` and `CHOICESIGNAL_NO_BROWSER`; set `CHOICESIGNAL_DEBUG=1` to reveal technical details for unexpected errors.
+Choice Signal prefers local port 8501 and falls back to another free port on macOS. The macOS launcher accepts `CHOICESIGNAL_PORT` and `CHOICESIGNAL_NO_BROWSER`; both launchers accept `CHOICESIGNAL_MAX_UPLOAD_MB` (Streamlit's upload cap in MB, default 10000); set `CHOICESIGNAL_DEBUG=1` to reveal technical details for unexpected errors.
 
 ### Docker
 
@@ -129,7 +137,7 @@ docker build -t choicesignal .
 docker run --rm -p 8501:8501 choicesignal
 ```
 
-Then open http://localhost:8501. The container runs as a non-root user and includes a health check.
+Then open http://localhost:8501. The container runs as a non-root user and includes a health check. The image sets `STREAMLIT_SERVER_MAX_UPLOAD_SIZE=10000` (MB); pass `-e STREAMLIT_SERVER_MAX_UPLOAD_SIZE=<MB>` for another cap and `-e SIGNAL_PUBLIC=1` for the public-demo caps.
 
 ## Privacy
 
